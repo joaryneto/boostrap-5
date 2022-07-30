@@ -48,7 +48,9 @@ class RegisterController extends Controller
             //->create('', "sms");
             ->create("+55".$data['numero_telefone'], "sms");
 
-        User::create($request->validated());
+        $user = User::create($request->validated());
+
+        auth()->login($user);
 
         return redirect()->route('verify')->with(['numero_telefone' => $data['numero_telefone']]);
     }
