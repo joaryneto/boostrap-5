@@ -46,7 +46,7 @@ class RegisterController extends Controller
         $twilio->verify->v2->services($twilio_verify_sid)
             ->verifications
             //->create('', "sms");
-            ->create($data['numero_telefone'], "sms");
+            ->create("+55".$data['numero_telefone'], "sms");
 
         User::create($request->validated());
 
