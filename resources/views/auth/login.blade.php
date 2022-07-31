@@ -102,7 +102,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">lock</i></span>
                                             </div>
-                                            <input type="password" class="form-control" placeholder="Password" aria-label="Username" name="password" required="required" autofocus>
+                                            <input type="password" class="form-control" placeholder="Senha" aria-label="Username" name="password" required="required" autofocus>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
                                             @endif
@@ -111,7 +111,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">lock</i></span>
                                             </div>
-                                            <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Username" name="password_confirmation" required="required" autofocus>
+                                            <input type="password" class="form-control" placeholder="Confirmar Senha" aria-label="Username" name="password_confirmation" required="required" autofocus>
                                             @if ($errors->has('password_confirmation'))
                                                 <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
                                             @endif
