@@ -54,7 +54,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user) 
     {
-        return redirect()->intended();
+        return redirect()->to('inicio');
     }
 
     public function verify(Request $request)

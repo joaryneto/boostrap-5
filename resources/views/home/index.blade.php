@@ -6,6 +6,7 @@
 
 @include('layouts.app-master')
 
+
         <!-- page main start -->
         <div class="page">
             <form class="searchcontrol">
@@ -33,7 +34,9 @@
                 <div class="content-sticky-footer">
                     <div class="background bg-170"><img src="img/background.png" alt=""></div>
                     <div class="w-100">
-                        <h1 class="text-center text-white title-background"><small>Bem vindo,<br></small>{{auth()->user()->name}}</h1>
+                        @auth
+                        <h1 class="text-center text-white title-background"><small>Bem vindo,<br></small> {{auth()->user()->name}} </h1>
+                        @endauth
                         <div class="carosel">
                             <div class="swiper-container swiper-init swipermultiple">
                                 <div class="swiper-pagination"></div>

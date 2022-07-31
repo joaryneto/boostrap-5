@@ -5,9 +5,8 @@
     </div>
     <div class="wrapper">
 
-
-<!-- page main start -->
-<div class="page">
+    <!-- page main start -->
+    <div class="page">
             <div class="page-content h-100">
                 <div class="background"><img src="https://c4.wallpaperflare.com/wallpaper/680/446/542/full-hd-1080p-nature-desktop-backgrounds-hd-1920x1200-wallpaper-preview.jpg" alt=""></div>
                 <div class="row mx-0 text-center ">

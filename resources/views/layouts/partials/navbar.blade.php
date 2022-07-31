@@ -35,14 +35,15 @@
 </header>-->
 
         <!-- sidebar left start -->
+        @auth
         <div class="sidebar sidebar-left">
             <div class="profile-link">
                 <a href="#" class="media">
                     <div class="w-auto h-100">
-                        <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
+                        <figure class="avatar avatar-40"><img src="https://seeklogo.com/images/I/igreja-adventista-do-setimo-dia-circular-logo-35819A51FB-seeklogo.com.png" alt=""> </figure>
                     </div>
                     <div class="media-body">
-                        <h5>{{auth()->user()->name}}<span class="status-online bg-success"></span></h5>
+                        <h5> {{auth()->user()->name}}<span class="status-online bg-success"></span></h5>
                         <p>.</p>
                     </div>
                 </a>
@@ -234,4 +235,5 @@
                 </div>
             </div>
         </div>
+        @endauth
         <!-- fullscreen menu ends -->
