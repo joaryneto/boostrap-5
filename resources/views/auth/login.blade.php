@@ -1,8 +1,10 @@
 @include('layouts.partials.header')
 
-@extends('layouts.auth-master')
+<div class="loader justify-content-center ">
+        <div class="maxui-roller align-self-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="wrapper">
 
-@section('content')
 
 <!-- page main start -->
 <div class="page">
@@ -132,10 +134,8 @@
                 <br>
 
             </div>
-            @include('auth.partials.copy')
         </div>
         <!-- page main ends -->
-@endsection
 
 @include('layouts.partials.footer')
 

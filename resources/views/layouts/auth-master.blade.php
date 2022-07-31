@@ -1,4 +1,5 @@
 
+    
     <main class="form-signin">
 
         @yield('content')
@@ -10,5 +11,3 @@
 
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-    @include('layouts.partials.footer')
