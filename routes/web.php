@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
+Route::get('/verifyy', function () {
+    return view('auth.verify');
+})->name('verify');
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {   
     /**
@@ -36,6 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::post('/verify', 'LoginController@verify')->name('verify.perform');
 
     });
 

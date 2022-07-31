@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        /*$credentials = $request->getCredentials();
+        $credentials = $request->getCredentials();
 
         if(!Auth::validate($credentials)):
             return redirect()->to('login')
@@ -40,7 +40,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return $this->authenticated($request, $user);*/
+        return $this->authenticated($request, $user);
     }
     
 
@@ -57,12 +57,15 @@ class LoginController extends Controller
         return redirect()->intended();
     }
 
-    protected function verify(Request $request)
+    public function verify(Request $request)
     {
+        //dd($request);
+
         $data = $request->validate([
             'verification_code' => ['required', 'numeric'],
             'numero_telefone' => ['required', 'string'],
         ]);
+
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_sid = getenv("TWILIO_SID");
@@ -70,13 +73,18 @@ class LoginController extends Controller
         $twilio = new Client($twilio_sid, $token);
         $verification = $twilio->verify->v2->services($twilio_verify_sid)
             ->verificationChecks
-            ->create($data['verification_code'], array('to' => $data['numero_telefone']));
+            ->create([ 
+                'to' => "+55".$data['numero_telefone'],
+                'code' => $data['verification_code']
+            ]);
+
         if ($verification->valid) {
             $user = tap(User::where('numero_telefone', $data['numero_telefone']))->update(['isVerified' => true]);
             /* Authenticate user */
             Auth::login($user->first());
             return redirect()->intended()->with(['message' => 'Telefone verificado']);
         }
+
         return back()->with(['numero_telefone' => $data['numero_telefone'], 'error' => 'Invalid verification code entered!']);
     }
 }

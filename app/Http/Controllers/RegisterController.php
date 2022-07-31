@@ -35,7 +35,11 @@ class RegisterController extends Controller
         return redirect('/')->with('success', "Account successfully registered.");*/
 
         $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
             'numero_telefone' => ['required', 'numeric', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         /* Get credentials from .env */
@@ -48,9 +52,15 @@ class RegisterController extends Controller
             //->create('', "sms");
             ->create("+55".$data['numero_telefone'], "sms");
 
-        $user = User::create($request->validated());
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'numero_telefone' => $data['numero_telefone'],
+            'password' => $data['password'],
+        ]);
 
-        auth()->login($user);
+        //auth()->login($user);
 
         return redirect()->route('verify')->with(['numero_telefone' => $data['numero_telefone']]);
     }
