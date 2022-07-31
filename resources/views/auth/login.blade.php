@@ -94,9 +94,9 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">phone</i></span>
                                             </div>
-                                            <input type="tel" class="form-control telefone" placeholder="(00) 00000-0000" name="telefone_numero" placeholder="(00) 00000-0000" aria-label="Username" required="required" autofocus>
-                                            @if ($errors->has('telefone_numero'))
-                                                <span class="text-danger text-left">{{ $errors->first('telefone_numero') }}</span>
+                                            <input type="tel" class="form-control telefone" placeholder="(00) 00000-0000" name="numero_telefone" placeholder="(00) 00000-0000" aria-label="Username" required="required" autofocus>
+                                            @if ($errors->has('numero_telefone'))
+                                                <span class="text-danger text-left">{{ $errors->first('numero_telefone') }}</span>
                                             @endif
                                         </div>
                                         <div class="input-group">

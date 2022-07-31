@@ -20,6 +20,15 @@
     <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="{!! asset('assets/ectecnologia/css/style.css') !!}" type="text/css">
 
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/checkbox/css/checkbox.css" type="text/css">
+
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/radio/css/radio.css" type="text/css">
+
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app.css') !!}" type="text/css">
+
 
     <title>EC Tecnologia</title>
     

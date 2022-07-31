@@ -38,9 +38,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
-            'numero_telefone' => ['required', 'numeric', 'unique:users'],
+            'numero_telefone' => ['string', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        $telefone = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
 
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
@@ -50,18 +52,18 @@ class RegisterController extends Controller
         $twilio->verify->v2->services($twilio_verify_sid)
             ->verifications
             //->create('', "sms");
-            ->create("+55".$data['numero_telefone'], "sms");
+            ->create("+55".$telefone, "sms");
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'username' => $data['username'],
-            'numero_telefone' => $data['numero_telefone'],
+            'numero_telefone' => $telefone,
             'password' => $data['password'],
         ]);
 
-        //auth()->login($user);
+        auth()->login($user);
 
-        return redirect()->route('verify')->with(['numero_telefone' => $data['numero_telefone']]);
+        return redirect()->route('verify')->with(['numero_telefone' => $telefone]);
     }
 }

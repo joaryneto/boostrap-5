@@ -28,7 +28,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
 
     Route::get('/inicio', 'HomeController@index')->name('home.index');
-
+    Route::get('/perguntas', 'PerguntasController@show')->name('perguntas.show');
+    Route::post('/perguntas/store', 'PerguntasController@store')->name('perguntas.store');
+    
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
@@ -49,6 +51,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Logout Routes
          */
+
+
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 });

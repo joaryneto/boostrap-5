@@ -51,9 +51,9 @@
             <nav class="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="index.html" class="sidebar-close">
+                        <a href="{{ route('perguntas.show') }}" class="sidebar-close">
                             <div class="item-title">
-                                <i class="material-icons">poll</i> Dashboard
+                                <i class="material-icons">poll</i> Perguntas
                             </div>
                         </a>
                     </li>
@@ -68,41 +68,6 @@
                         <a href="project-detail.html" class="sidebar-close">
                             <div class="item-title">
                                 <i class="material-icons">filter_none</i> Project Details
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="user-profile.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">person</i> User Profile
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="aboutus.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">domain</i> About
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="colorscheme.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">format_color_fill</i> Color Scheme
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="component.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">pages</i> Component
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="404.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">warning</i> Default Route (404)
                             </div>
                         </a>
                     </li>

@@ -9,27 +9,9 @@
 
         <!-- page main start -->
         <div class="page">
-            <form class="searchcontrol">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button type="button" class="input-group-text close-search"><i class="material-icons">keyboard_backspace</i></button>
-                    </div>
-                    <input type="email" class="form-control border-0" placeholder="Search..." aria-label="Username">
-                </div>
-            </form>
-            <header class="row m-0 fixed-header">
-                <div class="left">
-                    <a href="javascript:void(0)" class="menu-left"><i class="material-icons">menu</i></a>
-                </div>
-                <div class="col center">
-                    <a href="" class="logo">
-                        <figure><img src="https://seeklogo.com/images/I/igreja-adventista-do-setimo-dia-circular-logo-35819A51FB-seeklogo.com.png" alt=""></figure></a>
-                </div>
-                <div class="right">
-                    <a href="javascript:void(0)" class="searchbtn"><i class="material-icons">search</i></a>
-                    <a href="javascript:void(0)" class="menu-right"><i class="material-icons">person</i></a>
-                </div>
-            </header>
+            
+        @include('layouts.partials.navbar-direito')
+
             <div class="page-content">
                 <div class="content-sticky-footer">
                     <div class="background bg-170"><img src="img/background.png" alt=""></div>
@@ -43,15 +25,15 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="swiper-content-block ">
-                                            <h4 class="title-small-carousel">Completed</h4>
-                                            <p>November 2018</p>
+                                            <h4 class="title-small-carousel">Completado</h4>
+                                            <p>Julho 2022</p>
                                             <div class="gaugewrap">
-                                                <h2 class="title-number-carousel"><span class="text-primary">6</span><small>/8 Project</small></h2>
-                                                <div class="progress_profile1 gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
+                                                <h2 class="title-number-carousel"><span class="text-primary">1</span><small>/1 Gincana SuperAção</small></h2>
+                                                <div class="progress_profile1 gauge" data-value="0.65" data-size="100" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
+                                    <!--<div class="swiper-slide">
                                         <div class="swiper-content-block ">
                                             <h4 class="title-small-carousel">Overrun Project</h4>
                                             <p>November 2018</p>
@@ -80,12 +62,13 @@
                                                 <div class="progress_profile4  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!--
                     <h2 class="block-title">Top On Going Projects</h2>
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -128,7 +111,8 @@
                             </a>
                         </li>
                     </ul>
-
+                    -->
+                    <!--
                     <h2 class="block-title">Latest Comments</h2>
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -220,12 +204,12 @@
                         </div>
                     </div>
                     <br>
-                </div>
+                </div>-->
                 <div class="footer-wrapper">
                     <div class="footer">
                         <div class="row mx-0">
                             <div class="col">
-                                MobileUX
+                                MobileUI
                             </div>
                             <div class="col-7 text-right">
                                 <a href="" class="social"><img src="img/facebook.png" alt=""></a>
@@ -238,7 +222,7 @@
                     <div class="footer dark">
                         <div class="row mx-0">
                             <div class="col  text-center">
-                                Copyright @2018, Maxartkiller
+                                @2022, EC TECNOLOGIA
                             </div>
                         </div>
                     </div>
