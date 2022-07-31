@@ -1,21 +1,21 @@
-    <script src="{!! url('assets/ectecnologia/js/jquery-3.2.1.min.js') !!}"></script>
-    <script src="{!! url('assets/ectecnologia/js/popper.min.js') !!}"></script>
-    <script src="{!! url('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/js/jquery-3.2.1.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/js/popper.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
     
     <!-- Cookie jquery file -->
-    <script src="{!! url('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
     
     <!-- sparklines chart jquery file -->
-    <script src="{!! url('assets/ectecnologia/vendor/sparklines/jquery.sparkline.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/sparklines/jquery.sparkline.min.js') !!}"></script>
     
     <!-- Circular progress gauge jquery file -->
-    <script src="{!! url('assets/ectecnologia/vendor/circle-progress/circle-progress.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/circle-progress/circle-progress.min.js') !!}"></script>
     
     <!-- Swiper carousel jquery file -->
-    <script src="{!! url('assets/ectecnologia/vendor/swiper/js/swiper.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/swiper/js/swiper.min.js') !!}"></script>
     
     <!-- Application main common jquery file -->
-    <script src="{!! url('assets/ectecnologia/js/main.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/js/main.js') !!}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
     
@@ -69,7 +69,4 @@
             });
         });
 
-    </script>
-
-</body>
-</html>
+</script>
