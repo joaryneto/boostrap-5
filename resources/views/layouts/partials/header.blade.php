@@ -9,16 +9,16 @@
     <link rel="icon" href="img/f7-icon.png">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{!! url('assets/ectecnologia/vendor/bootstrap-4.3.1/css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/css/bootstrap.min.css') !!}">
 
     <!-- Material design icons CSS -->
-    <link rel="stylesheet" href="{!! url('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
+    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
 
     <!-- swiper carousel CSS -->
-    <link rel="stylesheet" href="{!! url('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! url('assets/ectecnologia/css/style.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('assets/ectecnologia/css/style.css') !!}" type="text/css">
 
 
     <title>EC Tecnologia</title>
