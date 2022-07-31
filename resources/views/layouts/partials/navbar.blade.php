@@ -57,20 +57,6 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="projects.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">add_shopping_cart</i> Projects
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="project-detail.html" class="sidebar-close">
-                            <div class="item-title">
-                                <i class="material-icons">filter_none</i> Project Details
-                            </div>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <div class="profile-link text-center">
