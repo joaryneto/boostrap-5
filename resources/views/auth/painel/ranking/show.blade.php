@@ -11,20 +11,20 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="swiper-content-block ">
-                                        <h4 class="title-small-carousel" style="line-height: initial;font-size: 30px;">Atividades Realizadas</h4>
-                                        <p style="line-height: initial;font-size: 30px;">Agosto</p>
+                                        <h4 class="title-small-carousel">Atividades Realizadas</h4>
+                                        <p>Agosto</p>
                                         <div class="gaugewrap">
-                                            <h2 class="title-number-carousel" style="line-height: initial;font-size: 30px;"><span class="text-primary">{{ $dados_index->respondido }}</span><small> Gincana SuperAção</small></h2>
+                                            <h2 class="title-number-carousel"><span class="text-primary">{{ $dados_index->respondido }}</span><small> Gincana SuperAção</small></h2>
                                             <div class="progress_profile1 gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="swiper-content-block ">
-                                        <h4 class="title-small-carousel" style="line-height: initial;font-size: 30px;">Falta Realizar</h4>
-                                        <p style="line-height: initial;font-size: 30px;">Novembro</p>
+                                        <h4 class="title-small-carousel">Falta Realizar</h4>
+                                        <p>Novembro</p>
                                         <div class="gaugewrap">
-                                            <h2 class="title-number-carousel" style="line-height: initial;font-size: 30px;"><span class="text-danger">{{ $dados_index->nao }}</span><small> Gincana SuperAção</small></h2>
+                                            <h2 class="title-number-carousel"><span class="text-danger">{{ $dados_index->nao }}</span><small> Gincana SuperAção</small></h2>
                                             <div class="progress_profile2  gauge" data-value="0.65" data-size="20" data-thickness="2" data-animation-start-value="0" data-reverse="false"></div>
                                         </div>
                                     </div>
@@ -39,8 +39,8 @@
                     <li class="list-group-item">
                         <a href="#" class="media">
                             <div class="media-body">
-                                <h2>{{ $p->titulo }}</h2>
-                                <h1 class="title-number-carousel color-primary"><span class="text-primary" style="line-height: initial;font-size: 24px;">0</span><small style="line-height: initial;font-size: 24px;"> Pontos</small></h1>
+                                <h5>{{ $p->titulo }}</h5>
+                                <h2 class="title-number-carousel color-primary"><span class="text-primary">0</span><small> Pontos</small></h2>
                             </div>
                             <div class="avatar avatar-40" style="border-radius:15px;">
                                 <img src="{{ asset('assets/img/logo2.png') }}" alt="" style="border-radius: inherit;">

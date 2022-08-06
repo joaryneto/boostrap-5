@@ -32,9 +32,9 @@
                             @if(@count($r->perguntas) > 0)
 
                             @foreach ($r->perguntas as $key => $p)
-                            <form method="post" action="{{ route('perguntas.store') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('perguntas.AdicionarPontos') }}" enctype="multipart/form-data">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input type="hidden" name="pergunta" value="{{ $p->id }}" />
+                                <input type="hidden" name="pergunta" value="{{ $p->realizado_id }}" />
                                 <div class="card-body">
                                     <div class="card-header">
                                         <div class="row">
@@ -77,26 +77,28 @@
 
                                                                 @foreach ($b->opcoes as $key => $c)
                                                             
-                                                                
+                                                                      
                                                                         <td>
                                                                             @if($p->tipo == 1)
-                                                                            <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                                                                                <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
-                                                                                <span for="inlineRadio3"></span>
-                                                                            </label>
+                                                                                <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
+                                                                                    <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
+                                                                                    <span for="inlineRadio3"></span>
+                                                                                </label>
                                                                             @elseif($p->tipo == 2)
-                                                                            <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
-                                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
-                                                                            </label>
-                                                                            @elseif($p->tipo == 3)
-                                                                            <label class=".pmd-textfield-floating-label">
-                                                                                <textarea name="{{ $c->id  }}" value="{{ $c->id  }}"></textarea>
-                                                                            </label>
+                                                                                <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                    <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}" 
+                                                                                    @if($c->status == true)
+                                                                                    checked 
+                                                                                    disabled
+                                                                                    @endif
+                                                                                    >
+                                                                                </label>
                                                                             @endif
                                                                         </td>
                                                                         @php 
                                                                             $count++
                                                                         @endphp
+                                                                        
                                                                     
                                                                     @endforeach                                                        
                                                                 </tr>
@@ -104,23 +106,29 @@
                                                     @endif
                                                     </tbody>
                                                 </table>
-                                                @if($p->tipo == 3)
-                                                    <div class="form-group pmd-textfield">
-                                                        <label for="regular1" class="control-label">
-                                                        Informar Quantidade
-                                                        </label>
-                                                    <input type="numeric" maxlength="4" name="pontos" class="form-control">
+                                                <div class="form-group pmd-textfield">
+                                                    <label class="control-label">
+                                                        Descrição
+                                                    </label>
+                                                    <textarea name="descricao" class="form-control" value="{{ $p->descricao }}" disabled></textarea>
                                                 </div>
-                                                @endif
-                                                <div class="custom-file">
-                                                    <input id="file" type="file" name="image[]" class="custom-file-input" multiple required>
-                                                    <label class="custom-file-label" for="customFile">Upload de Imagens</label>
+                                                <div class="form-group pmd-textfield">
+                                                    <label for="regular1" class="control-label">
+                                                    Informar Pontos
+                                                     </label>
+                                                <input type="numeric" maxlength="3" name="pontos" class="form-control">
                                                 </div>
+                                                <br>
+                                                <h2>Total de Pontos ja conquistados: {{ $p->pontos }}</h2>
+                                                <br>
+                                                <h2>Galeria</h2>
+                                                <div style="border: 1px solid; height: 100px"></div>
                                             </div>
                                         </div>
                                 </div>
+                                
                                 <div class="card-footer p-0 border-0">
-                                    <button class="btn btn-primary btn-block btn-lg rounded-0" type="submit">Proximo</button>
+                                    <button class="btn btn-primary btn-block btn-lg rounded-0" type="submit">Confirmar</button>
                                 </div>
                             </form>
                             @endforeach

@@ -118,10 +118,10 @@ body.sidemenu-open.reveal-sidebar .footer-tabs{
     -ms-box-shadow:0px 3px 7px rgba(0,0,0,0.15)
 }
 .footer-tabs.footer-spaces{
-    bottom:15px;
+    /*bottom:15px;*/
     bottom:calc(15px + env(safe-area-inset-bottom));
-    right:15px;
-    left:15px;
+    /*right:15px;*/
+    /*left:15px;*/
     width:auto;
     border-radius:15px;
     border:1px solid rgba(0,0,0,0.1);

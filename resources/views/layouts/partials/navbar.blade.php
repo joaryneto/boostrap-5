@@ -57,13 +57,23 @@
                             </div>
                         </a>
                     </li>
+                    @if(auth()->user()->permissao == 1){
                     <li class="nav-item">
-                        <a href="{{ route('perguntas.show') }}" class="sidebar-close">
+                        <a href="{{ route('perguntas.showAdm') }}" class="sidebar-close">
                             <div class="item-title">
-                                <i class="material-icons">poll</i> Perguntas
+                                <i class="material-icons">poll</i> Supervionar Atividades
                             </div>
                         </a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('perguntas.show') }}" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">poll</i> Atividades
+                            </div>
+                        </a>
+                    </li>
+                    @endif
                 </ul>
             </nav>
             <div class="profile-link text-center">

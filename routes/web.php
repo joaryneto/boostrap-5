@@ -29,6 +29,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::get('/inicio', 'HomeController@index')->name('home.index');
     Route::get('/perguntas', 'PerguntasController@show')->name('perguntas.show');
+    Route::get('/perguntas/admin', 'PerguntasController@showAdm')->name('perguntas.showAdm');
+    Route::post('/perguntas/admin/store', 'PerguntasController@AdicionarPontos')->name('perguntas.AdicionarPontos');
     Route::post('/perguntas/store', 'PerguntasController@store')->name('perguntas.store');
     Route::post('/perguntas/create', 'PerguntasController@adicionar')->name('perguntas.adicionar');
     

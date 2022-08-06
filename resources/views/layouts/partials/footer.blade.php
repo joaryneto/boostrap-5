@@ -34,6 +34,11 @@
     <script src="{!! asset('assets/ectecnologia/js/main.js') !!}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+
+    <!-- Propeller  js -->
+    <script type="text/javascript" src="https://opensource.propeller.in/components/textfield/js/textfield.js"></script>
+
     
     <script>
         $(document).ready(function(){
