@@ -81,9 +81,13 @@
                                                                                 <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
                                                                                 <span for="inlineRadio3"></span>
                                                                             </label>
-                                                                            @else
+                                                                            @elseif($p->tipo == 2)
                                                                             <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
                                                                                 <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                            </label>
+                                                                            @elseif($p->tipo == 3)
+                                                                            <label class=".pmd-textfield-floating-label">
+                                                                                <textarea name="{{ $c->id  }}" value="{{ $c->id  }}"></textarea>
                                                                             </label>
                                                                             @endif
                                                                         </td>
