@@ -51,6 +51,13 @@
             <nav class="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a href="{{ route('home.index') }}" class="sidebar-close">
+                            <div class="item-title">
+                                <i class="material-icons">home</i> Inicio
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('perguntas.show') }}" class="sidebar-close">
                             <div class="item-title">
                                 <i class="material-icons">poll</i> Perguntas
@@ -60,7 +67,7 @@
                 </ul>
             </nav>
             <div class="profile-link text-center">
-                <a href="{{ route('logout.perform') }}" class="btn btn-outline-white btn-block px-3">Logout</a>
+                <a href="{{ route('logout.perform') }}" class="btn btn-outline-white btn-block px-3">Sair</a>
             </div>
         </div>
         <!-- sidebar left ends -->

@@ -20,13 +20,21 @@
                     <div class="col-12">
                         <div class="card rounded-0 border-0 mb-3">
                             <a class=" text-center d-block p-4 bg-light" href="#">
-                                <img src="img/logo.png" alt="" class="mw-100">
+                             @if($alternativas->total == 0)
+                               Nenhuma pergunta encontrado
+                             @endif
                             </a>
                             <br>
-                            
-                            @foreach ($dados as $p)
+                        @if(@count($alternativas) > 0)
+                              
+                            @foreach($alternativas as $r)
+
+                            @if(@count($r->perguntas) > 0)
+
+                            @foreach ($r->perguntas as $key => $p)
                             <form method="post" action="{{ route('perguntas.store') }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" name="pergunta" value="{{ $p->id }}" />
                                 <div class="card-body">
                                     <div class="card-header">
                                         <div class="row">
@@ -46,47 +54,63 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            @foreach ($grupos[0] as $key => $a)
-                                                                <th>{{ $a->titulo }}</th>
-                                                            @endforeach
+                                                            @if(@count($r->grupo) > 0)
+                                                                @foreach ($r->grupo as $key => $a)
+                                                                    <th>{{ $a->titulo }}</th>
+                                                                @endforeach
+                                                            @endif
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach ($alternativas[0] as $key => $b)
-                                                        <tr class="table-active">
-                                                            <th scope="row">{{ $b->titulo }}</th>
-                                                            
+                                                    @php
+                                                        $count = 0;
+                                                    @endphp
 
-                                                                @php
-                                                                    $id = $b->id;
-                                                                    $count = 0;
-                                                                @endphp
-                                                                
-                                                                @foreach ($grupos[0] as $a)
-                                                                <td>
-                                                                    <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                                                                        <input type="radio" name="[alternativa][{{ $count }}][{{ $a->id }}]" id="inlineRadio3" value="{{ $a->id }}">
-                                                                        <span for="inlineRadio3"></span>
-                                                                    </label>
-                                                                </td>
-                                                                
-                                                                @endforeach
 
-                                                                @php 
-                                                                  $count++
-                                                                @endphp
-                                                        </tr>
-                                                    @endforeach
+
+                                                    @if(@count($r->linha->itens) > 0)
+                                                        @foreach ($r->linha->itens as $key => $b)
+
+                                                            <tr class="table-active">
+                                                                <th scope="row">{{ $b->titulo }}</th>
+                                                                    @foreach ($b->opcoes as $key => $c)
+                                                                
+                                                                        <td>
+                                                                            @if($p->tipo == 1)
+                                                                            <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
+                                                                                <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
+                                                                                <span for="inlineRadio3"></span>
+                                                                            </label>
+                                                                            @else
+                                                                            <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                            </label>
+                                                                            @endif
+                                                                        </td>
+                                                                        @php 
+                                                                            $count++
+                                                                        @endphp
+                                                                        
+                                                            @endforeach
+
+                                                                    
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                 </div>
                                 <div class="card-footer p-0 border-0">
-                                    <button class="btn btn-primary btn-block btn-lg rounded-0" type="submit">Book Ticket</button>
+                                    <button class="btn btn-primary btn-block btn-lg rounded-0" type="submit">Proximo</button>
                                 </div>
                             </form>
                             @endforeach
+                        
+                            @endif
+                        @endforeach
+                        @endif
                         </div>
                     </div>
                 </div>

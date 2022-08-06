@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' => '',
             'email' => 'required|email:rfc,dns|unique:users,email',
-            'username' => 'required|unique:users,username',
+            'numero_telefone' => 'required|unique:users,numero_telefone',
             'password' => 'required|min:8',
             'password_confirmation' => 'required|same:password'
         ];

@@ -1,3 +1,6 @@
+    
+    
+    
     <script src="{!! asset('assets/ectecnologia/js/jquery-3.2.1.min.js') !!}"></script>
     <script src="{!! asset('assets/ectecnologia/js/popper.min.js') !!}"></script>
     <script src="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
@@ -10,6 +13,10 @@
 
     <!-- Propeller checkbox js -->
     <script type="text/javascript" src="https://opensource.propeller.in/components/checkbox/js/checkbox.js"></script>
+
+
+    <!-- Propeller checkbox js -->
+    <script type="text/javascript" src="{{!! asset('assets/propellerkit/components/alert/js/alert.js') !!}}"></script>
 
     <!-- Cookie jquery file -->
     <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
@@ -30,7 +37,8 @@
     
     <script>
         $(document).ready(function(){
-            $('.telefone').inputmask('(99) 99999-9999');
+            $('.telefone').inputmask('99999999999');
+            $('.cpf').inputmask('99999999999');
         });
     </script>
 

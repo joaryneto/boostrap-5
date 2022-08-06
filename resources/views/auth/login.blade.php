@@ -74,11 +74,11 @@
                                         </div>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="material-icons">person</i></span>
+                                                <span class="input-group-text"><i class="material-icons">CPF</i></span>
                                             </div>
-                                            <input type="text" class="form-control" name="username" value="{{ old('email') }}" placeholder="Usuario" required="required" autofocus>
-                                            @if ($errors->has('username'))
-                                                <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                                            <input type="numeric" class="form-control cpf" name="cpf" value="{{ old('cpf') }}" placeholder="CPF" required="required" autofocus>
+                                            @if ($errors->has('cpf'))
+                                                <span class="text-danger text-left">{{ $errors->first('cpf') }}</span>
                                             @endif
                                         </div>
                                         <div class="input-group">

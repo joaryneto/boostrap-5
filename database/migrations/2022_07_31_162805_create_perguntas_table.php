@@ -17,6 +17,7 @@ class CreatePerguntasTable extends Migration
             $table->increments('id');
             $table->string('titulo')->nullable();
             $table->string('descricao')->nullable();
+            $table->integer('tipo')->nullable();
             $table->timestamps();
         });
     }

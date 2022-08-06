@@ -36,13 +36,14 @@ class RegisterController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'cpf' => ['required', 'string', 'max:11'],
             'email' => ['string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
             'numero_telefone' => ['string', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $telefone = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
+        $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
+        $username   =  explode('@',$data['email']);
 
         /* Get credentials from .env */
         $token = getenv("TWILIO_AUTH_TOKEN");
@@ -56,8 +57,9 @@ class RegisterController extends Controller
 
         $user = User::create([
             'name' => $data['name'],
+            'cpf'  => $data['cpf'], 
             'email' => $data['email'],
-            'username' => $data['username'],
+            'username' => $username[0],
             'numero_telefone' => $telefone,
             'password' => $data['password'],
         ]);

@@ -21,6 +21,9 @@
     <link id="theme" rel="stylesheet" href="{!! asset('assets/ectecnologia/css/style.css') !!}" type="text/css">
 
     <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/alert/css/alert.css') !!}" type="text/css">
+
+    <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/checkbox/css/checkbox.css" type="text/css">
 
     <!-- app CSS -->

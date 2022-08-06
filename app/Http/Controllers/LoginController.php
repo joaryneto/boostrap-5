@@ -38,6 +38,8 @@ class LoginController extends Controller
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
+        session()->put('usuario', $user);
+
         Auth::login($user);
 
         return $this->authenticated($request, $user);
