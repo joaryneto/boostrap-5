@@ -33,7 +33,7 @@
     <link id="theme" rel="stylesheet" href="{!! asset('css/app.css') !!}" type="text/css">
 
 
-    <title>EC Tecnologia</title>
+    <title>MARATONA CLASSES DE ESCOLA SABATINA E PEQUENOS GRUPOS</title>
     
     <style>
       .bd-placeholder-img {
