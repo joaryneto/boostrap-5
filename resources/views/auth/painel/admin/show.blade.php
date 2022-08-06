@@ -108,7 +108,7 @@
                                                 </table>
                                                 <div class="form-group pmd-textfield">
                                                     <label class="control-label">
-                                                        Descrição
+                                                        Descrição da Atividade
                                                     </label>
                                                     <textarea name="descricao" class="form-control" value="{{ $p->descricao }}" disabled></textarea>
                                                 </div>

@@ -108,8 +108,7 @@ class PerguntasController extends Controller
 
     public function AdicionarPontos(Request $request){
 
-        $realizada = new perguntas_realizada;
-        $realizada->id = $request->input('pergunta');
+        $realizada = perguntas_realizada::find($request->input('pergunta'));
         $realizada->pontos = $request->input('pontos');
         $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
         $realizada->save();
