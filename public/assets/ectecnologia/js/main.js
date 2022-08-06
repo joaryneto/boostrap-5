@@ -94,6 +94,27 @@ $(document).ready(function () {
     }
 
 });
+
+$(window).on('scroll', function () {
+    /* header active on scroll more than 50 px*/
+    if ($(this).scrollTop() >= 30 && $('.header').hasClass('fixed-top') === true) {
+        $('.header').addClass('active');
+        $('.footer-spaces').addClass('active');
+    } else {
+        $('.header').removeClass('active');
+        $('.footer-spaces').removeClass('active');
+    }
+
+    /* scroll to top  button  hide when at bottom of page*/
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+        $('.scrollup').addClass('atbottom');
+    } else {
+        $('.scrollup').removeClass('atbottom');
+    }
+
+});
+
+
 $(window).on('load', function() {
     $('.loader').remove();
 });

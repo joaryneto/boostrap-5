@@ -5,7 +5,13 @@
             <div class="col mt-4">
                 <a href="#" class="media">
                     <div class="w-auto h-100">
-                        <figure class="avatar avatar-120"><img src="{{ asset('assets/img/perfil/'.auth()->user()->cpf.'/'.auth()->user()->cpf.'.jpg') }}" alt=""> </figure>
+                        <figure class="avatar avatar-120">
+                            @if(auth()->user()->foto != null)
+                            <img src="{{ asset('assets/img/perfil/'.auth()->user()->cpf.'/'.auth()->user()->cpf.'.jpg') }}" alt="">
+                            @else
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                            @endif
+                        </figure>
                     </div>
                     <div class="media-body align-self-center ">
                         <h5 class="text-white">{{auth()->user()->name}}<span class="status-online bg-success"></span></h5>
