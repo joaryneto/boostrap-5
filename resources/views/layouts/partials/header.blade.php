@@ -30,7 +30,7 @@
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/radio/css/radio.css" type="text/css">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('css/app.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app-ec.css') !!}" type="text/css">
 
 
     <title>MARATONA CLASSES DE ESCOLA SABATINA E PEQUENOS GRUPOS</title>
