@@ -15,20 +15,22 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        //dd(auth()->user());
+        if(auth()->user()->permissao == 1){
+            return redirect('/perguntas');
+        }
+        else{
 
-        //dd(auth()->guest());
+            $index  = Perguntas::GetPerguntasRespondidas();
 
-        $index  = Perguntas::GetPerguntasRespondidas();
-        $rank   = igrejas::GetIgrejasRank();
-        $classe = igrejas_classe::GetClasse();
+            $rank   = igrejas::GetIgrejasRank();
+            $classe = igrejas_classe::GetClasse();
 
-        //dd($rank);
+            return view('home.index', [
+                'dados_index' => $index,
+                'dados_rank' => $rank,
+                'dados_classe' => $classe
+            ]);
 
-        return view('home.index', [
-            'dados_index' => $index,
-            'dados_rank' => $rank,
-            'dados_classe' => $classe
-        ]);
+       }
     }
 }

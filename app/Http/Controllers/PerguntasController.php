@@ -66,9 +66,7 @@ class PerguntasController extends Controller
                 
                 if(!file_exists(public_path().'/files/')) { 
                     $objProjetoDiretorio = File::makeDirectory(public_path().'/files/');
-                } else {
-                    //$objProjetoDiretorio = File::makeDirectory(public_path().'/files/');
-                }
+                } 
 
                 foreach($request->file('image') as $file)
                 {

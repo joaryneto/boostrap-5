@@ -81,7 +81,7 @@
                                                                         <td>
                                                                             @if($p->tipo == 1)
                                                                                 <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                                                                                    <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
+                                                                                    <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}" disabled>
                                                                                     <span for="inlineRadio3"></span>
                                                                                 </label>
                                                                             @elseif($p->tipo == 2)
@@ -89,9 +89,8 @@
                                                                                     <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}" 
                                                                                     @if($c->status == true)
                                                                                     checked 
-                                                                                    disabled
                                                                                     @endif
-                                                                                    >
+                                                                                    disabled>
                                                                                 </label>
                                                                             @endif
                                                                         </td>
@@ -116,7 +115,7 @@
                                                     <label for="regular1" class="control-label">
                                                     Informar Pontos
                                                      </label>
-                                                <input type="numeric" maxlength="3" name="pontos" class="form-control">
+                                                <input type="numeric" maxlength="3" name="pontos" value="{{ $p->pontos }}" class="form-control">
                                                 </div>
                                                 <br>
                                                 <h2>Total de Pontos ja conquistados: {{ $p->pontos }}</h2>
