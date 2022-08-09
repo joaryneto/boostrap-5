@@ -50,6 +50,7 @@
                                        
                                         <div class="pmd-card pmd-z-depth">
                                             <div class="table-responsive">
+                                            @if($p->tipo == 1 || $p->tipo == 2 || $p->tipo == 3)
                                                 <table class="table pmd-table">
                                                     <thead>
                                                         <tr>
@@ -105,6 +106,39 @@
                                                     @endif
                                                     </tbody>
                                                 </table>
+                                                @endif
+                                                @if($p->tipo == 3)
+
+                                                    @if(@count($r->linha->itens) > 0)
+
+                                                        @foreach ($r->linha->itens as $key => $b)
+
+                                                                @foreach ($b->opcoes as $key => $c)
+                                                                            @if($p->tipo == 4)
+                                                                            <div class="checkbox pmd-default-theme">
+                                                                                <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                    <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                                    <span>{{ $b->titulo }}</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            @endif
+                                                                        @php 
+                                                                            $count++
+                                                                        @endphp
+                                                                    
+                                                                    @endforeach          
+                                                        @endforeach
+                                                    @endif
+
+                                                @endif
+                                                @if($p->tipo == 3)
+                                                    <div class="form-group pmd-textfield">
+                                                        <label for="regular1" class="control-label">
+                                                        Informar Quantidade
+                                                        </label>
+                                                    <input type="numeric" maxlength="4" name="pontos" class="form-control">
+                                                </div>
+                                                @endif
                                                 <div class="form-group pmd-textfield">
                                                     <label class="control-label">
                                                         Descrição da Atividade

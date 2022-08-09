@@ -1,17 +1,3 @@
-@include('layouts.partials.header')
-    <div class="loader justify-content-center ">
-        <div class="maxui-roller align-self-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </div>
-    <div class="wrapper">
-
-@include('layouts.app-master')
-
-<!-- page main start -->
-<div class="page">
-
-    @include('layouts.partials.navbar-direito')
-
-
     <div class="page-content">
         <div class="content-sticky-footer">
             <div class="block-title text-center">Gincana SuperAção</div>
@@ -42,14 +28,16 @@
                                                 <h3 class="f-light mb-3">{{ $p->titulo }}</h3>
                                             </div>
                                             <div class="col-12 text-left">
-                                                <a href="#">{{ $p->descricao }}</a>
+                                                <h4>{{ $p->descricao }}</h4>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Reflow table -->
                                        
                                         <div class="pmd-card pmd-z-depth">
-                                            <div class="table-responsive">
+                                            <div class="table-responsive"> 
+                                            <br>
+                                            @if($p->tipo == 1 || $p->tipo == 2 || $p->tipo == 3)
                                                 <table class="table pmd-table">
                                                     <thead>
                                                         <tr>
@@ -92,6 +80,10 @@
                                                                             <label class=".pmd-textfield-floating-label">
                                                                                 <textarea name="{{ $c->id  }}" value="{{ $c->id  }}"></textarea>
                                                                             </label>
+                                                                            @elseif($p->tipo == 4)
+                                                                            <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                            </label>
                                                                             @endif
                                                                         </td>
                                                                         @php 
@@ -104,18 +96,72 @@
                                                     @endif
                                                     </tbody>
                                                 </table>
+                                                @endif
+                                                @if($p->tipo == 4)
+
+                                                    @if(@count($r->linha->itens) > 0)
+
+                                                        @foreach ($r->linha->itens as $key => $b)
+
+                                                                @foreach ($b->opcoes as $key => $c)
+                                                                            @if($p->tipo == 4)
+                                                                            <div class="checkbox pmd-default-theme">
+                                                                                <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                    <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                                    <span>{{ $b->titulo }}</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            @endif
+                                                                        @php 
+                                                                            $count++
+                                                                        @endphp
+                                                                    
+                                                                    @endforeach          
+                                                        @endforeach
+                                                    @endif
+
+                                                @endif
                                                 @if($p->tipo == 3)
-                                                    <div class="form-group pmd-textfield">
+
+                                                    @if(@count($r->linha->itens) > 0)
+
+                                                        @foreach ($r->linha->itens as $key => $b)
+
+                                                                @foreach ($b->opcoes as $key => $c)
+                                                                            @if($p->tipo == 4)
+                                                                            <div class="checkbox pmd-default-theme">
+                                                                                <label class="pmd-checkbox pmd-checkbox-ripple-effect">
+                                                                                    <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                                    <span>{{ $b->titulo }}</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            @endif
+                                                                        @php 
+                                                                            $count++
+                                                                        @endphp
+                                                                    
+                                                                    @endforeach          
+                                                        @endforeach
+                                                    @endif
+
+                                                @endif
+                                                @if($p->tipo == 3)
+                                                <div class="form-group pmd-textfield">
                                                         <label for="regular1" class="control-label">
                                                         Informar Quantidade
                                                         </label>
-                                                    <input type="numeric" maxlength="4" name="pontos" class="form-control">
+                                                    <input type="numeric" maxlength="4" name="kg" value="" class="form-control">
                                                 </div>
+                                                
                                                 @endif
-                                                <div class="custom-file">
-                                                    <input id="file" type="file" name="image[]" class="custom-file-input" multiple required>
-                                                    <label class="custom-file-label" for="customFile">Upload de Imagens</label>
+                                                <div class="form-group pmd-textfield">
+                                                        <label for="regular1" class="control-label">
+                                                        Outros
+                                                        </label>
+                                                    <textarea class="form-control" name="descricao" value="descricao"></textarea>
                                                 </div>
+                                                <label class="form-group pmd-textfield" for="file{{$p->id}}">Upload de Imagens</label>
+                                                <input id="file" type="file" name="image[]" class="" multiple required>
                                             </div>
                                         </div>
                                 </div>
@@ -134,12 +180,3 @@
             </div>
         </div>
     </div>
-
-</div>
-
-
-</div>
-@include('layouts.partials.footer')
-
-</body>
-</html>

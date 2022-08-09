@@ -9,6 +9,7 @@ use App\Models\respostas;
 use App\Models\Perguntas;
 use App\Models\perguntas_realizada;
 use Illuminate\Support\Facades\File;
+use Storage;
 
 
 class PerguntasController extends Controller
@@ -22,8 +23,6 @@ class PerguntasController extends Controller
 
         $dados = Perguntas::getPerguntas($this->usuario());
 
-        //dd(json_decode(json_encode((object) $dados), FALSE));
-
         return view('auth.painel.perguntas.show', [
             'alternativas' => $dados
         ]);
@@ -32,8 +31,6 @@ class PerguntasController extends Controller
     public function store(Request $request){
 
          $dados = [];
-         
-         //dd($request);
 
          $realizada = new perguntas_realizada();
          $realizada->pergunta_id = $request->input('pergunta');
@@ -55,24 +52,26 @@ class PerguntasController extends Controller
 
            }
 
-            /*$this->validate($request, [
+            $this->validate($request, [
                     'image' => 'required',
                     'image.*' => 'mimes:jpg,png,JPG'
-            ]);*/
+            ]);
 
 
-            if(@count($request->image) > 0)
+            if(@count($request->file('image')) > 0)
             {
                 
                 if(!file_exists(public_path().'/files/')) { 
-                    $objProjetoDiretorio = File::makeDirectory(public_path().'/files/');
+                    File::makeDirectory(public_path().'/files/');
                 } 
 
                 foreach($request->file('image') as $file)
                 {
-                    $name = time().'.'.$file->extension();
+
+                    //var_dump(@$file->extension());
+                    $name = time().'.'.@$file->extension();
                     $file->move(public_path().'/files/', $name);  
-                    $data[] = $name;  
+                    $data[] = $name; 
                 }
             }
 

@@ -1,3 +1,3 @@
-    @include('layouts.partials.navbar')
+    <!--include('layouts.partials.navbar')-->
     
     @yield('content')

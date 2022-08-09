@@ -26,10 +26,10 @@ class Perguntas extends Model
         $count = 0;
         foreach($perguntas as $b){
 
-            $respostas = DB::table('respostas')
-            ->select('id','perguntas_alternativas_id','perguntas_id',)
-            ->where('perguntas_id', $b->id)
-            ->where('cpf', $usuario->cpf)
+            $respostas = DB::table('perguntas_realizadas')
+            ->select('id','pergunta_id')
+            ->where('pergunta_id', $b->id)
+            ->where('igreja_classe_id', $usuario->igreja_classe_id)
             ->get();
 
             //dd(@count($respostas));
@@ -94,22 +94,38 @@ class Perguntas extends Model
 
     public static function getPerguntasAdmin($usuario = null){
 
-        $perguntas = Perguntas::select('perguntas.id','perguntas.titulo', 'perguntas.descricao','perguntas.tipo','perguntas.ordem','perguntas_realizadas.pontos','perguntas_realizadas.id as realizado_id')
+        $perguntas = Perguntas::
+            select('perguntas.id',
+             'perguntas.titulo', 
+             'perguntas.descricao',
+             'perguntas.tipo',
+             'perguntas.ordem',
+             'perguntas_realizadas.id as realizado_id',
+             DB::raw('perguntas_realizadas.pontos'),
+             'galerias.image')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
+            ->join('galerias','galerias.igreja_classe_id','=','perguntas_realizadas.igreja_classe_id')
             ->where('perguntas_realizadas.igreja_classe_id', $usuario->igreja_classe_id)
             ->orderBy('perguntas.ordem')
             ->get();
+
+        //dd($perguntas);
 
         $dados = [];
         $count = 0;
         foreach($perguntas as $b){
 
-            //dd(@count($respostas));
+
+
+            /*$pontos = perguntas_realizada::
+                    select('sum(pontos)')
+                    ->where('', $b->)
+                    ->first();*/
+                   
 
             //if(@count($respostas) == 0){
 
-                $gruposs = DB::table('perguntas_grupos')
-                ->select('id','perguntas_id','titulo', 'descricao')
+                $gruposs = perguntas_grupos::select('id','perguntas_id','titulo', 'descricao')
                 ->where('perguntas_id', $b->id)
                 ->get();
 
@@ -130,23 +146,20 @@ class Perguntas extends Model
                     $dados[$b->id]['grupo'][$grupo->id]['id'] = $grupo->id;
                     $dados[$b->id]['grupo'][$grupo->id]['titulo'] = $grupo->titulo;
                     
-                    $linhas = DB::table('perguntas_linhas')
-                        ->select('id','perguntas_id','titulo', 'descricao')
+                    $linhas = perguntas_linhas::select('id','perguntas_id','titulo', 'descricao')
                         ->where('perguntas_id', $grupo->perguntas_id)
                         ->get();
 
                         foreach($linhas as $key => $d)
                         {
 
-                            $alternativa = DB::table('perguntas_alternativas')
-                                ->select('id','grupos_id','titulo', 'descricao')
+                            $alternativa = perguntas_alternativa::select('id','grupos_id','titulo', 'descricao')
                                 ->where('linhas_id', $d->id)
                                 ->get();
 
                             foreach($alternativa as $key => $c){
 
-                                $respostas = DB::table('respostas')
-                                ->select('id','perguntas_alternativas_id','perguntas_id',)
+                                $respostas = respostas::select('id','perguntas_alternativas_id','perguntas_id',)
                                 ->where('perguntas_alternativas_id', $c->id)
                                 ->first();
 
@@ -171,13 +184,12 @@ class Perguntas extends Model
 
        //dd(json_decode(json_encode((object) $dados), FALSE));
 
-        return json_decode(json_encode((object) $dados), FALSE);
+       return json_decode(json_encode((object) $dados), FALSE);
     }
 
     public static function GetPerguntasRespondidas()
     {
-        $perguntas = DB::table('perguntas')
-            ->select('id','titulo', 'descricao','tipo')
+        $perguntas = perguntas::select('id','titulo', 'descricao','tipo')
             ->get();
 
         $dados = [];

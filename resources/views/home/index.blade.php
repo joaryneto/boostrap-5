@@ -10,7 +10,7 @@
         <!-- page main start -->
         <div class="page">
             
-        @include('layouts.partials.navbar-direito')
+        <!--include('layouts.partials.navbar-direito')-->
 
     <div class="page-content">
                 <!-- page content goes here -->
@@ -18,8 +18,12 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     @include('auth.painel.ranking.show')
                 </div>
-                <div class="tab-pane fade" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
-
+                <div class="tab-pane fade" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
+                @if(auth()->user()->permissao == 1)
+                    @include('auth.painel.admin.show')
+                @else
+                    @include('auth.painel.perguntas.show')
+                @endif
                 </div>
                 <div class="tab-pane fade" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
                     

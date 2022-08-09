@@ -9,7 +9,7 @@
                             @if(auth()->user()->foto != null)
                             <img src="{{ asset('assets/img/perfil/'.auth()->user()->cpf.'/'.auth()->user()->cpf.'.jpg') }}" alt="">
                             @else
-                            <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                            <img src="{{ asset('assets/img/logo.jpg') }}" alt="">
                             @endif
                         </figure>
                     </div>
@@ -47,7 +47,7 @@
         <h2 class="block-title">Membros</h2>
         <div class="row mx-0">
             <div class="col">
-                <figure class="avatar avatar-40" data-toggle="tooltip" data-placement="top" title="Arnold Arnor"><img src="{{ asset('assets/img/perfil/11537358065/11537358065.jpg') }}" alt=""> </figure>
+                <figure class="avatar avatar-40" data-toggle="tooltip" data-placement="top" title="Maxwell Vieira"><img src="{{ asset('assets/img/perfil/11537358065/11537358065.jpg') }}" alt=""> </figure>
             </div>
         </div>
         <br>

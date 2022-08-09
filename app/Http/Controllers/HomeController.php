@@ -11,26 +11,28 @@ class HomeController extends Controller
 {
     public function index() 
     {
+        $dados = null;
+
         if(auth()->guest() == true){
             return redirect('/');
         }
 
         if(auth()->user()->permissao == 1){
-            return redirect('/perguntas');
+            $dados = Perguntas::getPerguntasAdmin($this->usuario());
+        }else{
+            $dados = Perguntas::getPerguntas($this->usuario());
         }
-        else{
 
-            $index  = Perguntas::GetPerguntasRespondidas();
+        $index  = Perguntas::GetPerguntasRespondidas();
 
-            $rank   = igrejas::GetIgrejasRank();
-            $classe = igrejas_classe::GetClasse();
+        $rank   = igrejas::GetIgrejasRank();
+        $classe = igrejas_classe::GetClasse();
 
-            return view('home.index', [
-                'dados_index' => $index,
-                'dados_rank' => $rank,
-                'dados_classe' => $classe
-            ]);
-
-       }
+        return view('home.index', [
+            'dados_index' => $index,
+            'dados_rank' => $rank,
+            'dados_classe' => $classe,
+            'alternativas' => $dados
+        ]);
     }
 }

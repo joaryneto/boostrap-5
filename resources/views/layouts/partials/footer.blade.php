@@ -39,8 +39,13 @@
     <!-- Propeller  js -->
     <script type="text/javascript" src="https://opensource.propeller.in/components/textfield/js/textfield.js"></script>
 
-    
+    <!-- Propeller  js -->
+    <script type="text/javascript" src="{!! asset('assets/propellerkit/components/file-upload/js/upload-image.js') !!}"></script>
+
     <script>
+        $(document).ready(function () {
+        bsCustomFileInput.init()
+        })
         $(document).ready(function(){
             $('.telefone').inputmask('99999999999');
             $('.cpf').inputmask('99999999999');

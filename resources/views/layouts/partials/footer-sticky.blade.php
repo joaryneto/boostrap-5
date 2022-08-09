@@ -26,9 +26,15 @@
                 </a>
             </li>-->
             <li class="nav-item">
+                <a class="nav-link" id="desafios-tab" data-toggle="tab" href="#desafios" role="tab" aria-controls="profile" aria-selected="false">
+                    <i class="material-icons">description</i>
+                    <small class="sr-only">Descrição</small>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                     <i class="material-icons">person</i>
-                    <small class="sr-only">Account</small>
+                    <small class="sr-only">Perfil</small>
                 </a>
             </li>
         </ul>
