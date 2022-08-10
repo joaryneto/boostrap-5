@@ -54,6 +54,21 @@
     <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>
 
     <script>
+
+        // Inicialize o deferredPrompt para posteriormente mostrar o prompt de instalação do navegador.
+        let deferredPrompt;
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+            // Impede que o mini-infobar apareça em mobile
+            e.preventDefault();
+            // Guarda evento para que possa ser disparado depois.
+            deferredPrompt = e;
+            // Atualiza UI notifica usuário que pode instalar PWA
+            showInstallPromotion();
+            // Opcionalmente, enviar eventos de analytics que promo de instalação PWA foi mostrado.
+            console.log(`'beforeinstallprompt' event was fired.`);
+        });
+
         // CODELAB: Register service worker.
         if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
