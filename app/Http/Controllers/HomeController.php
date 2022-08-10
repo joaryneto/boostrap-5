@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Perguntas;
 use App\Models\igrejas;
 use App\Models\igrejas_classe;
+use App\Models\Perguntas_alternativa;
+use App\Models\respostas;
 
 class HomeController extends Controller
 {
