@@ -20,7 +20,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-7">
-                    <h3 class="f-light mb-3">{{ $p->titulo }}</h3>
+                    <h3 class="f-light mb-3">{{ $p->ordem }}° {{ $p->titulo }}</h3>
                 </div>
                 <div class="col-12 text-left">
                     <h4>{{ $p->descricao }}</h4>

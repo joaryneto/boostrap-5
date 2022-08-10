@@ -1,5 +1,5 @@
 <div class="page-content">
-    <div class="content-sticky-footer">
+    <!--<div class="content-sticky-footer">
         <div class="background bg-170"><img src="img/background.png" alt=""></div>
             <div class="w-100">
                 @auth
@@ -32,7 +32,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
+ <div class="row mb-3">
+    <div class="col-md-12">
+            <div class="card pmd-card">
                 <h2 class="block-title" style="line-height: initial;font-size: 30px;">TOP 10</h2>
                 <ul class="list-group">
                     @foreach($dados_classe as $p)
@@ -49,8 +52,9 @@
                     </li>
                     @endforeach
                 </ul>
-                  
-        <br>
+                <br>
+            </div>
+        </div>
     </div>
     <div class="footer-wrapper">
         <div class="footer">

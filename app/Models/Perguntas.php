@@ -18,7 +18,7 @@ class Perguntas extends Model
 
     public static function getPerguntas($usuario = null){
 
-        $perguntas = Perguntas::select('id','titulo', 'descricao','tipo')
+        $perguntas = Perguntas::select('id','titulo', 'descricao','tipo','ordem')
             ->orderBy('ordem')
             ->get();
 
@@ -47,7 +47,8 @@ class Perguntas extends Model
                         'id' => $b->id,
                         'titulo' => $b->titulo,
                         'descricao' => $b->descricao,
-                        'tipo' => $b->tipo
+                        'tipo' => $b->tipo,
+                        'ordem' => $b->ordem
                     ];
 
                     foreach($gruposs as $grupo){
