@@ -16,6 +16,7 @@
                 <h3 class="card-title">{{auth()->user()->name}}</h3>
                 <p class="card-subtitle mb-2">Lider</p>
                 <p class="card-text">E disse-lhes: Ide por todo omundo, pregai o evangelho a toda criatura. Marcos 16:15.</p>
+                <a href="{{ route('logout.perform') }}" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Deslogar</a>
             </div>
             <div class="pmd-card-actions">
                 <span>
