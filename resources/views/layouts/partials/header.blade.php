@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="img/f7-icon-square.png">
     <link rel="icon" href="img/f7-icon.png">
 
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="{!! asset('manifest.json') !!}" />
     <!-- ios support -->
     <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-72x72.png') !!}" />
     <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-96x96.png') !!}" />
