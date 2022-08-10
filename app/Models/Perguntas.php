@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\respostas;
+use App\Models\Perguntas_alternativa;
 
 class Perguntas extends Model
 {

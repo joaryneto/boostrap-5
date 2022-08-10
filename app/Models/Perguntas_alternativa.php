@@ -9,5 +9,6 @@ class Perguntas_alternativa extends Model
 {
     use HasFactory;
 
+    protected $table = 'perguntas_alternativas';
     
 }
