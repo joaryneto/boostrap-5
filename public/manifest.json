@@ -34,7 +34,7 @@
         "type": "image/png",
         "purpose": "maskable"
       }],
-    "start_url": "/",
+    "start_url": "/?id=1",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#FFFFFF",
