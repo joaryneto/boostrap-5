@@ -46,6 +46,61 @@
     <script type="text/javascript" src="{!! asset('assets/propellerkit/components/card/js/jquery.masonry.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('assets/magnific/jquery.magnific-popup.min.js') !!}"></script>
     <script>
+    window.addEventListener('beforeinstallprompt', function(e) {
+        console.log('beforeinstallprompt Event fired');
+        e.preventDefault();
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+
+        return false;
+    });
+
+    const btnSave = document.getElementById('btninstall');
+
+    //btnSave.addEventListener('click', function() {
+    if(deferredPrompt !== undefined) {
+        // The user has had a postive interaction with our app and Chrome
+        // has tried to prompt previously, so let's show the prompt.
+        deferredPrompt.prompt();
+
+        // Follow what the user has done with the prompt.
+        deferredPrompt.userChoice.then(function(choiceResult) {
+
+        console.log(choiceResult.outcome);
+
+        if(choiceResult.outcome == 'dismissed') {
+            console.log('User cancelled home screen install');
+        }
+        else {
+            console.log('User added to home screen');
+        }
+
+        // We no longer need the prompt.  Clear it up.
+        deferredPrompt = null;
+        });
+    }
+    //});
+
+    </script>
+    <script src="{!! asset('assets/app/scripts/luxon-1.11.4.js') !!}"></script>
+    <script src="{!! asset('assets/app/scripts/app.js') !!}"></script>
+    <!-- CODELAB: Add the install script here -->
+    <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>
+
+    <script>
+        // CODELAB: Register service worker.
+        if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then((reg) => {
+                console.log('Service worker registered.', reg);
+                });
+        });
+    }
+    </script>
+        
+    <script>
         $(document).ready(function () {
         bsCustomFileInput.init()
         })

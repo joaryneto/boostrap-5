@@ -7,6 +7,19 @@
 
     <link rel="apple-touch-icon" href="img/f7-icon-square.png">
     <link rel="icon" href="img/f7-icon.png">
+
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-72x72.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-96x96.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-128x128.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-144x144.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-152x152.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-192x192.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-384x384.png') !!}" />
+    <link rel="apple-touch-icon" href="{!! asset('assets/app/images/icons/icon-512x512.png') !!}" />
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
     
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/css/bootstrap.min.css') !!}">-->

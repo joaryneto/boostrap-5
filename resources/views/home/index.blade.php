@@ -1,20 +1,15 @@
 @include('layouts.partials.header')
-    <div class="loader justify-content-center ">
-        <div class="maxui-roller align-self-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </div>
-    <div class="wrapper">
-
+<div class="loader justify-content-center ">
+    <div class="maxui-roller align-self-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
+<div class="wrapper">
 @include('layouts.app-master')
-
-
-        <!-- page main start -->
-        <div class="page">
-            
-        <!--include('layouts.partials.navbar-direito')-->
-
-    <div class="page-content">
-                <!-- page content goes here -->
-        <div class="tab-content" id="myTabContent">
+    <!-- page main start -->
+    <div class="page">
+    <!--include('layouts.partials.navbar-direito')-->
+        <div class="page-content">
+            <!-- page content goes here -->
+            <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                     @include('auth.painel.ranking.show')
                 </div>
@@ -26,17 +21,13 @@
                 @endif
                 </div>
                 <div class="tab-pane fade" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
-                    
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
                     @include('auth.painel.perfil.show')
-                    
                 </div>
-                </div>
-            </div>     
-
-        </div>
+            </div>
+        </div>     
+    </div>
 <!-- page main ends -->
 </div>
 @include('layouts.partials.footer-sticky')
