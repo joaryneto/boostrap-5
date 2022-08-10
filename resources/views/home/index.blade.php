@@ -13,16 +13,16 @@
                 <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                     @include('auth.painel.ranking.show')
                 </div>
-                <div class="tab-pane fade show active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
+                <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
                 @if(auth()->user()->permissao == 1)
                     @include('auth.painel.admin.show')
                 @else
                     @include('auth.painel.perguntas.show')
                 @endif
                 </div>
-                <div class="tab-pane fade" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
+                <div class="tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     @include('auth.painel.perfil.show')
                 </div>
             </div>
