@@ -24,7 +24,6 @@ class HomeController extends Controller
         }
 
         $index  = Perguntas::GetPerguntasRespondidas();
-
         $rank   = igrejas::GetIgrejasRank();
         $classe = igrejas_classe::GetClasse();
 

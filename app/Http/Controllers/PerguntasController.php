@@ -32,59 +32,66 @@ class PerguntasController extends Controller
 
          $dados = [];
 
+         //dd($request->input('pergunta'));
+
          $realizada = new perguntas_realizada();
+         $realizada->sistema = $this->usuario()->sistema;
          $realizada->pergunta_id = $request->input('pergunta');
          $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
+         $realizada->descricao = $request->input('descricao');
+         $realizada->kg = $request->input('kg');
+         $realizada->status = 1;
          $realizada->save();
 
          foreach($request->all() as $key => $a){
 
-           if($key != "_token" && $key != "pergunta"){
+           if($key != "_token" && $key != "pergunta" && $key != "kg" && $key != "descricao" && $key != "image"){
 
 
               $alternativa =  new respostas();
+              $alternativa->sistema = $this->usuario()->sistema;
               $alternativa->perguntas_alternativas_id = $a;
               $alternativa->perguntas_id = $request->input('pergunta');
               $alternativa->cpf = $this->usuario()->cpf;
-              $alternativa->igreja_id = $this->usuario()->igreja_id;
               $alternativa->igreja_classe_id = $this->usuario()->igreja_classe_id;
               $alternativa->save();
 
            }
 
-            $this->validate($request, [
-                    'image' => 'required',
-                    'image.*' => 'mimes:jpg,png,JPG'
-            ]);
+        }
+
+        $this->validate($request, [
+                'image' => 'required',
+                'image.*' => 'mimes:jpg,png,JPG'
+        ]);
 
 
-            if(@count($request->file('image')) > 0)
+        if($request->hasfile('image'))
+        {
+            
+            if(!file_exists(public_path().'/files/')) { 
+                File::makeDirectory(public_path().'/files/');
+            } 
+
+            foreach($request->file('image') as $files)
             {
-                
-                if(!file_exists(public_path().'/files/')) { 
-                    File::makeDirectory(public_path().'/files/');
-                } 
-
-                foreach($request->file('image') as $file)
-                {
-
-                    //var_dump(@$file->extension());
-                    $name = time().'.'.@$file->extension();
-                    $file->move(public_path().'/files/', $name);  
-                    $data[] = $name; 
-                }
+                //var_dump(@$file->extension());
+                //$name = time().'.'.@$files->extension();
+                $name   = time().$files->getClientOriginalName();
+                $files->move(public_path().'/files/', $name);  
+                $data[] = $name; 
             }
+        }
 
 
-            $file= new Galeria();
-            $file->image=json_encode($data);
-            $file->pergunta_id = $request->input('pergunta');
-            $file->igreja_classe_id = $this->usuario()->igreja_classe_id;
-            $file->save();
+        $file= new Galeria();
+        $file->sistema = $this->usuario()->sistema;
+        $file->image=json_encode($data);
+        $file->pergunta_id = $request->input('pergunta');
+        $file->igreja_classe_id = $this->usuario()->igreja_classe_id;
+        $file->save();
 
-         }
-
-         return redirect('/perguntas');
+         return redirect('/inicio');
     }
 
 
@@ -105,9 +112,11 @@ class PerguntasController extends Controller
 
     public function AdicionarPontos(Request $request){
 
+        //dd($request->input('pontos'), $request->input('pergunta'));
         $realizada = perguntas_realizada::find($request->input('pergunta'));
-        $realizada->pontos = $request->input('pontos');
+        $realizada->pontos = $request->input('pontos') == null ? '0':$request->input('pontos');
         $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
+        $realizada->status = 2;
         $realizada->save();
 
         return redirect('/perguntas/admin');

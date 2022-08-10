@@ -2,7 +2,7 @@
 <div class="footer-tabs footer-spaces border-top text-center">
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                     <i class="material-icons">home</i>
                     <small class="sr-only">Inicio</small>
                 </a>
@@ -26,7 +26,7 @@
                 </a>
             </li>-->
             <li class="nav-item">
-                <a class="nav-link" id="desafios-tab" data-toggle="tab" href="#desafios" role="tab" aria-controls="profile" aria-selected="false">
+                <a class="nav-link active" id="desafios-tab" data-toggle="tab" href="#desafios" role="tab" aria-controls="profile" aria-selected="false">
                     <i class="material-icons">description</i>
                     <small class="sr-only">Descrição</small>
                 </a>

@@ -21,4 +21,15 @@ class perguntas_realizada extends Model
         'descricao',
         'pontos'
     ];
+
+
+    public static function GetPontos($pergunta = null, $igreja_classe_id = null){
+
+        $pontos = perguntas_realizada::selectRaw('SUM(pontos) as pontos')
+        ->where('pergunta_id', $pergunta)
+        ->where('igreja_classe_id', $igreja_classe_id)
+        ->first();
+
+        return $pontos;
+    }
 }

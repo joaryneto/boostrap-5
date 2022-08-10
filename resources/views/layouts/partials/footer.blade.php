@@ -42,6 +42,9 @@
     <!-- Propeller  js -->
     <script type="text/javascript" src="{!! asset('assets/propellerkit/components/file-upload/js/upload-image.js') !!}"></script>
 
+    <!-- Propeller  js -->
+    <script type="text/javascript" src="{!! asset('assets/propellerkit/components/card/js/jquery.masonry.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('assets/magnific/jquery.magnific-popup.min.js') !!}"></script>
     <script>
         $(document).ready(function () {
         bsCustomFileInput.init()
@@ -49,6 +52,16 @@
         $(document).ready(function(){
             $('.telefone').inputmask('99999999999');
             $('.cpf').inputmask('99999999999');
+        });
+
+        $('.parent-container').each(function() { // the containers for all your galleries
+            $(this).magnificPopup({
+                delegate: 'a', // the selector for gallery item
+                type: 'image',
+                gallery: {
+                enabled:true
+                }
+            });
         });
     </script>
 

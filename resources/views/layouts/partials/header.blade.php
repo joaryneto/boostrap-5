@@ -9,7 +9,7 @@
     <link rel="icon" href="img/f7-icon.png">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/css/bootstrap.min.css') !!}">
+    <!-- <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/css/bootstrap.min.css') !!}">-->
 
     <!-- Material design icons CSS -->
     <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
@@ -32,10 +32,14 @@
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/textfield/css/textfield.css" type="text/css">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('css/app-ec2.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app-4.css') !!}" type="text/css">
 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/upload-file.css') !!}" type="text/css">
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/image-upload.css') !!}" type="text/css">
+    
+    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/card/card.css') !!}" type="text/css">
+
+    <link id="theme" rel="stylesheet" href="{!! asset('assets/magnific/magnific-popup.css') !!}" type="text/css">
 
     <title>MARATONA CLASSES DE ESCOLA SABATINA E PEQUENOS GRUPOS</title>
     

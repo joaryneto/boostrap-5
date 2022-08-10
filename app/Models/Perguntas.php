@@ -101,10 +101,11 @@ class Perguntas extends Model
              'perguntas.tipo',
              'perguntas.ordem',
              'perguntas_realizadas.id as realizado_id',
-             DB::raw('perguntas_realizadas.pontos'),
+             'perguntas_realizadas.pontos',
+             'perguntas_realizadas.igreja_classe_id',
              'galerias.image')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
-            ->join('galerias','galerias.igreja_classe_id','=','perguntas_realizadas.igreja_classe_id')
+            ->join('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
             ->where('perguntas_realizadas.igreja_classe_id', $usuario->igreja_classe_id)
             ->orderBy('perguntas.ordem')
             ->get();
@@ -115,29 +116,22 @@ class Perguntas extends Model
         $count = 0;
         foreach($perguntas as $b){
 
-
-
-            /*$pontos = perguntas_realizada::
-                    select('sum(pontos)')
-                    ->where('', $b->)
-                    ->first();*/
-                   
-
-            //if(@count($respostas) == 0){
-
                 $gruposs = perguntas_grupos::select('id','perguntas_id','titulo', 'descricao')
                 ->where('perguntas_id', $b->id)
                 ->get();
 
                 if(@count($gruposs) > 0){
 
+                    $poSum = perguntas_realizada::GetPontos($b->id, $b->igreja_classe_id);
+
                     $dados[$b->id]['perguntas'][$b->id] = (object)[
                         'id' => $b->id,
                         'titulo' => $b->titulo,
                         'descricao' => $b->descricao,
                         'tipo' => $b->tipo,
-                        'pontos' => $b->pontos,
-                        'realizado_id' => $b->realizado_id
+                        'pontos' => $poSum->pontos,
+                        'realizado_id' => $b->realizado_id,
+                        'image' => json_decode($b->image)
                     ];
 
                     foreach($gruposs as $grupo){
@@ -181,8 +175,6 @@ class Perguntas extends Model
         }
 
         $dados['total'] = $count;
-
-       //dd(json_decode(json_encode((object) $dados), FALSE));
 
        return json_decode(json_encode((object) $dados), FALSE);
     }
