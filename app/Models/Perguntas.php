@@ -18,8 +18,8 @@ class Perguntas extends Model
 
     public static function getPerguntas($usuario = null){
 
-        $perguntas = DB::table('perguntas')
-            ->select('id','titulo', 'descricao','tipo')
+        $perguntas = Perguntas::select('id','titulo', 'descricao','tipo')
+            ->orderBy('ordem')
             ->get();
 
         $dados = [];
