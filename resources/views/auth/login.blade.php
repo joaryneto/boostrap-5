@@ -22,9 +22,9 @@
                             <li class="nav-item">
                                 <a class="nav-link border-white text-white active show" data-toggle="tab" href="#signin" role="tab" aria-selected="true">Login</a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link border-white text-white" data-toggle="tab" href="#signup" role="tab" aria-selected="false">Registrar</a>
-                            </li>
+                            </li>-->
                         </ul>
                         <!-- tabs content start here -->
                         <div class="tab-content">
@@ -59,7 +59,7 @@
                                     <!--<a href="" class="btn btn-link text-white btn-block text-center mt-3">Recuperar Senha?</a>-->
                                 </form>
                             </div>
-                            <div class="tab-pane" id="signup" role="tabpanel">
+                            <!--<div class="tab-pane" id="signup" role="tabpanel">
                                 <form method="post" action="{{ route('register.perform') }}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <div class="login-input-content">
@@ -124,7 +124,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div>-->
                         </div>
                         <!-- tabs content end here -->
                     </div>
