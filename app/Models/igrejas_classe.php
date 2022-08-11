@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 class igrejas_classe extends Model
 {
     use HasFactory;
@@ -14,7 +14,12 @@ class igrejas_classe extends Model
 
     public static function GetClasse()
     {
-        $dados = igrejas_classe::select('*')->get();
+        $dados = igrejas_classe::select('igrejas_classe.titulo',DB::raw("SUM(pontos) as total"))
+        ->leftJoin('perguntas_realizadas','perguntas_realizadas.igreja_classe_id','=','igrejas_classe.id')
+        ->groupBy('igrejas_classe.id')
+        ->get();
+
+        //dd($dados);
 
         return $dados;
     }

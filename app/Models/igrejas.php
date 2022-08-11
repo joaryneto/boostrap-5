@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use App\Models\respostas;
+use App\Models\Perguntas;
 
 class igrejas extends Model
 {
@@ -29,8 +30,7 @@ class igrejas extends Model
         $count2 = 0;
         foreach($igrejas as $i){
 
-            $perguntas = DB::table('perguntas')
-            ->select('id','titulo', 'descricao','tipo','projeto_id')
+            $perguntas = Perguntas::select('id','titulo', 'descricao','tipo','projeto_id')
             ->where('projeto_id', $i->projeto_id)
             ->get();
         
