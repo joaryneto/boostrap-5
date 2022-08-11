@@ -119,6 +119,6 @@ class PerguntasController extends Controller
         $realizada->status = 2;
         $realizada->save();
 
-        return redirect('/perguntas/admin');
+        return redirect('/inicio');
     }
 }
