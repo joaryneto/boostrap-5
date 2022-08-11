@@ -29,7 +29,7 @@
                         <!-- tabs content start here -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="signin" role="tabpanel">
-                                <form method="post" action="{{ route('login.perform') }}">
+                                <form method="post" action="{{ route('login.perform') }}" autocomplete="off">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <div class="login-input-content">
                                     <div class="input-group">
