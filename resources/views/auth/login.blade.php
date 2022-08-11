@@ -36,6 +36,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">person</i></span>
                                             </div>
+                                            <input type="username" class="form-control" placeholder="Email ou Usuario" name="username" value="{{ old('username') }}" autocomplete="no" aria-label="Username" style="display:none">
                                             <input type="username" class="form-control" placeholder="Email ou Usuario" name="username" value="{{ old('username') }}" autocomplete="no" aria-label="Username" required="required" autofocus>
                                             @if ($errors->has('username'))
                                                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
@@ -45,6 +46,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">lock</i></span>
                                             </div>
+                                            <input type="password" class="form-control" placeholder="Senha" name="password" value="{{ old('password') }}" autocomplete="no" aria-label="password" style="display:none">
                                             <input type="password" class="form-control" placeholder="Senha" name="password" value="{{ old('password') }}" autocomplete="no" aria-label="password" required="required">
                                             @if ($errors->has('password'))
                                                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
