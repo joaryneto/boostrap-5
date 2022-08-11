@@ -43,7 +43,7 @@
                         <a href="#" class="media">
                             <div class="media-body">
                                 <h5>{{ $p->titulo }}</h5>
-                                <h2 class="title-number-carousel color-primary"><span class="text-primary">{{ $p->total }}</span><small> Pontos</small></h2>
+                                <h2 class="title-number-carousel color-primary"><span class="text-primary">{{ $p->total =  $p->total == null ? 0:$p->total; }}</span><small> Pontos</small></h2>
                             </div>
                             <div class="avatar avatar-40" style="border-radius:15px;">
                                 <img src="{{ asset('assets/img/logo2.png') }}" alt="" style="border-radius: inherit;">
