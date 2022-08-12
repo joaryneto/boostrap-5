@@ -50,7 +50,7 @@
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/upload-file.css') !!}" type="text/css">
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/image-upload.css') !!}" type="text/css">
     
-    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/card/card.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/card/css/card.css') !!}" type="text/css">
 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/magnific/magnific-popup.css') !!}" type="text/css">
 

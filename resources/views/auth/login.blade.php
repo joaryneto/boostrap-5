@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="row mx-0 justify-content-end no-gutters">
                                         <div class="col-6">
-                                            <button class="btn btn-block gradient border-0 z-3" type="submit">Logar</button>
+                                            <button class="btn btn-block gradient border-0 z-3" id="btninstall" type="submit">Logar</button>
                                         </div>
                                     </div>
                                     <!--<a href="" class="btn btn-link text-white btn-block text-center mt-3">Recuperar Senha?</a>-->

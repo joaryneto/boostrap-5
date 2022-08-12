@@ -16,7 +16,7 @@
 
 
     <!-- Propeller checkbox js -->
-    <script type="text/javascript" src="{{!! asset('assets/propellerkit/components/alert/js/alert.js') !!}}"></script>
+    <script type="text/javascript" src="{!! asset('assets/propellerkit/components/alert/js/alert.js') !!}"></script>
 
     <!-- Cookie jquery file -->
     <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
@@ -49,7 +49,7 @@
 
     <!-- PWA -->
     <script src="{!! asset('assets/app/scripts/luxon-1.11.4.js') !!}"></script>
-    <script src="{!! asset('assets/app/scripts/app.js') !!}"></script>
+     <!-- <script src="{!! asset('assets/app/scripts/app.js') !!}"></script> -->
     <!-- CODELAB: Add the install script here -->
     <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>
 
@@ -118,9 +118,6 @@
     </script>
         
     <script>
-        $(document).ready(function () {
-        bsCustomFileInput.init()
-        })
         $(document).ready(function(){
             $('.telefone').inputmask('99999999999');
             $('.cpf').inputmask('99999999999');
