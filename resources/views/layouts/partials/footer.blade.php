@@ -53,24 +53,61 @@
     <!-- CODELAB: Add the install script here -->
     <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>
 
+    </script>
+	
+    <!-- page level script -->
     <script>
+        $(window).on('load', function() {
+            var swiper = new Swiper('.introduction', {
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+        });
+        
+        var deferredPrompt;
 
-        // Inicialize o deferredPrompt para posteriormente mostrar o prompt de instalação do navegador.
-        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', function(e) {
+        console.log('beforeinstallprompt Event fired');
+        e.preventDefault();
 
-            window.addEventListener('beforeinstallprompt', (e) => {
-            // Impede que o mini-infobar apareça em mobile
-            e.preventDefault();
-            // Guarda evento para que possa ser disparado depois.
-            deferredPrompt = e;
-            // Atualiza UI notifica usuário que pode instalar PWA
-            showInstallPromotion();
-            // Opcionalmente, enviar eventos de analytics que promo de instalação PWA foi mostrado.
-            console.log(`'beforeinstallprompt' event was fired.`);
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+
+        return false;
         });
 
-        // CODELAB: Register service worker.
-        if ('serviceWorker' in navigator) {
+        const btnSave = document.getElementById('btninstall');
+
+    btnSave.addEventListener('click', function() {
+        if(deferredPrompt !== undefined) {
+            // The user has had a postive interaction with our app and Chrome
+            // has tried to prompt previously, so let's show the prompt.
+            deferredPrompt.prompt();
+
+            // Follow what the user has done with the prompt.
+            deferredPrompt.userChoice.then(function(choiceResult) {
+
+            console.log(choiceResult.outcome);
+
+            if(choiceResult.outcome == 'dismissed') {
+                console.log('User cancelled home screen install');
+            }
+            else {
+                console.log('User added to home screen');
+            }
+
+            // We no longer need the prompt.  Clear it up.
+            deferredPrompt = null;
+            });
+        }
+    });
+
+    </script>
+    <script>
+
+    // CODELAB: Register service worker.
+    if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('{!! asset("/service-worker.js") !!}')
                 .then((reg) => {
