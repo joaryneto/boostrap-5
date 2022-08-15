@@ -27,7 +27,7 @@ class perguntas_realizada extends Model
 
         $pontos = perguntas_realizada::selectRaw('SUM(pontos) as pontos')
         ->where('pergunta_id', $pergunta)
-        ->where('igreja_classe_id', $igreja_classe_id)
+        ->whereIn('igreja_classe_id', [$igreja_classe_id])
         ->first();
 
         return $pontos;

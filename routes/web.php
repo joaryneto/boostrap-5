@@ -29,8 +29,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::get('/users', 'LoginController@users')->name('users.perform');
     Route::post('/users', 'LoginController@store')->name('store.perform');
-    Route::post('/users/create', 'LoginController@Creat')->name('create.perform');
-    Route::post('/users/StoreSupervisor', 'LoginController@StoreSupervisor')->name('StoreSupervisor.perform');
+    Route::post('/users/create', 'LoginController@criar')->name('create.perform');
+    Route::get('/users/supervisor', 'LoginController@GetClasse')->name('supervisor.perform');
+    Route::post('/users/supervisor', 'LoginController@StoreSupervisor')->name('StoreSupervisor.perform');
     Route::delete('/users/{id}', 'LoginController@delete')->name('delete.perform');
 
     Route::get('/inicio', 'HomeController@index')->name('home.index');

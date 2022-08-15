@@ -21,11 +21,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'cpf',
         'email',
         'username',
         'numero_telefone',
+        'igreja_classe_id',
         'isVerified',
         'password',
+        'permissao',
+        'foto',
+        'isVerified'
     ];
 
     /**
@@ -62,7 +67,7 @@ class User extends Authenticatable
 
         if($usuario->permissao == 1){
 
-            $user = igrejas_classe::select('igreja_classe.titulo')
+            $user = igrejas_classe::select('igreja_classe.id','igreja_classe.titulo')
             ->whereIn('igreja_classe.id', [$usuario->igreja_classe_id])
             ->get();
 
@@ -71,14 +76,15 @@ class User extends Authenticatable
 
             foreach($user as $p){
                 $dados['itens'][] = [
+                    'id' => $p->id,
                     'nome' => $p->titulo
                 ];
             }
         }
         else{
 
-            $user = User::select('name')
-            ->whereIn('igreja_classe_id', [$usuario->igreja_classe_id])
+            $user = User::select('id','name')
+            ->whereIn('permissao', [1])
             ->get();
 
             $dados = [];
@@ -86,6 +92,7 @@ class User extends Authenticatable
 
             foreach($user as $p){
                 $dados['itens'][] = [
+                    'id' => $p->id,
                     'nome' => $p->name
                 ];
             }

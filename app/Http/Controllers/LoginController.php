@@ -52,14 +52,21 @@ class LoginController extends Controller
         return response()->json($dados);
     }
 
+    public function GetClasse(){
+
+        $dados = User::GetMembros($this->usuario());
+
+        return response()->json($dados);
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            //'cpf' => ['required', 'string', 'max:11'],
+            'cpf' => ['required', 'string', 'max:11'],
             'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
-            'igreja_classe_id' => ['required','string']
+            //'igreja_classe_id' => ['string', 'max:255']
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -70,10 +77,10 @@ class LoginController extends Controller
     
         $post = User::create([
             'name' => $data['name'],
-            //'cpf'  => $data['cpf'], 
+            'cpf'  => $data['cpf'], 
             'email' => $data['email'],
             'username' => $username[0],
-            'igreja_classe_id' => $data['igreja_classe_id'],
+            'igreja_classe_id' => $this->usuario()->igreja_classe_id,
             'numero_telefone' => $telefone,
             'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
         ]);
@@ -81,14 +88,14 @@ class LoginController extends Controller
         return response()->json($post);
     }
 
-    public function Creat(Request $request)
+    public function criar(Request $request)
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'cpf' => ['required', 'string', 'max:11'],
             'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
-            'igreja_classe_id' => ['required','string']
+            'igreja_classe_id' => ['required','string', 'max:255']
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -97,6 +104,8 @@ class LoginController extends Controller
 
         //$post = User::create($request->all());
     
+        //dd($data);
+
         $post = User::create([
             'name' => $data['name'],
             'cpf'  => $data['cpf'], 
@@ -114,10 +123,10 @@ class LoginController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'cpf' => ['required', 'string', 'max:11'],
+            'cpf' => ['string'],
             'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
-            'igreja_classe_id' => ['required','string']
+            'igreja_classe_id' => ['required','array'],
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -126,20 +135,20 @@ class LoginController extends Controller
 
         //$post = User::create($request->all());
 
-        dd($data['igreja_classe_id']);
+        $classe = implode(",",$data['igreja_classe_id']);
     
         $post = User::create([
             'name' => $data['name'],
             'cpf'  => $data['cpf'], 
             'email' => $data['email'],
             'username' => $username[0],
-            'igreja_classe_id' => $data['igreja_classe_id'],
+            'igreja_classe_id' => $classe,
             'numero_telefone' => $telefone,
             'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
             'permissao' => 1
         ]);
 
-        return redirect()->to('/inicio');
+        return response()->json($post);
     }
 
     public function delete($id)
