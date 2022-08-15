@@ -90,16 +90,16 @@ new Vue({
     },
     async created() {
 
-        let results = await axios.get(`${server}users`);
+        let results = await axios.get(`${server}/users`);
         this.users = results.data;
 
-        let results_supervisor = await axios.get(`${server}users/supervisor`);
+        let results_supervisor = await axios.get(`${server}/users/supervisor`);
         this.classes = results_supervisor.data;
     },
     methods: {
         async addUser(data) {
                         
-                let results = await axios.post(`${server}users`, data)
+                let results = await axios.post(`${server}/users`, data)
                 .catch(function (error) {
                     if (error.response) {
                     // A requisição foi feita e o servidor respondeu com um código de status
@@ -155,7 +155,7 @@ new Vue({
         },
         async addUserSupervidor(data) {
                         
-            let results_supervisor = await axios.post(`${server}users/supervisor`, data)
+            let results_supervisor = await axios.post(`${server}/users/supervisor`, data)
             .catch(function (error) {
                 if (error.response) {
                 // A requisição foi feita e o servidor respondeu com um código de status
@@ -214,14 +214,14 @@ new Vue({
                 alert('Informe o email');
             } else {
                 
-                await axios.patch(`${server}users/${data.id}`, data);
+                await axios.patch(`${server}/users/${data.id}`, data);
                 
             }
 
         },
         async removeUser(id) {
 
-            await axios.delete(`${server}users/${id}`)
+            await axios.delete(`${server}/users/${id}`)
             .then(resp => {
                 console.log(resp.data);
             })
