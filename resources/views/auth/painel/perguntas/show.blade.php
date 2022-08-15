@@ -7,15 +7,15 @@
         </a>
 @endif
         <br>
-    @if(@count($alternativas) > 0)
-            
-        @foreach($alternativas as $r)
+@if(@count($alternativas) > 0)
+    
+@foreach($alternativas as $r)
 
-        @if(@count($r->perguntas) > 0)
+@if(@count($r->perguntas) > 0)
 
         
-        @if(@count($r->perguntas))
-        @foreach ($r->perguntas as $key => $p)
+@if(@count($r->perguntas))
+@foreach ($r->perguntas as $key => $p)
 <div class="row mb-3">
 <div class="col-md-12">
     <div class="card pmd-card">

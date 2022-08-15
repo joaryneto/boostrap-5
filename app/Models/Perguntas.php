@@ -30,7 +30,7 @@ class Perguntas extends Model
             $realizada = DB::table('perguntas_realizadas')
             ->select('id','pergunta_id')
             ->where('pergunta_id', $b->id)
-            ->where('igreja_classe_id', $usuario->igreja_classe_id)
+            ->whereIn('igreja_classe_id', [$usuario->igreja_classe_id])
             ->first();
 
             //dd(@count($respostas));
@@ -78,7 +78,7 @@ class Perguntas extends Model
 
                                 $respostas = respostas::select('id','perguntas_alternativas_id','perguntas_id',)
                                 ->where('perguntas_alternativas_id', $c->id)
-                                ->where('igreja_classe_id', $usuario->igreja_classe_id)
+                                ->whereIn('igreja_classe_id', [$usuario->igreja_classe_id])
                                 ->first();
 
                                 if(@count($respostas) > 0){ $status = true;}else{ $status=false;}

@@ -67,8 +67,8 @@ class User extends Authenticatable
 
         if($usuario->permissao == 1){
 
-            $user = igrejas_classe::select('igreja_classe.id','igreja_classe.titulo')
-            ->whereIn('igreja_classe.id', [$usuario->igreja_classe_id])
+            $user = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo')
+            ->whereIn('igrejas_classe.id', [$usuario->igreja_classe_id])
             ->get();
 
             $dados = [];
