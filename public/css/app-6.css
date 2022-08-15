@@ -486,8 +486,8 @@ hr{
     background-color:#fff;
     border:1px solid #dee2e6;
     border-radius:.25rem;
-    max-width:60px;
-    height:auto
+    width:70px;
+    height:70px;
 }
 
 .figure{

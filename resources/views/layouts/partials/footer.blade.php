@@ -18,8 +18,8 @@
     <!-- Propeller checkbox js -->
     <script type="text/javascript" src="https://opensource.propeller.in/components/checkbox/js/checkbox.js"></script>
 
-    <!-- Cookie jquery file -->
-    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
+    <!-- Cookie jquery file 
+    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>-->
 
     <script src="{!! asset('assets/ectecnologia/vendor/sweetalert/sweetalert.min.js') !!}"></script>
     <!-- Application main common jquery file -->
