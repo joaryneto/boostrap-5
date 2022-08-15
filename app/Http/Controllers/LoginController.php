@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
 use App\Models\User;
+use App\Models\igrejas_classe;
 
 class LoginController extends Controller
 {
@@ -55,7 +56,22 @@ class LoginController extends Controller
     public function GetClasse(){
 
         //$dados = User::GetMembros($this->usuario());
-        $dados = User::select('id','name')->where('permissao', 1)->get();
+        if($this->usuario()->permissao == 1){
+
+            $dados = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo')
+            ->whereIn('igrejas_classe.id', [$this->usuario()->igreja_classe_id])
+            ->get();
+
+        }
+        elseif($this->usuario()->permissao == 2){
+           $dados = User::select('id','name')->where('permissao', 1)->get();
+        }
+        else{
+            
+           $dados = User::select('id','name')
+           ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
+           ->where('permissao', 0)->get();
+        }
 
         return response()->json($dados);
     }

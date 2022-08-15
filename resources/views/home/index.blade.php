@@ -14,7 +14,7 @@
                     @include('auth.painel.ranking.show')-->
                 </div>
                 <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
-                @if(auth()->user()->permissao == 1)
+                @if(auth()->user()->permissao == 1 || auth()->user()->permissao == 2)
                     @include('auth.painel.admin.show')
                 @else
                     @include('auth.painel.perguntas.show')

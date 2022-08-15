@@ -81,10 +81,26 @@ class User extends Authenticatable
                 ];
             }
         }
-        else{
+        elseif($usuario->permissao == 2){
 
             $user = User::select('id','name')
             ->whereIn('permissao', [1])
+            ->get();
+
+            $dados = [];
+            $dados['titulo'] = "Membros";  
+
+            foreach($user as $p){
+                $dados['itens'][] = [
+                    'id' => $p->id,
+                    'nome' => $p->name
+                ];
+            }
+        }
+        else{
+
+            $user = User::select('id','name')
+            ->whereIn('permissao', [0])
             ->get();
 
             $dados = [];

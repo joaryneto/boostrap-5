@@ -116,7 +116,8 @@ class Perguntas extends Model
              'perguntas_realizadas.id as realizado_id',
              'perguntas_realizadas.pontos',
              'perguntas_realizadas.igreja_classe_id',
-             'galerias.image')
+             'galerias.image',
+             'perguntas.ordem')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
             ->join('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
             ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
@@ -144,7 +145,8 @@ class Perguntas extends Model
                         'tipo' => $b->tipo,
                         'pontos' => $poSum->pontos,
                         'realizado_id' => $b->realizado_id,
-                        'image' => json_decode($b->image)
+                        'image' => json_decode($b->image),
+                        'ordem' => $b->ordem,
                     ];
 
                     foreach($gruposs as $grupo){
