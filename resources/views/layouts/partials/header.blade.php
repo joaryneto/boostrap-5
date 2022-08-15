@@ -48,7 +48,7 @@
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/textfield/css/textfield.css" type="text/css">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('css/app-5.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app-6.css') !!}" type="text/css">
 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/upload-file.css') !!}" type="text/css">
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/image-upload.css') !!}" type="text/css">

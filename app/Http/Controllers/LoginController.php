@@ -67,7 +67,7 @@ class LoginController extends Controller
            $dados = User::select('id','name')->where('permissao', 1)->get();
         }
         else{
-            
+
            $dados = User::select('id','name')
            ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
            ->where('permissao', 0)->get();
@@ -144,6 +144,7 @@ class LoginController extends Controller
             'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
             'igreja_classe_id' => ['required','array'],
+            'permissao' => ['string'],
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -162,7 +163,7 @@ class LoginController extends Controller
             'igreja_classe_id' => $classe,
             'numero_telefone' => $telefone,
             'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
-            'permissao' => 1
+            'permissao' => $data['permissao'],
         ]);
 
         return response()->json($post);
