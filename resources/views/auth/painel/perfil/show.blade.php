@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-12" id="root">
                     <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
-                        <h2 class="block-title">Membros</h2>
+                        <h2 class="block-title">{{ $dados_perfil->titulo}}</h2>
                         <ul class="list-group">
                             @foreach($dados_perfil as $m)
                             <li class="list-group-item" v-for="user in users" :key="user.id">
