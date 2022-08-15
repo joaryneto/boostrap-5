@@ -58,7 +58,7 @@ class LoginController extends Controller
         //$dados = User::GetMembros($this->usuario());
         if($this->usuario()->permissao == 1){
 
-            $dados = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo')
+            $dados = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo as name')
             ->whereIn('igrejas_classe.id', [$this->usuario()->igreja_classe_id])
             ->get();
 
