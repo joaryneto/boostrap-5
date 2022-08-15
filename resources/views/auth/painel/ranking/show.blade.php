@@ -1,4 +1,6 @@
-<div class="page-content">
+<section class="row component-section">
+    <div class="col-md-12"> 
+        <div class="component-box">
     <!--<div class="content-sticky-footer">
         <div class="background bg-170"><img src="img/background.png" alt=""></div>
             <div class="w-100">
@@ -56,25 +58,6 @@
             </div>
         </div>
     </div>
-    <div class="footer-wrapper">
-        <div class="footer">
-            <div class="row mx-0">
-                <div class="col">
-                </div>
-                <div class="col-7 text-right">
-                    <a href="" class="social"><img src="img/facebook.png" alt=""></a>
-                    <a href="" class="social"><img src="img/googleplus.png" alt=""></a>
-                    <a href="" class="social"><img src="img/linkedin.png" alt=""></a>
-                    <a href="" class="social"><img src="img/twitter.png" alt=""></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer dark">
-            <div class="row mx-0">
-                <div class="col text-center">
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>   
+</section>
