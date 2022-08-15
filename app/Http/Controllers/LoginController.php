@@ -48,7 +48,9 @@ class LoginController extends Controller
 
     public function users(){
 
-        $dados = User::select('*')->get();
+        $dados = User::select('*')
+        ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
+        ->where('permissao', '0')->get();
 
         return response()->json($dados);
     }
@@ -70,8 +72,7 @@ class LoginController extends Controller
 
            $dados = User::select('id','name')
            ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
-           ->where('permissao', 0)
-           ->where('permissao', 0)->get();
+           ->where('permissao', '0')->get();
         }
 
         return response()->json($dados);
