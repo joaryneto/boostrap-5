@@ -11,14 +11,14 @@
             <!-- page content goes here -->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <!--include('auth.painel.ranking.show')-->
+                    @include('auth.painel.ranking.show')-->
                 </div>
                 <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
-                <!--if(auth()->user()->permissao == 1)
-                    include('auth.painel.admin.show')
-                else
-                    include('auth.painel.perguntas.show')
-                endif-->
+                @if(auth()->user()->permissao == 1)
+                    @include('auth.painel.admin.show')
+                @else
+                    @include('auth.painel.perguntas.show')
+                @endif
                 </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     @include('auth.painel.perfil.show')
