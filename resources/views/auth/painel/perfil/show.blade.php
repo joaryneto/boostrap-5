@@ -47,7 +47,7 @@
                                         <figure class="avatar avatar-40"><img src="{{ asset('assets/img/logo.jpg') }}" alt=""> </figure>
                                     </div>
                                     <div class="media-body">
-                                        <h5 v-text="user.name"> {{ $m->titulo }}<span class="status-online bg-success"></span></h5>
+                                        <h5 v-text="user.name"> {{ $m->nome }}<span class="status-online bg-success"></span></h5>
                                     </div>
 
                                 </a>
