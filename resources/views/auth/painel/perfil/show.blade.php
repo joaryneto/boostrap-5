@@ -40,7 +40,7 @@
                     <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
                         <h2 class="block-title">{{ $dados_perfil->titulo}}</h2>
                         <ul class="list-group">
-                            @foreach($dados_perfil as $m)
+                            @foreach($dados_perfil->itens as $m)
                             <li class="list-group-item" v-for="user in users" :key="user.id">
                                 <a href="#" class="media">
                                     <div class="w-auto h-100">
