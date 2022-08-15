@@ -1,8 +1,13 @@
     
     
     
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+    
     <script src="{!! asset('assets/ectecnologia/js/jquery-3.2.1.min.js') !!}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+    <script src="{!! asset('assets/ectecnologia/js/popper.min.js') !!}"></script>
+    <script src="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap-4.3.1/js/bootstrap.min.js"></script>-->
     
     <!-- Propeller Global js --> 
     <script src="https://opensource.propeller.in/components/global/js/global.js"></script>
@@ -13,8 +18,8 @@
     <!-- Propeller checkbox js -->
     <script type="text/javascript" src="https://opensource.propeller.in/components/checkbox/js/checkbox.js"></script>
 
-    <!-- Cookie jquery file 
-    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>-->
+    <!-- Cookie jquery file -->
+    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
 
     <script src="{!! asset('assets/ectecnologia/vendor/sweetalert/sweetalert.min.js') !!}"></script>
     <!-- Application main common jquery file -->
@@ -32,28 +37,12 @@
     <script type="text/javascript" src="{!! asset('assets/magnific/jquery.magnific-popup.min.js') !!}"></script>
 
 
-    <!-- PWA 
+    <!--
+     PWA 
     <script src="{!! asset('assets/app/scripts/luxon-1.11.4.js') !!}"></script>
      <-- <script src="{!! asset('assets/app/scripts/app.js') !!}"></script> --
     <-- CODELAB: Add the install script here --
     <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>-->
-
-    <!-- Select2 js-->
-    <script type="text/javascript" src="http://propeller.in/components/select2/js/select2.full.js"></script>
-
-    <!-- Propeller Select2 -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $(".select-tags").select2({
-                tags: false,
-                theme: "bootstrap",
-            })
-        });
-    </script>
-
-    <!-- Propeller Select2 -->
-    <script type="text/javascript" src="http://propeller.in/components/select2/js/pmd-select2.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -61,19 +50,19 @@
             $('.cpf').inputmask('99999999999');
         });
 
-        $('.parent-container').each(function() { // the containers for all your galleries
-            $(this).magnificPopup({
-                delegate: 'a', // the selector for gallery item
-                type: 'image',
-                gallery: {
-                enabled:true
-                }
+        $(document).ready(function() {
+            $('.parent-container').each(function() { // the containers for all your galleries
+                $(this).magnificPopup({
+                    delegate: 'a', // the selector for gallery item
+                    type: 'image',
+                    gallery: {
+                    enabled:true
+                    }
+                });
             });
         });
-    </script>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+    </script>
 
 <script>
 

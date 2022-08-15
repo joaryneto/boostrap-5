@@ -49,16 +49,10 @@
 
     <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="{!! asset('css/app-6.css') !!}" type="text/css">
-
-    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/upload-file.css') !!}" type="text/css">
-    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/image-upload.css') !!}" type="text/css">
-    
+ 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/card/css/card.css') !!}" type="text/css">
 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/magnific/magnific-popup.css') !!}" type="text/css">
-
-    <link id="theme" rel="stylesheet" href="http://propeller.in/components/select2/css/select2.min.css" type="text/css">
-    <link id="theme" rel="stylesheet" href="http://propeller.in/components/select2/css/pmd-select2.css" type="text/css">
 
 
     <title>MARATONA CLASSES DE ESCOLA SABATINA E PEQUENOS GRUPOS</title>
