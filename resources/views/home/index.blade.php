@@ -33,7 +33,6 @@
 <div tabindex="-1" class="modal fade" id="form-dialog" style="display: none;" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content" id="root">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<div class="modal-header pmd-modal-bordered">
 				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 				<h2 class="pmd-card-title-text">Incluir Membro</h2>
@@ -41,6 +40,7 @@
 			<div class="modal-body">
 				<!--<form v-on:submit.prevent="addUser(formData)">-->
 					<form method="post" action="{{ route('create.perform') }}" enctype="multipart/form-data">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome</label>
 						<input type="text" class="mat-input form-control" id="name" name="name" required>						
@@ -89,7 +89,6 @@
 <div tabindex="-1" class="modal fade" id="form-dialog2" style="display: none;" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content" id="root">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<div class="modal-header pmd-modal-bordered">
 				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
 				<h2 class="pmd-card-title-text">Incluir Lider/Supervidor</h2>
@@ -97,6 +96,7 @@
 			<div class="modal-body">
 				<!--<form v-on:submit.prevent="addUser(formData)">-->
 					<form method="post" action="{{ route('StoreSupervisor.perform') }}" enctype="multipart/form-data">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome</label>
 						<input type="text" class="mat-input form-control" id="name" name="name" required>						

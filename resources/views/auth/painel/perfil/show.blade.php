@@ -40,17 +40,19 @@
                     <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
                         <h2 class="block-title">Membros</h2>
                         <ul class="list-group">
+                            @foreach($dados_perfil as $m)
                             <li class="list-group-item" v-for="user in users" :key="user.id">
                                 <a href="#" class="media">
                                     <div class="w-auto h-100">
-                                        <figure class="avatar avatar-40"><img src="img/user1.png" alt=""> </figure>
+                                        <figure class="avatar avatar-40"><img src="{{ asset('assets/img/logo.jpg') }}" alt=""> </figure>
                                     </div>
                                     <div class="media-body">
-                                        <h5 v-text="user.name"> <span class="status-online bg-success"></span></h5>
+                                        <h5 v-text="user.name"> {{ $m->titulo }}<span class="status-online bg-success"></span></h5>
                                     </div>
 
                                 </a>
                             </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
