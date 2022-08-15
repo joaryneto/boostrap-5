@@ -69,14 +69,6 @@
 						<label class="control-label">Message</label>
 						<textarea required class="form-control"></textarea>
 					</div>-->
-					<div class="form-group pmd-textfield pmd-textfield-floating-label">
-						<label for="first-name">Tipo</label>
-						<select class="mat-input form-control" name="igreja_classe_id" required>
-								<option value="0"> Lider </option>
-								<option value="1"> Supervisor </option>
-								<option value="2"> Pastor </option>
-						</select>
-					</div>
 					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
 						<input type="checkbox" value="" required>
 						<span class="pmd-checkbox"> Aceita termos e Condições</span> </label>
@@ -130,6 +122,14 @@
 						<label class="control-label">Message</label>
 						<textarea required class="form-control"></textarea>
 					</div>-->
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Tipo</label>
+						<select class="mat-input form-control" name="igreja_classe_id" required>
+								<option value="0"> Lider </option>
+								<option value="1"> Supervisor </option>
+								<option value="2"> Pastor </option>
+						</select>
+					</div>
 					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
 						<input type="checkbox" value="" required>
 						<span class="pmd-checkbox"> Aceita termos e Condições</span> </label>

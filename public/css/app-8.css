@@ -5436,7 +5436,7 @@ a.close.disabled{
     vertical-align:text-top!important
 }
 .bg-primary{
-    background-color:#007bff!important
+    /*background-color:#007bff!important*/
 }
 a.bg-primary:focus,a.bg-primary:hover,button.bg-primary:focus,button.bg-primary:hover{
     background-color:#0062cc!important
@@ -8608,8 +8608,8 @@ a:focus,a:hover{
 .pmd-icon-circle{
     display:-ms-inline-flexbox;
     display:inline-flex;
-    width:56px;
-    height:56px;
+    width:80px;
+    height:106px;
     border-radius:50%;
     -ms-flex-align:center;
     align-items:center;
@@ -14219,7 +14219,7 @@ a:focus,a:hover{
     bottom:-1rem
 }
 .pmd-floating-content-wrapper.card-body .pmd-floating-content-tc,.pmd-floating-content-wrapper.card-body .pmd-floating-content-tl,.pmd-floating-content-wrapper.card-body .pmd-floating-content-tr{
-    top:-1rem
+    top:-0rem
 }
 .pmd-col-listing{
     position:relative
@@ -15319,7 +15319,7 @@ a:focus,a:hover{
     border-color:#343a40!important
 }
 .bg-primary{
-    background-color:#4285f4!important
+    /*background-color:#4285f4!important*/
 }
 a.bg-primary:focus,a.bg-primary:hover,button.bg-primary:focus,button.bg-primary:hover{
     background-color:#1266f1!important

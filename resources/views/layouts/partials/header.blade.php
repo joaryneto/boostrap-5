@@ -31,13 +31,10 @@
     <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
 
     <!-- swiper carousel CSS -->
-    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/sweetalert/sweetalert.css') !!}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css">
 
     <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="{!! asset('assets/ectecnologia/css/style.css') !!}" type="text/css">
-
-    <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/alert/css/alert.css') !!}" type="text/css">
 
     <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/checkbox/css/checkbox.css" type="text/css">
@@ -48,7 +45,7 @@
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/textfield/css/textfield.css" type="text/css">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('css/app-7.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app-8.css') !!}" type="text/css">
  
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/card/css/card.css') !!}" type="text/css">
 

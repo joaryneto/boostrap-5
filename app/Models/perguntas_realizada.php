@@ -32,4 +32,12 @@ class perguntas_realizada extends Model
 
         return $pontos;
     }
+
+    public static function GetPontosTotal($igreja_classe_id = null){
+
+        $pontos = perguntas_realizada::whereIn('igreja_classe_id', [$igreja_classe_id])
+        ->sum('pontos');
+
+        return $pontos;
+    }
 }

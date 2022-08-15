@@ -80,6 +80,20 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
+        $total = User::whereIn('igreja_classe_id',  [$this->usuario()->igreja_classe_id])->count();
+
+        //dd($total);
+
+        if($total >= 15)
+        {
+             return response()->json([
+                "message" => "Atingiu limite de 15 Membros",
+                "errors" => [
+                    "count" => "Quantidade maxima de 15 Membros Atingido"
+                ]
+            ], 422); 
+        }
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'cpf' => ['required', 'string', 'max:11'],

@@ -7,6 +7,17 @@
         </a>
 @endif
         <br>
+<div class="card pmd-card text-center mb-4"> 
+    <!-- Card body --> 
+    <div class="card-body pmd-floating-content-wrapper"> 
+        <i class="pmd-icon-circle bg-primary  pmd-floating-content-tc">
+            <img src="{{ asset('assets/img/logo.jpg') }}" class="rounded-circle" alt="" width="100">
+        </i>	 
+        <h2></h2>
+        <h3 class="card-title display-4 pt-3"><strong>{{ $dados_pontos  }} Pontos</strong></h3> 
+        <p class="card-subtitle"></p>  
+    </div>
+</div>
 @if(@count($alternativas) > 0)
     
 @foreach($alternativas as $r)
