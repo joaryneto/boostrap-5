@@ -18,8 +18,8 @@
     <!-- Propeller checkbox js -->
     <script type="text/javascript" src="{!! asset('assets/propellerkit/components/alert/js/alert.js') !!}"></script>
 
-    <!-- Cookie jquery file -->
-    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
+    <!-- Cookie jquery file 
+    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>-->
     
     <!-- sparklines chart jquery file -->
     <script src="{!! asset('assets/ectecnologia/vendor/sparklines/jquery.sparkline.min.js') !!}"></script>
@@ -29,7 +29,7 @@
     
     <!-- Swiper carousel jquery file -->
     <script src="{!! asset('assets/ectecnologia/vendor/swiper/js/swiper.min.js') !!}"></script>
-    
+    <script src="{!! asset('assets/ectecnologia/vendor/sweetalert/sweetalert.min.js') !!}"></script>
     <!-- Application main common jquery file -->
     <script src="{!! asset('assets/ectecnologia/js/main.js') !!}"></script>
 
@@ -46,77 +46,32 @@
     <script type="text/javascript" src="{!! asset('assets/propellerkit/components/card/js/jquery.masonry.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('assets/magnific/jquery.magnific-popup.min.js') !!}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
 
-    <!-- PWA -->
+    <!-- PWA 
     <script src="{!! asset('assets/app/scripts/luxon-1.11.4.js') !!}"></script>
-     <!-- <script src="{!! asset('assets/app/scripts/app.js') !!}"></script> -->
-    <!-- CODELAB: Add the install script here -->
-    <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>
+     <-- <script src="{!! asset('assets/app/scripts/app.js') !!}"></script> --
+    <-- CODELAB: Add the install script here --
+    <script src="{!! asset('assets/app/scripts/install.js') !!}"></script>-->
 
-    </script>
-	
-    <!-- page level script -->
-    <script>
-        $(window).on('load', function() {
-            var swiper = new Swiper('.introduction', {
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-            });
+    <!-- Select2 js-->
+    <script type="text/javascript" src="http://propeller.in/components/select2/js/select2.full.js"></script>
+
+    <!-- Propeller Select2 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            
+            $(".select-tags").select2({
+                tags: false,
+                theme: "bootstrap",
+            })
         });
-        
-        var deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', function(e) {
-        console.log('beforeinstallprompt Event fired');
-        e.preventDefault();
-
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-
-        return false;
-        });
-
-        const btnSave = document.getElementById('btninstall');
-
-    btnSave.addEventListener('click', function() {
-        if(deferredPrompt !== undefined) {
-            // The user has had a postive interaction with our app and Chrome
-            // has tried to prompt previously, so let's show the prompt.
-            deferredPrompt.prompt();
-
-            // Follow what the user has done with the prompt.
-            deferredPrompt.userChoice.then(function(choiceResult) {
-
-            console.log(choiceResult.outcome);
-
-            if(choiceResult.outcome == 'dismissed') {
-                console.log('User cancelled home screen install');
-            }
-            else {
-                console.log('User added to home screen');
-            }
-
-            // We no longer need the prompt.  Clear it up.
-            deferredPrompt = null;
-            });
-        }
-    });
-
     </script>
-    <script>
 
-    // CODELAB: Register service worker.
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('{!! asset("/service-worker.js") !!}')
-                .then((reg) => {
-                console.log('Service worker registered.', reg);
-                });
-        });
-    }
-    </script>
-        
+    <!-- Propeller Select2 -->
+    <script type="text/javascript" src="http://propeller.in/components/select2/js/pmd-select2.js"></script>
+
     <script>
         $(document).ready(function(){
             $('.telefone').inputmask('99999999999');
@@ -179,3 +134,120 @@
         });
 
 </script>
+
+<!--<script>
+
+const server = "http://pg.local";
+
+//Vue.component(swal)
+
+new Vue({
+    el: '#root',
+    data: {
+        users: [],
+        formData: {}
+    },
+    async created() {
+
+        let results = await axios.get(`${server}/users`);
+
+        this.users = results.data;
+
+    },
+    methods: {
+        async addUser(data) {
+                    if (!data.name) {
+                        
+                        alert('Informe o nome');
+
+                    } else if (!data.email) {
+                        
+                        alert('Informe o email');
+
+                    } else {
+                        
+                            let results = await axios.post(`${server}/users`, data)
+                            .catch(function (error) {
+                                if (error.response) {
+                                // A requisição foi feita e o servidor respondeu com um código de status
+                                // que sai do alcance de 2xx
+                                    //console.error(error.response.data.errors);
+
+                                    //console.log(JSON.parse(error.response.data.errors.email));
+
+                                    var teste = [''+ error.response.data.errors.email +'',''+ error.response.data.errors.numero_telefone +''];
+                                    var dados = "";
+
+                                    console.log(teste);
+
+                                    for (i = 0; i < teste.length; i++){
+                                        if(teste[i] != 'undefined'){
+                                            dados = teste[i];
+                                        }
+                                    }
+
+                                    swal({   
+                                            title: "Atenção!",   
+                                            text: ''+ dados +'',   
+                                            timer: 2000,   
+                                            icon: "error",
+                                            showConfirmButton: false ,
+                                    });
+
+
+                                } else if (error.request) {
+                                // A requisição foi feita mas nenhuma resposta foi recebida
+                                // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
+                                // http.ClientRequest no node.js
+                                    console.error(error.request);
+                                } else {
+                                // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
+                                    console.error('Error', error.message);
+                                }
+                            //console.error(error.config);
+                        });
+
+                        this.users.push({
+                            id: results.data.id,
+                            name: results.data.name,
+                            email: results.data.email,
+                            numero_telefone: results.data.numero_telefone,
+                            igreja_classe_id: results.data.igreja_classe_id
+                        });
+                        
+
+                        $('#form-dialog').modal('hide');
+                    }
+        },
+        async setUser(data) {
+
+            if (!data.name) {
+                alert('Informe o nome');
+            } else if (!data.email) {
+                alert('Informe o email');
+            } else {
+                
+                await axios.patch(`${server}/users/${data.id}`, data);
+                
+            }
+            
+        },
+        async removeUser(id) {
+
+            await axios.delete(`${server}/users/${id}`)
+            .then(resp => {
+                console.log(resp.data);
+            })
+            .catch(err => {
+                // Handle Error Here
+                console.error(err);
+            });
+
+            this.users = this.users.filter(user => {
+                return (user.id != id);
+            })
+        }
+    }
+})
+
+</script>-->

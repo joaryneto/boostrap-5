@@ -27,15 +27,17 @@ class Perguntas extends Model
         $count = 0;
         foreach($perguntas as $b){
 
-            $respostas = DB::table('perguntas_realizadas')
+            $realizada = DB::table('perguntas_realizadas')
             ->select('id','pergunta_id')
             ->where('pergunta_id', $b->id)
             ->where('igreja_classe_id', $usuario->igreja_classe_id)
-            ->get();
+            ->first();
 
             //dd(@count($respostas));
 
-            if(@count($respostas) == 0){
+            if(@count($realizada) > 0){ $id = $realizada->id;}else{ $id = null;}
+
+            //if(@count($realizada) != 0){
 
                 $gruposs = DB::table('perguntas_grupos')
                 ->select('id','perguntas_id','titulo', 'descricao')
@@ -49,7 +51,8 @@ class Perguntas extends Model
                         'titulo' => $b->titulo,
                         'descricao' => $b->descricao,
                         'tipo' => $b->tipo,
-                        'ordem' => $b->ordem
+                        'ordem' => $b->ordem,
+                        'realizada_id' => $id
                     ];
 
                     foreach($gruposs as $grupo){
@@ -73,17 +76,25 @@ class Perguntas extends Model
 
                             foreach($alternativa as $key => $c){
 
+                                $respostas = respostas::select('id','perguntas_alternativas_id','perguntas_id',)
+                                ->where('perguntas_alternativas_id', $c->id)
+                                ->where('igreja_classe_id', $usuario->igreja_classe_id)
+                                ->first();
+
+                                if(@count($respostas) > 0){ $status = true;}else{ $status=false;}
+
                                 $dados[$b->id]['linha']['itens'][$d->id]['titulo'] = $d->titulo;
                                 $dados[$b->id]['linha']['itens'][$d->id]['id'] = $d->id;
                                 $dados[$b->id]['linha']['itens'][$d->id]['opcoes'][$c->id] = (object)[ 
                                     'id' => $c->id,
+                                    'status' => $status
                                 ];
                             }
                         }
                     }
                 }
                 $count++;
-            }
+            //}
         }
 
         $dados['total'] = $count;
@@ -108,7 +119,7 @@ class Perguntas extends Model
              'galerias.image')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
             ->join('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
-            ->where('perguntas_realizadas.igreja_classe_id', $usuario->igreja_classe_id)
+            ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
             ->orderBy('perguntas.ordem')
             ->get();
 

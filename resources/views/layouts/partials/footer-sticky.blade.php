@@ -37,6 +37,12 @@
                     <small class="sr-only">Perfil</small>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="profile" aria-selected="false">
+                    <i class="material-icons">help</i>
+                    <small class="sr-only">Ajuda</small>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- sticky footer tabs ends -->

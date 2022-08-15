@@ -44,6 +44,110 @@ class LoginController extends Controller
 
         return $this->authenticated($request, $user);
     }
+
+    public function users(){
+
+        $dados = User::select('*')->get();
+
+        return response()->json($dados);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            //'cpf' => ['required', 'string', 'max:11'],
+            'email' => ['string', 'max:255', 'unique:users'],
+            'numero_telefone' => ['string', 'unique:users'],
+            'igreja_classe_id' => ['required','string']
+            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
+        $username   =  explode('@',$data['email']);
+
+        //$post = User::create($request->all());
+    
+        $post = User::create([
+            'name' => $data['name'],
+            //'cpf'  => $data['cpf'], 
+            'email' => $data['email'],
+            'username' => $username[0],
+            'igreja_classe_id' => $data['igreja_classe_id'],
+            'numero_telefone' => $telefone,
+            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+        ]);
+
+        return response()->json($post);
+    }
+
+    public function Creat(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'cpf' => ['required', 'string', 'max:11'],
+            'email' => ['string', 'max:255', 'unique:users'],
+            'numero_telefone' => ['string', 'unique:users'],
+            'igreja_classe_id' => ['required','string']
+            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
+        $username   =  explode('@',$data['email']);
+
+        //$post = User::create($request->all());
+    
+        $post = User::create([
+            'name' => $data['name'],
+            'cpf'  => $data['cpf'], 
+            'email' => $data['email'],
+            'username' => $username[0],
+            'igreja_classe_id' => $data['igreja_classe_id'],
+            'numero_telefone' => $telefone,
+            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+        ]);
+
+        return redirect()->to('/inicio');
+    }
+
+    public function StoreSupervisor(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'cpf' => ['required', 'string', 'max:11'],
+            'email' => ['string', 'max:255', 'unique:users'],
+            'numero_telefone' => ['string', 'unique:users'],
+            'igreja_classe_id' => ['required','string']
+            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
+        $username   =  explode('@',$data['email']);
+
+        //$post = User::create($request->all());
+
+        dd($data['igreja_classe_id']);
+    
+        $post = User::create([
+            'name' => $data['name'],
+            'cpf'  => $data['cpf'], 
+            'email' => $data['email'],
+            'username' => $username[0],
+            'igreja_classe_id' => $data['igreja_classe_id'],
+            'numero_telefone' => $telefone,
+            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+            'permissao' => 1
+        ]);
+
+        return redirect()->to('/inicio');
+    }
+
+    public function delete($id)
+    {
+        User::destroy($id);
+    
+        return response()->json("ok");
+    }
     
 
     /**

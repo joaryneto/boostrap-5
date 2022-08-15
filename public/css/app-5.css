@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+/* Propeller icons */
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "https://opensource.propeller.in/components/icons/css/google-icons.css";
+
+
 code[class*=language-],pre[class*=language-]{
     color:#000;
     background:0 0;
@@ -1441,7 +1447,7 @@ pre code{
     color:#212529
 }
 .table td,.table th{
-    padding:.75rem;
+    /*padding:.75rem;*/
     vertical-align:top;
     border-top:1px solid #dee2e6
 }
@@ -4876,7 +4882,7 @@ a.close.disabled{
 }
 .modal-header{
     display:-ms-flexbox;
-    display:flex;
+    /*display:flex;*/
     -ms-flex-align:start;
     align-items:flex-start;
     -ms-flex-pack:justify;
@@ -13515,7 +13521,7 @@ a:focus,a:hover{
     background-color:transparent
 }
 .pmd-table.table td,.pmd-table.table th{
-    padding:.75rem;
+    padding:.1rem;
     line-height:1.5;
     text-align:left;
     vertical-align:middle;

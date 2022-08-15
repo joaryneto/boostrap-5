@@ -20,14 +20,125 @@
                     @include('auth.painel.perguntas.show')
                 @endif
                 </div>
-                <div class="tab-pane" id="recurring" role="tabpanel" aria-labelledby="recurring-tab">
-                </div>
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     @include('auth.painel.perfil.show')
+                </div>
+                <div class="tab-pane" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+                    @include('layouts.partials.navmenu')
                 </div>
             </div>
         </div>     
     </div>
+<!-- Dialog with Form Elements -->
+<div tabindex="-1" class="modal fade" id="form-dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="root">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+			<div class="modal-header pmd-modal-bordered">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h2 class="pmd-card-title-text">Incluir Membro</h2>
+			</div>					
+			<div class="modal-body">
+				<!--<form v-on:submit.prevent="addUser(formData)">-->
+					<form method="post" action="{{ route('create.perform') }}" enctype="multipart/form-data">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Nome</label>
+						<input type="text" class="mat-input form-control" id="name" name="name" required>						
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">CPF</label>
+						<input type="text" max="11" class="mat-input form-control" id="cpf" name="cpf" required>						
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">ES OU PG</label>
+						<select class="mat-input form-control" name="igreja_classe_id" required>
+							@foreach($dados_classe as $cl)
+							@if(auth()->user()->igreja_classe_id == $cl->id)
+							<option value="{{ $cl->id }}"> {{ $cl->titulo }} </option>
+							@endif
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Email</label>
+						<input type="text" class="mat-input form-control" id="email" name="email" required>
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Celular</label>
+						<input type="text" class="mat-input form-control" id="mobil" name="numero_telefone" required>
+					</div>
+					<!--<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label class="control-label">Message</label>
+						<textarea required class="form-control"></textarea>
+					</div>-->
+					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+						<input type="checkbox" value="" required>
+						<span class="pmd-checkbox"> Aceita termos e Condições</span> </label>
+				 
+					<div class="pmd-modal-action">
+						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
+						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Descartar</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- Dialog with Form Elements -->
+<div tabindex="-1" class="modal fade" id="form-dialog2" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="root">
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+			<div class="modal-header pmd-modal-bordered">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h2 class="pmd-card-title-text">Incluir Lider/Supervidor</h2>
+			</div>					
+			<div class="modal-body">
+				<!--<form v-on:submit.prevent="addUser(formData)">-->
+					<form method="post" action="{{ route('StoreSupervisor.perform') }}" enctype="multipart/form-data">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Nome</label>
+						<input type="text" class="mat-input form-control" id="name" name="name" required>						
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">CPF</label>
+						<input type="text" max="11" class="mat-input form-control" id="cpf" name="cpf" required>						
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">ES OU PG</label>
+						<select class="mat-input form-control select-tags form-control pmd-select2-tags" name="igreja_classe_id" required>
+							@foreach($dados_classe as $cl)tt5
+								<option value="{{ $cl->id }}"> {{ $cl->titulo }} </option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Email</label>
+						<input type="text" class="mat-input form-control" id="email" name="email" required>
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Celular</label>
+						<input type="text" class="mat-input form-control" id="mobil" name="numero_telefone" required>
+					</div>
+					<!--<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label class="control-label">Message</label>
+						<textarea required class="form-control"></textarea>
+					</div>-->
+					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+						<input type="checkbox" value="" required>
+						<span class="pmd-checkbox"> Aceita termos e Condições</span> </label>
+				 
+					<div class="pmd-modal-action">
+						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
+						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Descartar</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
 <!-- page main ends -->
 </div>
 @include('layouts.partials.footer-sticky')

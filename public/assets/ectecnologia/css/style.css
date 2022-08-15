@@ -336,28 +336,6 @@ h6 {
     background: rgba(255, 255, 255, 0.5);
 }
 
-/* modal box */
-
-.modal-header {
-    padding: 0.5em 1rem;
-    border-bottom: 0
-}
-.popup-fullmenu .modal-dialog {
-    display: flex;
-    height: 100%;
-    margin: 0 auto;
-    align-items: center;
-}
-.popup-fullmenu .modal-content {
-    border-radius: 0;
-    max-height: 100%;
-    height: 824px;
-    overflow-y: auto;
-}
-.ios .modal-content > .background {
-    border-radius: 4px 4px 0 0
-}
-
 /* navigation menu */
 
 .navbar {
@@ -1457,7 +1435,7 @@ a:hover {
 .login-logo {
     width: 75px;
     height: auto;
-    margin-top: 15%;
+    margin-top: 5%;
 }
 .login-title {
     font-size: 50px;
@@ -1482,11 +1460,7 @@ a:hover {
     border-radius: 4px;
     padding: 10px;
 }
-.ios .modal-content .login-input-content {
-    border-radius: 0px;
-    padding: 0px !important;
-    margin-bottom: 15px;
-}
+
 .ios .login-input-content .input-group,
 .ios .login-input-content .form-group {
     margin-bottom: 15px

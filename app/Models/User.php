@@ -57,4 +57,41 @@ class User extends Authenticatable
     {
         return session()->get('usuario');
     }
+
+    public static function GetMembros($usuario){
+
+        if($usuario->permissao == 1){
+
+            $user = igrejas_classe::select('igreja_classe.titulo')
+            ->whereIn('igreja_classe.id', [$usuario->igreja_classe_id])
+            ->get();
+
+            $dados = [];
+            $dados['titulo'] = "ES E PGs";  
+
+            foreach($user as $p){
+                $dados['itens'][] = [
+                    'nome' => $p->titulo
+                ];
+            }
+        }
+        else{
+
+            $user = User::select('name')
+            ->whereIn('igreja_classe_id', [$usuario->igreja_classe_id])
+            ->get();
+
+            $dados = [];
+            $dados['titulo'] = "Membros";  
+
+            foreach($user as $p){
+                $dados['itens'][] = [
+                    'nome' => $p->name
+                ];
+            }
+        }
+        
+        return json_decode(json_encode((object) $dados), FALSE);;
+
+    }
 }

@@ -30,6 +30,9 @@
     <!-- swiper carousel CSS -->
     <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
 
+    <!-- swiper carousel CSS -->
+    <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/sweetalert/sweetalert.css') !!}">
+
     <!-- app CSS -->
     <link id="theme" rel="stylesheet" href="{!! asset('assets/ectecnologia/css/style.css') !!}" type="text/css">
 
@@ -45,7 +48,7 @@
     <link id="theme" rel="stylesheet" href="https://opensource.propeller.in/components/textfield/css/textfield.css" type="text/css">
 
     <!-- app CSS -->
-    <link id="theme" rel="stylesheet" href="{!! asset('css/app-4.css') !!}" type="text/css">
+    <link id="theme" rel="stylesheet" href="{!! asset('css/app-5.css') !!}" type="text/css">
 
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/upload-file.css') !!}" type="text/css">
     <link id="theme" rel="stylesheet" href="{!! asset('assets/propellerkit/components/file-upload/css/image-upload.css') !!}" type="text/css">

@@ -10,4 +10,13 @@ class Galeria extends Model
     use HasFactory;
 
     protected $table = 'galerias';
+
+    protected  $primaryKey = 'id';
+
+    protected $fillable = [
+        'id',
+        'pergunta_id',
+        'igreja_classe_id',
+        'image'
+    ];
 }

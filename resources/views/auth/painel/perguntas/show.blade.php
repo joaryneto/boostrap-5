@@ -13,6 +13,8 @@
 
         @if(@count($r->perguntas) > 0)
 
+        
+        @if(@count($r->perguntas))
         @foreach ($r->perguntas as $key => $p)
 <div class="row mb-3">
 <div class="col-md-12">
@@ -65,7 +67,12 @@
                                                         </label>
                                                         @elseif($p->tipo == 2)
                                                         <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
-                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}"
+                                                            @if($c->status == true)
+                                                            checked 
+                                                            disabled
+                                                            @endif
+                                                        >
                                                         </label>
                                                         @elseif($p->tipo == 3)
                                                         <label class=".pmd-textfield-floating-label">
@@ -158,6 +165,8 @@
         </div>
         </div>
         @endforeach
+
+        @endif
 
         @endif
     @endforeach

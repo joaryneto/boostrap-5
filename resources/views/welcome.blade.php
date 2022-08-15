@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro Exemplo com Vue</title>
-    <link href="https://fonts.googleapis.com/css2?family=Catamaran&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+	<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 
-    <div id="root">
+<div id="app" class="container" style="margin-top: 50px;">
 
-        <header>
-            <h1>Gerenciamento de Usuários com Vue</h1>
-        </header>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li> <router-link class="nav-link" to="/"> Home </router-link> </li>
+			<li> <router-link class="nav-link" to="desafios"> Desafios </router-link> </li>
+			<li> <router-link class="nav-link" to="perfil"> Desafios </router-link> </li>
+	    </ul>
+	  </div>
+	</nav>
 
-        <main>
+	<div class="text-center" style="margin-top: 20px;">
+		<router-view></router-view>
+	</div>
+</div>
 
-            <form v-on:submit.prevent="addUser(formData)">
+<!-- Vue Pages -->
+<script src="pages/home.vue.js"></script>
+<script src="pages/desafios.vue.js"></script>
+<script src="pages/perfil.vue.js"></script>
 
-                <div class="field">
-                    <label for="username-input">Nome</label>
-                    <input type="text" name="username" id="username-input" placeholder="Digite o nome do usuário" v-model="formData.name">
-                </div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/vue-router@4.1.3/dist/vue-router.global.js"></script>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
 
-                <div class="field">
-                    <label for="email-input">Email</label>
-                    <input type="email" name="email" id="email-input" placeholder="Digite o email do usuário" v-model="formData.email">
-                </div>
-                
-                <button type="submit">Cadastrar</button>
+<!-- Vue Instance and Routes -->
+<script>
+// 1. Define route components.
+// These can be imported from other files
+//const Home = { template: '<div>Home</div>' }
+//const About = { template: '<div>About</div>' }
 
-            </form>
+// 2. Define some routes
+// Each route should map to a component.
+// We'll talk about nested routes later.
+const routes = [
+  { path: '/', component: Home },
+  { path: '/desafios', component: Desafios },
+  { path: '/perfil', component: Perfil },
+]
 
-            <div>
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = VueRouter.createRouter({
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: VueRouter.createWebHashHistory(),
+  routes, // short for `routes: routes`
+})
 
-                <h3>Lista de Usuários</h3>
+// 5. Create and mount the root instance.
+const app = Vue.createApp({})
+// Make sure to _use_ the router instance to make the
+// whole app router-aware.
+app.use(router)
 
-                <ol>
-                    <li v-for="user in users" :key="user.id">
-                        <input type="text" v-model="user.name" v-on:change="setUser(user)">
-                        <input type="text" v-model="user.email" v-on:change="setUser(user)">
-                        <button class="user-delete" @click="removeUser(user.id)">Excluir</button>
-                    </li>
-                </ol>
+app.mount('#app')
 
-            </div>
-
-        </main>
-
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
-
-    <script>
-
-        const server = "http://localhost:8000/api";
-
-        new Vue({
-            el: '#root',
-            data: {
-                users: [],
-                formData: {}
-            },
-            async created() {
-
-                let results = await axios.get(`${server}/users`);
-
-                this.users = results.data;
-
-            },
-            methods: {
-                async addUser(data) {
-
-                    if (!data.name) {
-                        alert('Informe o nome');
-                    } else if (!data.email) {
-                        alert('Informe o email');
-                    } else {
-                        
-                        let results = await axios.post(`${server}/users`, data);
-
-                        this.users.push({
-                            id: results.data.id,
-                            name: results.data.name,
-                            email: results.data.email
-                        });
-                        
-                    }
-
-                },
-                async setUser(data) {
-
-                    if (!data.name) {
-                        alert('Informe o nome');
-                    } else if (!data.email) {
-                        alert('Informe o email');
-                    } else {
-                        
-                        await axios.patch(`${server}/users/${data.id}`, data);
-                        
-                    }
-                    
-                },
-                async removeUser(id) {
-
-                    await axios.delete(`${server}/users/${id}`);
-
-                    this.users = this.users.filter(user => {
-                        return (user.id != id);
-                    })
-                }
-            }
-        })
-
-    </script>
-
+</script>
 </body>
 </html>
