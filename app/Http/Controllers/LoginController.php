@@ -70,6 +70,7 @@ class LoginController extends Controller
 
            $dados = User::select('id','name')
            ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
+           ->where('permissao', 0)
            ->where('permissao', 0)->get();
         }
 
