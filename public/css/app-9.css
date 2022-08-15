@@ -13723,13 +13723,13 @@ a:focus,a:hover{
     background-color:#c9cbcd
 }
 .table-active,.table-active>td,.table-active>th{
-    background-color:rgba(0,0,0,.075)
+    /*background-color:rgba(0,0,0,.075)*/
 }
 .table-hover .table-active:hover{
-    background-color:rgba(0,0,0,.075)
+    /*background-color:rgba(0,0,0,.075)*/
 }
 .table-hover .table-active:hover>td,.table-hover .table-active:hover>th{
-    background-color:rgba(0,0,0,.075)
+    /*background-color:rgba(0,0,0,.075)*/
 }
 .table-heading{
     min-height:64px;
