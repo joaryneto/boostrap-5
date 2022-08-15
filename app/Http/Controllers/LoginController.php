@@ -54,7 +54,8 @@ class LoginController extends Controller
 
     public function GetClasse(){
 
-        $dados = User::GetMembros($this->usuario());
+        //$dados = User::GetMembros($this->usuario());
+        $dados = User::select('id','name')->where('permissao', 1)->get();
 
         return response()->json($dados);
     }

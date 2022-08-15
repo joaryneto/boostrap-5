@@ -94,7 +94,7 @@ new Vue({
         this.users = results.data;
 
         let results_supervisor = await axios.get(`${server}users/supervisor`);
-        this.classes = results_supervisor.data.itens;
+        this.classes = results_supervisor.data;
     },
     methods: {
         async addUser(data) {
@@ -199,13 +199,13 @@ new Vue({
         });
 
         this.classes.push({
-            id: results_supervisor.data.id,
-            name: results_supervisor.data.name,
-        });
-        
+                id: results_supervisor.data.id,
+                name: results_supervisor.data.name,
+            });
+            
 
-        $('#form-dialog2').modal('hide');
-    },
+            $('#form-dialog2').modal('hide');
+        },
         async setUser(data) {
 
             if (!data.name) {
