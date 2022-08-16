@@ -122,7 +122,7 @@
 					</div>-->
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Tipo</label>
-						<select class="mat-input form-control" name="igreja_classe_id" required>
+						<select class="mat-input form-control" name="permissao" required>
 								<option value="0"> Lider </option>
 								<option value="1"> Supervisor </option>
 								<option value="2"> Pastor </option>
