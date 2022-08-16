@@ -3,12 +3,14 @@
 <head>
 	<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link id="theme" rel="stylesheet" href="{!! asset('css/app1.css') !!}" type="text/css">
 </head>
 <body>
 
 <div id="app" class="container" style="margin-top: 50px;">
 
-	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+
+	<nav class="footer-tabs footer-spaces border-top text-center" style="background-color: #e3f2fd;">
 	  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li> <router-link class="nav-link" to="/"> Home </router-link> </li>
@@ -22,7 +24,36 @@
 		<router-view></router-view>
 	</div>
 </div>
-
+<nav class="footer-tabs footer-spaces border-top text-center" style="background-color: #e3f2fd;">
+<div id="navbarTogglerDemo03">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+			<router-link class="nav-link" to="/">
+                    <i class="material-icons">home</i>
+                    <small class="sr-only">Inicio</small>
+			</router-link>
+            </li>
+            <li class="nav-item">
+				<router-link class="nav-link" to="desafios">
+                    <i class="material-icons">description</i>
+                    <small class="sr-only">Descrição</small>
+				</router-link>
+            </li>
+            <li class="nav-item">
+				<router-link class="nav-link" to="perfil">
+                    <i class="material-icons">person</i>
+                    <small class="sr-only">Perfil</small>
+				</router-link>
+            </li>
+            <li class="nav-item">
+				<router-link class="nav-link">
+                    <i class="material-icons">help</i>
+                    <small class="sr-only">Ajuda</small>
+				</router-link>
+            </li>
+        </ul>
+    </div>
+</nav>
 <!-- Vue Pages -->
 <script src="pages/home.vue.js"></script>
 <script src="pages/desafios.vue.js"></script>

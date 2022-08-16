@@ -32,6 +32,8 @@
                                 <form autocomplete="false" method="post" action="{{ route('login.perform') }}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <div class="login-input-content">
+                                    <input class="hidden" type="text" style="display: none!important; visibility: hidden!important;" ></input>
+                                    <input class="hidden" type="password" style="display: none!important; visibility: hidden!important;" ></input>
                                     <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">person</i></span>
