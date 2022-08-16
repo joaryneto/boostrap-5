@@ -105,9 +105,7 @@
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">ES OU PG</label>
 						<select class="mat-input form-control" v-model="formData.igreja_classe_id" multiple="multiple" required>
-							@foreach($dados_classe as $cl)
-								<option value="{{ $cl->id }}"> {{ $cl->titulo }} </option>
-							@endforeach
+								<option v-for="user in pgs" :value="user.id" v-text="user.titulo"></option>
 						</select>
 					</div>
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">

@@ -193,7 +193,6 @@ new Vue({
                 titulo: results_pgs.data.titulo,
             });
 
-
             //$('#form-pg').modal('hide');
         },
         async addUserSupervidor(data) {
