@@ -148,7 +148,7 @@
 		<div class="modal-content">
 			<div class="modal-header pmd-modal-bordered">
 				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-				<h2 class="pmd-card-title-text">Incluir Lider/Supervidor</h2>
+				<h2 class="pmd-card-title-text">Incluir Classe e PG</h2>
 			</div>					
 			<div class="modal-body">
 				<!--<form v-on:submit.prevent="addUser(formData)">-->
