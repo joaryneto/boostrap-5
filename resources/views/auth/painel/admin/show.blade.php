@@ -39,7 +39,7 @@
                                         <h2>Total de Pontos: {{ $p->pontos }}</h2>
                                     </div>
                                     @if($p->tipo == 1 || $p->tipo == 2 || $p->tipo == 3)
-                                        <table class="table pmd-table">
+                                        <table class="table pmd-table table-sm">
                                             <thead>
                                                 <tr>
                                                     <th></th>

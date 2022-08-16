@@ -144,6 +144,53 @@
 		</div>
 	</div>
 </div>
+<!-- Dialog with Form Elements -->
+<div tabindex="-1" class="modal fade" id="form-pg" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header pmd-modal-bordered">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h2 class="pmd-card-title-text">Incluir Lider/Supervidor</h2>
+			</div>					
+			<div class="modal-body">
+				<!--<form v-on:submit.prevent="addUser(formData)">-->
+					<form v-on:submit.prevent="addPG(formData)">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">Nome do PG/ES</label>
+						<input type="text" class="mat-input form-control" id="titulo" v-model="formData.titulo" required>						
+					</div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label for="first-name">IGREJA</label>
+						<select class="mat-input form-control" v-model="formData.igreja_id" required>
+								<option v-for="user in igrejas" :value="user.id" v-text="user.titulo">
+
+								</option>
+						</select>
+					</div>
+					<br><br>
+					<ul class="list-group">
+						<li class="list-group-item" v-for="user in pgs" :key="user.id">
+							<a href="#" class="media">
+								<div class="w-auto h-100">
+									<figure class="avatar avatar-40"><img src="{{ asset('assets/img/logo.jpg') }}" alt=""> </figure>
+								</div>
+								<div class="media-body">
+									<h5 v-text="user.titulo"><span class="status-online bg-success"></span></h5>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<br><br>
+					<div class="pmd-modal-action">
+						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
+						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Descartar</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
 <!-- page main ends -->
 </div>
 @include('layouts.partials.footer-sticky')

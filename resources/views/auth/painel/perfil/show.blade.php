@@ -22,7 +22,8 @@
                             @if(auth()->user()->permissao == 0)
                                 <a data-target="#form-dialog" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Incluir Membros</a>
                             @elseif(auth()->user()->permissao == 2)
-                                <a data-target="#form-dialog2" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Incluir Lider ou Supervisor</a>
+                                <a data-target="#form-pg" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">ES/PG</a>
+                                <a data-target="#form-dialog2" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Lider/Supervisor</a>
                             @endif
                         </div>
                         <div class="pmd-card-actions">

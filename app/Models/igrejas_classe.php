@@ -11,6 +11,12 @@ class igrejas_classe extends Model
 
     protected $table = 'igrejas_classe';
 
+    protected $fillable = [
+        'sistema',
+        'igreja_id',
+        'titulo',
+        'descricao',
+    ];
 
     public static function GetClasse()
     {

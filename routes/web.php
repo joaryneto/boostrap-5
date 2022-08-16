@@ -29,6 +29,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     Route::get('/users', 'LoginController@users')->name('users.perform');
     Route::post('/users', 'LoginController@store')->name('store.perform');
+
+    Route::get('/api/igrejas', 'LoginController@igrejas')->name('igrejas.perform');
+    Route::get('/users/pg', 'LoginController@pg')->name('pg.perform');
+    Route::post('/users/createpg', 'LoginController@CreatePG')->name('pgstore.perform');
+
     Route::post('/users/create', 'LoginController@criar')->name('create.perform');
     Route::get('/users/supervisor', 'LoginController@GetClasse')->name('supervisor.perform');
     Route::post('/users/supervisor', 'LoginController@StoreSupervisor')->name('StoreSupervisor.perform');

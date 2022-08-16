@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
+use App\Models\igrejas;
 use Illuminate\Support\Facades\Auth;
 use Twilio\Rest\Client;
 use App\Models\User;
@@ -180,6 +181,36 @@ class LoginController extends Controller
             'numero_telefone' => $telefone,
             'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
             'permissao' => $data['permissao'],
+        ]);
+
+        return response()->json($post);
+    }
+
+    public function pg(){
+
+        $dados = igrejas_classe::select('*')->get();
+
+        return response()->json($dados);
+    }
+
+    public function igrejas(){
+
+        $dados = igrejas::select('*')
+        ->get();
+
+        return response()->json($dados);
+    }
+
+    public function CreatePG(Request $request)
+    {
+        $data = $request->validate([
+            'igreja_id' => ['required','integer'],
+            'titulo' => ['required', 'string', 'max:255'],
+        ]);
+
+        $post = igrejas_classe::create([
+            'igreja_id' => $data['igreja_id'],
+            'titulo' => $data['titulo'],
         ]);
 
         return response()->json($post);
