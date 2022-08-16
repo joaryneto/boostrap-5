@@ -32,13 +32,11 @@
                                 <form autocomplete="false" method="post" action="{{ route('login.perform') }}">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <div class="login-input-content">
-                                    <input class="hidden" type="text" style="display: none!important; visibility: hidden!important;" ></input>
-                                    <input class="hidden" type="password" style="display: none!important; visibility: hidden!important;" ></input>
                                     <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">person</i></span>
                                             </div>
-                                            <input autocomplete="false" type="username" class="form-control" placeholder="Email ou Usuario" name="username" value="{{ old('username') }}" autocomplete="off" aria-label="Username" required="required" autofocus>
+                                            <input type="text" class="form-control" placeholder="Usuario" name="username" value="{{ old('username') }}" autocomplete="off" required="required" autofocus>
                                             @if ($errors->has('username'))
                                                 <span class="text-danger text-left">{{ $errors->first('username') }}</span>
                                             @endif
@@ -47,7 +45,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="material-icons">lock</i></span>
                                             </div>
-                                            <input type="password" class="form-control" placeholder="Senha" name="password" value="{{ old('password') }}" autocomplete="off" aria-label="password" required="required">
+                                            <input type="text" class="form-control" id="password" placeholder="Senha" name="password" value="{{ old('password') }}" autocomplete="off" required="required">
                                             @if ($errors->has('password'))
                                                 <span class="text-danger text-left">{{ $errors->first('password') }}</span>
                                             @endif

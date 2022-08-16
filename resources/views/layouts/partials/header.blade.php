@@ -68,6 +68,16 @@
           font-size: 3.5rem;
         }
       }
+
+      @font-face {
+        font-family: 'password';
+        font-style: normal;      
+        src: url(css/password.ttf);
+      }
+      #password {
+        font-family: 'password';
+        width: 100px; height: 16px;  
+      }
     </style>
 
     
