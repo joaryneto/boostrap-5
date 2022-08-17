@@ -144,6 +144,7 @@ class Perguntas extends Model
                         'id' => $b->id,
                         'titulo' => $b->titulo,
                         'descricao' => $b->descricao,
+                        'nome_classe' => $b->nome_classe,
                         'tipo' => $b->tipo,
                         'pontos' => $poSum->pontos,
                         'realizado_id' => $b->realizado_id,
