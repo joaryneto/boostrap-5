@@ -2,7 +2,7 @@
     <div class="col-md-12"> 
         <div class="component-box">
             <h2 class="block-title" style="line-height: initial;font-size: 30px;">TOP 10</h2>
-            <div class="row">
+            <div class="row col-md-12">
             @foreach($dados_classe as $key => $p)
             <div class="col-md-6 col-lg-4">
                 <div class="card pmd-card mb-4">
