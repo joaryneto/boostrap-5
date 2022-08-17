@@ -2,10 +2,10 @@
     <div class="col-md-12"> 
         <div class="component-box">
             <h2 class="block-title" style="line-height: initial;font-size: 30px;">TOP 10</h2>
-            <div class="row col-md-12">
+            <div class="row">
             @foreach($dados_classe as $key => $p)
-            <div class="col-md-6 col-lg-4">
-                <div class="card pmd-card mb-4">
+            <div class="col-md-6 col-lg-6">
+                <div class="card pmd-card mb-4" style="margin-bottom: 10px;">
                     <!-- Card body -->
                     <div class="card-body media align-items-center">
                         <img alt="profile-pic" src="{{ asset('assets/img/logo2.png') }}" class=" mr-3" style="max-width: 80px;">
