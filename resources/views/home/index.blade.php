@@ -38,7 +38,7 @@
 				<h2 class="pmd-card-title-text">Incluir Membro</h2>
 			</div>					
 			<div class="modal-body">
-					<form v-on:submit.prevent="addUser(formData)">
+					<form v-on:submit.prevent="addUser(formData)" autocomplete="off">
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome</label>
 						<input type="text" class="mat-input form-control" id="name" v-model="formData.name" required>						
@@ -93,7 +93,7 @@
 			</div>					
 			<div class="modal-body">
 				<!--<form v-on:submit.prevent="addUser(formData)">-->
-					<form v-on:submit.prevent="addUserSupervidor(formData)">
+					<form v-on:submit.prevent="addUserSupervidor(formData)" autocomplete="off">
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome</label>
 						<input type="text" class="mat-input form-control" id="name" v-model="formData.name" required>						
@@ -152,7 +152,7 @@
 			</div>					
 			<div class="modal-body">
 				<!--<form v-on:submit.prevent="addUser(formData)">-->
-					<form v-on:submit.prevent="addPG(formData)">
+					<form v-on:submit.prevent="addPG(formData)" autocomplete="off">
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome do PG/ES</label>
 						<input type="text" class="mat-input form-control" id="titulo" v-model="formData.titulo" required>						
