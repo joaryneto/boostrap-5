@@ -25,10 +25,8 @@ class perguntas_realizada extends Model
 
     public static function GetPontos($pergunta = null, $igreja_classe_id = null){
 
-        $pontos = perguntas_realizada::selectRaw('SUM(pontos) as pontos')
-        ->where('pergunta_id', $pergunta)
-        ->whereIn('igreja_classe_id', [$igreja_classe_id])
-        ->first();
+        $pontos = perguntas_realizada::whereIn('igreja_classe_id', [$igreja_classe_id])
+        ->sum('pontos');
 
         return $pontos;
     }

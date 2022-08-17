@@ -27,9 +27,6 @@
                         <div class="col-12 text-left">
                             <h4>{{ $p->descricao }}</h4>
                         </div>
-                        <div class="col-12 text-left">
-                            <h2>{{ $p->nome_classe }}</h2>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -39,7 +36,10 @@
                             <!-- Reflow table -->
                                 <div class="table-responsive">
                                     <div class="input-group pmd-input-group-outline">
-                                        <h2>Total de Pontos: {{ $p->pontos }}</h2>
+                                        <h2>{{ $p->nome_classe }} </h2><br><br>
+                                    </div>
+                                    <div class="input-group pmd-input-group-outline">
+                                        <h2>Pontos: {{ $p->pontos }}</h2>
                                     </div>
                                     @if($p->tipo == 1 || $p->tipo == 2 || $p->tipo == 3)
                                         <table class="table pmd-table table-sm">

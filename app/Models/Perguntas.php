@@ -146,7 +146,7 @@ class Perguntas extends Model
                         'descricao' => $b->descricao,
                         'nome_classe' => $b->nome_classe,
                         'tipo' => $b->tipo,
-                        'pontos' => $poSum->pontos,
+                        'pontos' => $poSum,
                         'realizado_id' => $b->realizado_id,
                         'image' => json_decode($b->image),
                         'ordem' => $b->ordem,
