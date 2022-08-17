@@ -134,7 +134,7 @@
 				 
 					<div class="pmd-modal-action">
 						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
-						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Descartar</button>
+						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Fechar</button>
 					</div>
 				</form>
 			</div>
@@ -181,7 +181,7 @@
 					<br><br>
 					<div class="pmd-modal-action">
 						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
-						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Descartar</button>
+						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Fechar</button>
 					</div>
 				</form>
 			</div>

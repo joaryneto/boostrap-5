@@ -1577,7 +1577,7 @@ pre code{
     background-color:#b9bbbe
 }
 .table-active,.table-active>td,.table-active>th{
-    background-color:rgba(0,0,0,.075)
+    /*background-color:rgba(0,0,0,.075)*/
 }
 .table-hover .table-active:hover{
     background-color:rgba(0,0,0,.075)
