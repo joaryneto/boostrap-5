@@ -85,12 +85,12 @@ class LoginController extends Controller
 
         //dd($total);
 
-        if($total >= 15)
+        if($total >= 12)
         {
              return response()->json([
-                "message" => "Atingiu limite de 15 Membros",
+                "message" => "Sua classe ou PG atingiu limite",
                 "errors" => [
-                    "count" => "Quantidade maxima de 15 Membros Atingido"
+                    "count" => "Quantidade maxima atingido 12°"
                 ]
             ], 422); 
         }
@@ -110,6 +110,7 @@ class LoginController extends Controller
         //$post = User::create($request->all());
     
         $post = User::create([
+            'sistema' => '07121135002289',
             'name' => $data['name'],
             'cpf'  => $data['cpf'], 
             'email' => $data['email'],
@@ -141,6 +142,7 @@ class LoginController extends Controller
         //dd($data);
 
         $post = User::create([
+            'sistema' => '07121135002289',
             'name' => $data['name'],
             'cpf'  => $data['cpf'], 
             'email' => $data['email'],
@@ -173,6 +175,7 @@ class LoginController extends Controller
         $classe = implode(",",$data['igreja_classe_id']);
     
         $post = User::create([
+            'sistema' => '07121135002289',
             'name' => $data['name'],
             'cpf'  => $data['cpf'], 
             'email' => $data['email'],
@@ -205,10 +208,11 @@ class LoginController extends Controller
     {
         $data = $request->validate([
             'igreja_id' => ['required','integer'],
-            'titulo' => ['required', 'string', 'max:255'],
+            'titulo' => ['required', 'string', 'max:30', 'unique:igrejas_classe'],
         ]);
 
         $post = igrejas_classe::create([
+            'sistema' => '07121135002289',
             'igreja_id' => $data['igreja_id'],
             'titulo' => $data['titulo'],
         ]);
