@@ -1,4 +1,6 @@
-<div class="page-content">
+<section class="row component-section">
+    <div class="col-md-12"> 
+        <div class="component-box">
 @if($alternativas->total == 0)
         <a class=" text-center d-block p-4 bg-light" href="#">
             
@@ -182,20 +184,6 @@
         @endif
     @endforeach
     @endif
-    <div class="footer-wrapper" style="margin-top: -100px;">
-        <div class="footer">
-            <div class="row mx-0">
-                <div class="col">
-                    
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="row mx-0">
-                <div class="col  text-center">
-                    Todos os direitos reservados @ {{ date('Y')}}, Igreja Adventista
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+</div>
+</section>
