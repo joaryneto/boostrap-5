@@ -110,6 +110,7 @@ class Perguntas extends Model
         $perguntas = Perguntas::
             select('perguntas.id',
              'perguntas.titulo', 
+             'igrejas_classe.titulo as nome_classe',
              'perguntas.descricao',
              'perguntas.tipo',
              'perguntas.ordem',
@@ -119,6 +120,7 @@ class Perguntas extends Model
              'galerias.image',
              'perguntas.ordem')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
+            ->join('igrejas_classe','igrejas_classe.id','=','perguntas_realizadas.igreja_classe_id')
             ->join('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
             ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
             ->orderBy('perguntas.ordem')

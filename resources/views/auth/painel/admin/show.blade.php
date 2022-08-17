@@ -27,6 +27,9 @@
                         <div class="col-12 text-left">
                             <h4>{{ $p->descricao }}</h4>
                         </div>
+                        <div class="col-12 text-left">
+                            <h2>{{ $p->nome_classe }}</h2>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
