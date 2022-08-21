@@ -59,15 +59,15 @@ class LoginController extends Controller
     public function GetClasse(){
 
         //$dados = User::GetMembros($this->usuario());
-        if($this->usuario()->permissao == 1){
+        if($this->usuario()->permissao == 2){
 
             $dados = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo as name')
             ->whereIn('igrejas_classe.id', [$this->usuario()->igreja_classe_id])
             ->get();
 
         }
-        elseif($this->usuario()->permissao == 2){
-           $dados = User::select('id','name')->where('permissao', 1)->get();
+        elseif($this->usuario()->permissao == 3){
+           $dados = User::select('id','name')->where('permissao', [1,2,3])->get();
         }
         else{
 
@@ -117,7 +117,7 @@ class LoginController extends Controller
             'username' => $username[0],
             'igreja_classe_id' => $this->usuario()->igreja_classe_id,
             'numero_telefone' => $telefone,
-            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+            'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456
         ]);
 
         return response()->json($post);
@@ -149,7 +149,7 @@ class LoginController extends Controller
             'username' => $username[0],
             'igreja_classe_id' => $data['igreja_classe_id'],
             'numero_telefone' => $telefone,
-            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+            'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456
         ]);
 
         return redirect()->to('/inicio');
@@ -182,7 +182,7 @@ class LoginController extends Controller
             'username' => $username[0],
             'igreja_classe_id' => $classe,
             'numero_telefone' => $telefone,
-            'password' => '$2a$10$ENks1VR8qkoryRLZ4ddTDen55ILvF2o2xrGz7K7Ta0tEOVgAD8Vii', // Senha: 123456
+            'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456
             'permissao' => $data['permissao'],
         ]);
 

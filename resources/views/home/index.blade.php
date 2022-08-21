@@ -14,7 +14,7 @@
                     @include('auth.painel.ranking.show')
                 </div>
                 <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
-                @if(auth()->user()->permissao == 1 || auth()->user()->permissao == 2)
+                @if(auth()->user()->permissao == 2 || auth()->user()->permissao == 3)
                     @include('auth.painel.admin.show')
                 @else
                     @include('auth.painel.perguntas.show')
@@ -123,9 +123,9 @@
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Tipo</label>
 						<select class="mat-input form-control" v-model="formData.permissao" required>
-								<option value="0"> Lider </option>
-								<option value="1"> Supervisor </option>
-								<option value="2"> Pastor </option>
+								<option value="1"> Lider </option>
+								<option value="2"> Supervisor </option>
+								<option value="3"> Pastor </option>
 						</select>
 					</div>
 					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
@@ -165,6 +165,7 @@
 								</option>
 						</select>
 					</div>
+					<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
 					<br><br>
 					<ul class="list-group">
 						<li class="list-group-item" v-for="user in pgs" :key="user.id">
@@ -180,7 +181,6 @@
 					</ul>
 					<br><br>
 					<div class="pmd-modal-action">
-						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
 						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Fechar</button>
 					</div>
 				</form>

@@ -144,7 +144,7 @@
                                                 </label>
                                                 <div class="pmd-textfield pmd-textfield-outline">
                                                         <input type="numeric" maxlength="3" name="pontos" value="0" class="form-control"
-                                                        @if(auth()->user()->permissao == 1)
+                                                        @if(auth()->user()->permissao == 2)
                                                         @else
                                                         disabled
                                                         @endif>
@@ -166,7 +166,7 @@
                                         </div>
                                     @endif
                             </div>
-                            @if(auth()->user()->permissao == 1)
+                            @if(auth()->user()->permissao == 2)
                             <div class="card-footer p-0 border-0">
                                 <button class="btn btn-primary btn-block btn-lg rounded-0" type="submit">Confirmar</button>
                             </div>

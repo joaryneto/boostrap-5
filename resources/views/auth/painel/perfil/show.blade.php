@@ -19,9 +19,9 @@
                             <h3 class="card-title">{{auth()->user()->name}}</h3>
                             <p class="card-subtitle mb-2">Lider</p>
                             <p class="card-text">E disse-lhes: Ide por todo o mundo, pregai o evangelho a toda criatura. Marcos 16:15.</p>
-                            @if(auth()->user()->permissao == 0)
+                            @if(auth()->user()->permissao == 1)
                                 <a data-target="#form-dialog" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Incluir Membros</a>
-                            @elseif(auth()->user()->permissao == 2)
+                            @elseif(auth()->user()->permissao == 3)
                                 <a data-target="#form-pg" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">ES/PG</a>
                                 <a data-target="#form-dialog2" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Lider/Supervisor</a>
                             @endif
@@ -41,7 +41,7 @@
                     <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
                         <h2 class="block-title">{{ $dados_perfil->titulo}} </h2>
                         <ul class="list-group">
-                            @if(auth()->user()->permissao == 0)
+                            @if(auth()->user()->permissao == 1)
                             <li class="list-group-item" v-for="user in users" :key="user.id">
                                 <a href="#" class="media">
                                     <div class="w-auto h-100">

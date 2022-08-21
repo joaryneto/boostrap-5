@@ -22,7 +22,7 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        if(auth()->user()->permissao == 1 || auth()->user()->permissao == 2){
+        if(auth()->user()->permissao == 2 || auth()->user()->permissao == 3){
             $dados  = Perguntas::getPerguntasAdmin($this->usuario());
             $perfil = User::GetMembros($this->usuario());
 

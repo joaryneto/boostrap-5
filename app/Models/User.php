@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'sistema',
         'name',
         'cpf',
         'email',
@@ -65,35 +66,32 @@ class User extends Authenticatable
 
     public static function GetMembros($usuario){
 
-        if($usuario->permissao == 1){
+        $membros_permissao = [2,3];
+        $dados   = [];
 
-            $user = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo')
-            ->whereIn('igrejas_classe.id', [$usuario->igreja_classe_id])
-            ->get();
+        if(in_array($usuario->permissao, $membros_permissao)){
 
-            $dados = [];
-            $dados['titulo'] = "ES E PGs";  
+            if($usuario->permissao == 2){
+
+                $user = igrejas_classe::select('igrejas_classe.id','igrejas_classe.titulo')
+                ->whereIn('igrejas_classe.id', [$usuario->igreja_classe_id])
+                ->get();
+
+                $dados['titulo'] = "Membros";  
+
+            }elseif($usuario->permissao == 3){
+
+                $user = User::select('id','name')
+                ->whereIn('permissao', $membros_permissao)
+                ->get();
+
+                $dados['titulo'] = "Membros";  
+            }
 
             foreach($user as $p){
                 $dados['itens'][] = [
                     'id' => $p->id,
                     'nome' => $p->titulo
-                ];
-            }
-        }
-        elseif($usuario->permissao == 2){
-
-            $user = User::select('id','name')
-            ->whereIn('permissao', [1])
-            ->get();
-
-            $dados = [];
-            $dados['titulo'] = "Membros";  
-
-            foreach($user as $p){
-                $dados['itens'][] = [
-                    'id' => $p->id,
-                    'nome' => $p->name
                 ];
             }
         }

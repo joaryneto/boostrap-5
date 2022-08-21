@@ -57,7 +57,7 @@
                             </div>
                         </a>
                     </li>
-                    @if(auth()->user()->permissao == 1){
+                    @if(auth()->user()->permissao == 2){
                     <li class="nav-item">
                         <a href="{{ route('perguntas.showAdm') }}" class="sidebar-close">
                             <div class="item-title">
