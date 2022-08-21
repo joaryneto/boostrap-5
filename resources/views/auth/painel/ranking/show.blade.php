@@ -1,7 +1,7 @@
 <section class="row component-section">
     <div class="col-md-12"> 
         <div class="component-box">
-            <h2 class="block-title" style="line-height: initial;font-size: 30px;">TOP 10</h2>
+            <h2 class="block-title" style="line-height: initial;font-size: 30px;">Ranking</h2>
             <div class="row">
             @foreach($dados_classe as $key => $p)
             <div class="col-md-6 col-lg-6">
