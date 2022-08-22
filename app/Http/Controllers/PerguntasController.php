@@ -81,8 +81,8 @@ class PerguntasController extends Controller
                 foreach($request->file('image') as $files)
                 {
                     //var_dump(@$file->extension());
-                    //$name = time().'.'.@$files->extension();
-                    $name   = time().$files->getClientOriginalName();
+                    $name = time().'.'.@$files->extension();
+                    //$name   = time().$files->getClientOriginalName();
                     $files->move(public_path().'/files/', $name);  
                     $data[] = $name; 
                 }
@@ -146,7 +146,8 @@ class PerguntasController extends Controller
     
                foreach($request->file('image') as $files)
                {
-                   $name   = time().$files->getClientOriginalName();
+                   $name = time().'.'.@$files->extension();
+                   //$name   = time().$files->getClientOriginalName();
                    $files->move(public_path().'/files/', $name);  
                    $data[] = $name; 
                }
