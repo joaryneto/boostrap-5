@@ -98,7 +98,7 @@
                                                         </label>
                                                         @elseif($p->tipo == 4)
                                                         <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
-                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}"
+                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}" 
                                                             @if($c->status == true)
                                                             checked 
                                                             disabled
