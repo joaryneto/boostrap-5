@@ -38,6 +38,21 @@ class LoginController extends Controller
                 ->withErrors(trans('auth.failed'));
         endif;
 
+        /*$token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $verification = $twilio->messages->create("whatsapp:+556599999104", 
+                [
+                "from" => "whatsapp:+14194956106", 
+                "body" => "Olá, Bom dia, Você tem uma mensagem",
+                "messagingServiceSid" => "MGb0e1905bfc6e37632264137e97421908",
+                ]
+        );
+
+        dd($verification);
+        */
+
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         session()->put('usuario', $user);

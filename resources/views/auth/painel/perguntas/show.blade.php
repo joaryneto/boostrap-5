@@ -75,7 +75,12 @@
                                                     <td>
                                                         @if($p->tipo == 1)
                                                         <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                                                            <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}">
+                                                            <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}"
+                                                            @if($c->status == true)
+                                                            checked 
+                                                            disabled
+                                                            @endif
+                                                            >
                                                             <span for="inlineRadio3"></span>
                                                         </label>
                                                         @elseif($p->tipo == 2)
@@ -93,7 +98,12 @@
                                                         </label>
                                                         @elseif($p->tipo == 4)
                                                         <label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
-                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                            <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}"
+                                                            @if($c->status == true)
+                                                            checked 
+                                                            disabled
+                                                            @endif
+                                                            >
                                                         </label>
                                                         @endif
                                                     </td>
@@ -115,7 +125,12 @@
                                                         @if($p->tipo == 4)
                                                         <div class="checkbox pmd-default-theme">
                                                             <label class="pmd-checkbox pmd-checkbox-ripple-effect">
-                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}"
+                                                                @if($c->status == true)
+                                                                checked 
+                                                                disabled
+                                                                @endif
+                                                                >
                                                                 <span>{{ $b->titulo }}</span>
                                                             </label>
                                                         </div>
@@ -135,7 +150,12 @@
                                                         @if($p->tipo == 4)
                                                         <div class="checkbox pmd-default-theme">
                                                             <label class="pmd-checkbox pmd-checkbox-ripple-effect">
-                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}">
+                                                                <input type="checkbox" name="{{ $c->id  }}" value="{{ $c->id  }}"
+                                                                @if($c->status == true)
+                                                                checked 
+                                                                disabled
+                                                                @endif
+                                                                >
                                                                 <span>{{ $b->titulo }}</span>
                                                             </label>
                                                         </div>
