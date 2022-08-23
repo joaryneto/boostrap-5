@@ -109,7 +109,30 @@ class Perguntas extends Model
 
         $igreja = explode(',',$usuario->igreja_classe_id);
 
-        $perguntas = Perguntas::
+        if($usuario->permissao == 3){ 
+            
+            $perguntas = Perguntas::
+            select('perguntas.id',
+             'perguntas.titulo', 
+             'igrejas_classe.titulo as nome_classe',
+             'perguntas.descricao',
+             'perguntas.tipo',
+             'perguntas.ordem',
+             'perguntas_realizadas.id as realizado_id',
+             'perguntas_realizadas.pontos',
+             'perguntas_realizadas.qtd',
+             'perguntas_realizadas.igreja_classe_id',
+             'galerias.image',
+             'perguntas.ordem')
+            ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
+            ->join('igrejas_classe','igrejas_classe.id','=','perguntas_realizadas.igreja_classe_id')
+            ->leftjoin('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
+            ->orderBy('perguntas.ordem')
+            ->get();
+        }
+        else{ 
+
+            $perguntas = Perguntas::
             select('perguntas.id',
              'perguntas.titulo', 
              'igrejas_classe.titulo as nome_classe',
@@ -128,6 +151,8 @@ class Perguntas extends Model
             ->whereIn('perguntas_realizadas.igreja_classe_id', $igreja)
             ->orderBy('perguntas.ordem')
             ->get();
+
+        }
 
         //dd($perguntas, [1,2], $igreja);
 
