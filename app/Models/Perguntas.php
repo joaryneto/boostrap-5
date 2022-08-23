@@ -107,6 +107,8 @@ class Perguntas extends Model
 
     public static function getPerguntasAdmin($usuario = null){
 
+        $igreja = explode(',',$usuario->igreja_classe_id);
+
         $perguntas = Perguntas::
             select('perguntas.id',
              'perguntas.titulo', 
@@ -121,12 +123,12 @@ class Perguntas extends Model
              'perguntas.ordem')
             ->join('perguntas_realizadas','perguntas_realizadas.pergunta_id','=','perguntas.id')
             ->join('igrejas_classe','igrejas_classe.id','=','perguntas_realizadas.igreja_classe_id')
-            ->join('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
-            ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
+            ->leftjoin('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
+            ->whereIn('perguntas_realizadas.igreja_classe_id', $igreja)
             ->orderBy('perguntas.ordem')
             ->get();
 
-        //dd($perguntas);
+        //dd($perguntas, [1,2], $igreja);
 
         $dados = [];
         $count = 0;
