@@ -148,6 +148,7 @@ new Vue({
                 igreja_classe_id: results.data.igreja_classe_id
             });
             
+            formData.reset();
 
             $('#form-dialog').modal('hide');
         },
@@ -194,6 +195,7 @@ new Vue({
                 titulo: results_pgs.data.titulo,
             });
 
+            formData.reset();
             //$('#form-pg').modal('hide');
         },
         async addUserSupervidor(data) {
@@ -248,6 +250,8 @@ new Vue({
                 });
             
 
+            formData.reset();
+
             $('#form-dialog2').modal('hide');
 
         },
@@ -279,6 +283,7 @@ new Vue({
                 return (user.id != id);
             })
         }
+        
      }
 })
 
