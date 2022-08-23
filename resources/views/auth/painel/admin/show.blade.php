@@ -127,7 +127,7 @@
                                                 <label for="regular1" class="control-label">
                                                 Informar Quantidade
                                                 </label>
-                                            <input type="numeric" maxlength="4" name="kg" class="form-control">
+                                            <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" class="form-control">
                                         </div>
                                         @endif
                                         <div class="input-group pmd-input-group-outline">

@@ -118,6 +118,7 @@ class Perguntas extends Model
              'perguntas.ordem',
              'perguntas_realizadas.id as realizado_id',
              'perguntas_realizadas.pontos',
+             'perguntas_realizadas.qtd',
              'perguntas_realizadas.igreja_classe_id',
              'galerias.image',
              'perguntas.ordem')
@@ -149,6 +150,7 @@ class Perguntas extends Model
                         'nome_classe' => $b->nome_classe,
                         'tipo' => $b->tipo,
                         'pontos' => $poSum,
+                        'qtd' => $b->qtd,
                         'realizado_id' => $b->realizado_id,
                         'image' => json_decode($b->image),
                         'ordem' => $b->ordem,
