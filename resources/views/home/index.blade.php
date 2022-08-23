@@ -96,7 +96,7 @@
 					<form v-on:submit.prevent="addUserSupervidor(formData)" autocomplete="off">
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Nome</label>
-						<input type="text" class="mat-input form-control" id="name" v-model="formData.name" required>						
+						<input type="text" class="mat-input form-control" id="name" onkeyup="gerar()" v-model="formData.name" required>						
 					</div>
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">CPF</label>

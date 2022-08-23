@@ -99,6 +99,7 @@ new Vue({
         this.igrejas = results_igrejas.data;
     },
     methods: {
+        
         async addUser(data) {
                         
                 let results = await axios.post(`${server}/users`, data)
@@ -197,54 +198,58 @@ new Vue({
         },
         async addUserSupervidor(data) {
                         
-            let results_supervisor = await axios.post(`${server}/users/supervisor`, data)
-            .catch(function (error) {
-                if (error.response) {
-                // A requisição foi feita e o servidor respondeu com um código de status
-                // que sai do alcance de 2xx
-                    //console.error(error.response.data.errors);
+                    let results_supervisor = await axios.post(`${server}/users/supervisor`, data)
+                    .catch(function (error) {
+                        if (error.response) {
+                        // A requisição foi feita e o servidor respondeu com um código de status
+                        // que sai do alcance de 2xx
+                            //console.error(error.response.data.errors);
 
-                    var teste = [
-                        ''+ error.response.data.errors.email +'',
-                        ''+ error.response.data.errors.cpf +'',
-                        ''+ error.response.data.errors.numero_telefone +'',
-                    ];
-                    var dados = "";
+                            var teste = [
+                                ''+ error.response.data.errors.email +'',
+                                ''+ error.response.data.errors.cpf +'',
+                                ''+ error.response.data.errors.numero_telefone +'',
+                            ];
+                            var dados = "";
 
-                    for (i = 0; i < teste.length; i++){
-                        if(teste[i] != 'undefined'){
-                            dados = teste[i];
+                            for (i = 0; i < teste.length; i++){
+                                if(teste[i] != 'undefined'){
+                                    dados = teste[i];
+                                }
+                            }
+
+                            swal({   
+                                    title: "Atenção!",   
+                                    text: ''+ dados +'',   
+                                    timer: 2000,   
+                                    icon: "error",
+                                    showConfirmButton: false ,
+                            });
+
+
+                        } else if (error.request) {
+                        // A requisição foi feita mas nenhuma resposta foi recebida
+                        // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
+                        // http.ClientRequest no node.js
+                            console.error(error.request);
+                        } else {
+                        // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
+                            console.error('Error', error.message);
                         }
-                    }
+                    //console.error(error.config);
 
-                    swal({   
-                            title: "Atenção!",   
-                            text: ''+ dados +'',   
-                            timer: 2000,   
-                            icon: "error",
-                            showConfirmButton: false ,
-                    });
+                    formData.target.reset();
 
+                });
 
-                } else if (error.request) {
-                // A requisição foi feita mas nenhuma resposta foi recebida
-                // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
-                // http.ClientRequest no node.js
-                    console.error(error.request);
-                } else {
-                // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
-                    console.error('Error', error.message);
-                }
-            //console.error(error.config);
-        });
-
-        this.classes.push({
-                id: results_supervisor.data.id,
-                name: results_supervisor.data.name,
-            });
+            this.classes.push({
+                    id: results_supervisor.data.id,
+                    name: results_supervisor.data.name,
+                });
             
 
             $('#form-dialog2').modal('hide');
+
         },
         async setUser(data) {
 
@@ -274,7 +279,7 @@ new Vue({
                 return (user.id != id);
             })
         }
-    }
+     }
 })
 
 </script>

@@ -66,7 +66,7 @@ class LoginController extends Controller
 
         $dados = User::select('*')
         ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
-        ->where('permissao', '0')->get();
+        ->whereIn('permissao', ['0','1','2','3'])->get();
 
         return response()->json($dados);
     }
@@ -146,7 +146,7 @@ class LoginController extends Controller
             'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
             'igreja_classe_id' => ['required','string', 'max:255']
-            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
 
         $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
@@ -164,7 +164,7 @@ class LoginController extends Controller
             'username' => $username[0],
             'igreja_classe_id' => $data['igreja_classe_id'],
             'numero_telefone' => $telefone,
-            'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456
+            'password' => '123456', // Senha: 123456
         ]);
 
         return redirect()->to('/inicio');
@@ -179,13 +179,16 @@ class LoginController extends Controller
             'numero_telefone' => ['string', 'unique:users'],
             'igreja_classe_id' => ['required','array'],
             'permissao' => ['string'],
-            //'password' => ['required', 'string', 'min:8', 'confirmed'],
+            //'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
 
         $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
         $username   =  explode('@',$data['email']);
 
         //$post = User::create($request->all());
+
+        $senha = rand( 1000, 9999 );
+        //dd($data['password']);
 
         $classe = implode(",",$data['igreja_classe_id']);
     
@@ -197,7 +200,8 @@ class LoginController extends Controller
             'username' => $username[0],
             'igreja_classe_id' => $classe,
             'numero_telefone' => $telefone,
-            'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456
+            'password' => $senha, // Senha: 123456
+            'password_temporario' => $senha,
             'permissao' => $data['permissao'],
         ]);
 

@@ -29,6 +29,7 @@ class User extends Authenticatable
         'igreja_classe_id',
         'isVerified',
         'password',
+        'password_temporario',
         'permissao',
         'foto',
         'isVerified'
