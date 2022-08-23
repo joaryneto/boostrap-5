@@ -44,13 +44,13 @@ class PerguntasController extends Controller
             $realizada->pergunta_id = $request->input('pergunta');
             $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
             $realizada->descricao = $request->input('descricao');
-            $realizada->kg = $request->input('kg');
+            $realizada->qtd = $request->input('qtd');
             $realizada->status = 1;
             $realizada->save();
 
             foreach($request->all() as $key => $a){
 
-            if($key != "_token" && $key != "pergunta" && $key != "kg" && $key != "descricao" && $key != "image"){
+            if($key != "_token" && $key != "pergunta" && $key != "qtd" && $key != "descricao" && $key != "image"){
 
 
                     $alternativa =  new respostas();

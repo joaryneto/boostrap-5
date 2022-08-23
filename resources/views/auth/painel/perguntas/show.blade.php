@@ -174,7 +174,7 @@
                                     <label for="regular1" class="control-label">
                                     Informar Quantidade
                                     </label>
-                                <input type="numeric" maxlength="4" name="kg" value="" class="form-control">
+                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
                             </div>
                             
                             @endif

@@ -19,7 +19,8 @@ class perguntas_realizada extends Model
         'pergunta_id',
         'igreja_classe_id',
         'descricao',
-        'pontos'
+        'pontos',
+        'qtd'
     ];
 
 
