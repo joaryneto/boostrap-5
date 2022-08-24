@@ -47,9 +47,9 @@
 </div>
 </div>
 <!-- Vue Pages -->
-<script src="pages/home.vue.js"></script>
-<script src="pages/desafios.vue.js"></script>
-<script src="pages/perfil.vue.js"></script>
+<script src="{!! asset('pages/home.vue.js') !!}"></script>
+<script src="{!! asset('pages/desafios.vue.js') !!}"></script>
+<script src="{!! asset('pages/perfil.vue.js') !!}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
