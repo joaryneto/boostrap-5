@@ -82,7 +82,8 @@ new Vue({
         classes: [],
         pgs: [],
         igrejas: [],
-        formData: {}
+        formData: {},
+        whatsappurl:''
     },
     async created() {
 
@@ -282,8 +283,15 @@ new Vue({
             this.users = this.users.filter(user => {
                 return (user.id != id);
             })
+        },
+        generateUrl: function(){
+
+            console.log(this.formData);
+
+            var texto = 'Bom dia **! %0APassando para lembrar que você tem horário agendado hoje às hs*.%0A%0A *Studio KA*';
+            window.open("https://api.whatsapp.com/send?phone=5565999999104&text="+ texto.replace(/ /g, "%20") +""); 
+
         }
-        
      }
 })
 

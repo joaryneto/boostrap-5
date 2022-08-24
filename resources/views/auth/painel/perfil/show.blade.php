@@ -50,11 +50,10 @@
                                     <div class="media-body">
                                         <h5 v-text="user.name"><span class="status-online bg-success"></span></h5>
                                     </div>
-
                                 </a>
                             </li>
                             @else
-                            <li class="list-group-item" v-for="user in classes" :key="user.id">
+                            <li class="list-group-item" v-for="user in classes" :key="user.id" :value="user.id">
                                 <a href="#" class="media">
                                     <div class="w-auto h-100">
                                         <figure class="avatar avatar-40"><img src="{{ asset('assets/img/logo.jpg') }}" alt=""> </figure>
@@ -62,7 +61,9 @@
                                     <div class="media-body">
                                         <h5 v-text="user.name"><span class="status-online bg-success"></span></h5>
                                     </div>
-
+                                    <input type="hidden" id="id" v-model="formData.username" :value="user.id"/>
+                                    <input type="hidden" id="password_temporario" v-model="formData.password_temporario" :value="user.password_temporario"/>
+                                    <button @click="generateUrl" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">DADOS</button>
                                 </a>
                             </li>
                             @endif

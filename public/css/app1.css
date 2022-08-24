@@ -33,6 +33,16 @@
 @import "../assets/ectecnologia/css/style.css";
 
 
+body {
+    font-family: Roboto;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+    background-color: #f5f7f9;
+    min-height: 100% !important;
+    position: relative;
+}
+
 .footer-tabs{
     position:fixed;
     top:auto;

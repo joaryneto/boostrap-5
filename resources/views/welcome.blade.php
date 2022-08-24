@@ -5,9 +5,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link id="theme" rel="stylesheet" href="{!! asset('css/app1.css') !!}" type="text/css">
 </head>
-<body>
+<body class="color-theme-blue push-content-right theme-light">
 
-<div id="app" class="container" style="margin-top: 50px;">
+<div id="app" class="wrapper">
+<div class="page">
+  <div class="page-content">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="footer-tabs footer-spaces border-top text-center">
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -41,6 +43,8 @@
 	<div class="text-center" style="margin-top: 20px;">
 		<router-view></router-view>
 	</div>
+</div>
+</div>
 </div>
 <!-- Vue Pages -->
 <script src="pages/home.vue.js"></script>

@@ -42,12 +42,12 @@ var Desafios = {
 			users: null
 		};
     },
-	async mounted () {
+	/*async mounted () {
 		axios
 		  .get(`${server}/users`)
 		  .then(response => (this.users = response))
-	},
-	/*async created() {
+	},*/
+	async created() {
 
         let results = await axios.get(`${server}/users`);
         this.users = results.data;
@@ -60,7 +60,7 @@ var Desafios = {
 
         let results_igrejas = await axios.get(`${server}/api/igrejas`);
         this.igrejas = results_igrejas.data;
-    },*/
+    },
 	methods: {
 		async addPG(data) {
 							

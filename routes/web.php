@@ -17,6 +17,10 @@ Route::get('/teste', function () {
     return view('welcome');
 });
 
+Route::get('/login2', function () {
+    return view('login');
+});
+
 Route::get('/verifyy', function () {
     return view('auth.verify');
 })->name('verify');
@@ -27,8 +31,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
 
+    Route::group(['middleware' => ['auth']], function() {
+
     Route::get('/users', 'LoginController@users')->name('users.perform');
     Route::post('/users', 'LoginController@store')->name('store.perform');
+
+    Route::get('/users/autenticado', 'LoginController@autenticado')->name('autenticado.perform');
 
     Route::get('/api/igrejas', 'LoginController@igrejas')->name('igrejas.perform');
     Route::get('/users/pg', 'LoginController@pg')->name('pg.perform');
@@ -46,6 +54,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::post('/perguntas/store', 'PerguntasController@store')->name('perguntas.store');
     Route::post('/perguntas/create', 'PerguntasController@adicionar')->name('perguntas.adicionar');
 
+    });
+
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
@@ -58,6 +68,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::post('/login2', 'LoginController@login2')->name('login2.perform');
         Route::post('/verify', 'LoginController@verify')->name('verify.perform');
 
     });

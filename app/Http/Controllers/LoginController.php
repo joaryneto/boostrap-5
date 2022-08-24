@@ -62,11 +62,51 @@ class LoginController extends Controller
         return $this->authenticated($request, $user);
     }
 
+    public function login2(LoginRequest $request)
+    {
+        $credentials = $request->getCredentials();
+
+        if(!Auth::validate($credentials)):
+            return redirect()->to('/login2')
+                ->withErrors(trans('auth.failed'));
+        endif;
+
+        /*$token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_sid = getenv("TWILIO_SID");
+        $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        $twilio = new Client($twilio_sid, $token);
+        $verification = $twilio->messages->create("whatsapp:+556599999104", 
+                [
+                "from" => "whatsapp:+14194956106", 
+                "body" => "Olá, Bom dia, Você tem uma mensagem",
+                "messagingServiceSid" => "MGb0e1905bfc6e37632264137e97421908",
+                ]
+        );
+
+        dd($verification);
+        */
+
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+        session()->put('usuario', $user);
+
+        Auth::login($user);
+
+        return redirect()->to('/teste'); //$this->authenticated($request, $user);
+    }
+
     public function users(){
 
         $dados = User::select('*')
         ->whereIn('igreja_classe_id', [$this->usuario()->igreja_classe_id])
         ->whereIn('permissao', ['0','1','2','3'])->get();
+
+        return response()->json($dados);
+    }
+
+    public function autenticado(){
+
+        $dados = $this->usuario();
 
         return response()->json($dados);
     }
@@ -82,7 +122,7 @@ class LoginController extends Controller
 
         }
         elseif($this->usuario()->permissao == 3){
-           $dados = User::select('id','name')->where('permissao', [1,2,3])->get();
+           $dados = User::select('id','name', 'password_temporario')->where('permissao', [1,2,3])->get();
         }
         else{
 
