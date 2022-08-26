@@ -184,6 +184,21 @@
                                     </label>
                                 <textarea class="form-control" name="descricao" value="descricao"></textarea>
                             </div>
+                            @if(@count($p->image) > 0)
+                            <div class="input-group pmd-input-group-outline">
+                                <h2>Fotos</h2>
+                                </div>
+                                <div class="input-group pmd-input-group-outline">
+                                    
+                                    <div class="parent-container">
+                                        @foreach($p->image as $key => $img)
+                                            <a href="{{ asset('files/'.$img.'') }}" target="_brank">
+                                                <img class="img-thumbnail" src="{{ asset('files/'.$img.'') }}">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
                             <div class="form-group pmd-textfield">
                             <label class="form-group pmd-textfield" for="file{{$p->id}}">Upload de Imagens</label>
                             <input id="file" type="file" name="image[]" class="" multiple required>
