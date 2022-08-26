@@ -10,4 +10,13 @@ class respostas extends Model
     use HasFactory;
 
     protected $table = 'respostas';
+
+    protected $fillable = [
+        'id',
+        'perguntas_alternativas_id',
+        'perguntas_id',
+        'ugreja_id',
+        'igreja_classe_id',
+        'cpf'
+    ];
 }
