@@ -11,6 +11,7 @@ use App\Models\Perguntas;
 use App\Models\perguntas_realizada;
 use DateTime;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Storage;
 
 
@@ -80,11 +81,13 @@ class PerguntasController extends Controller
                     File::makeDirectory(public_path().'/files/');
                 } 
 
+
                 foreach($request->file('image') as $files)
                 {
+                    $name = "";
                     //var_dump(@$file->extension());
-                    $name = time().'.'.@$files->extension();
-                    //$name   = time().$files->getClientOriginalName();
+                    //$name = Carbon::now()->toDateTimeString().'.'.@$files->extension();
+                    $name   = date("ymdHis").$files->getClientOriginalName();
                     $files->move(public_path().'/files/', $name);  
                     $data[] = $name; 
                 }
@@ -148,8 +151,9 @@ class PerguntasController extends Controller
     
                foreach($request->file('image') as $files)
                {
-                   $name = Carbon::now()->toDateTimeString().'.'.@$files->extension();
-                   //$name   = time().$files->getClientOriginalName();
+                   $name = "";
+                   //$name = Carbon::now()->toDateTimeString().'.'.@$files->extension();
+                   $name = date("ymdHis").$files->getClientOriginalName();
                    $files->move(public_path().'/files/', $name);  
                    $data[] = $name; 
                }
