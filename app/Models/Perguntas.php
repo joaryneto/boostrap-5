@@ -56,7 +56,7 @@ class Perguntas extends Model
                         'realizada_id' => $id
                     ];
 
-                    dd($dados);
+                    //dd($dados);
 
                     foreach($gruposs as $grupo){
 
