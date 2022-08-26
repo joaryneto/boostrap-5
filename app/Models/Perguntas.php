@@ -202,6 +202,7 @@ class Perguntas extends Model
 
                                 $respostas = respostas::select('id','perguntas_alternativas_id','perguntas_id',)
                                 ->where('perguntas_alternativas_id', $c->id)
+                                ->whereIn('igreja_classe_id', [$b->igreja_classe_id])
                                 ->first();
 
                                 if(@count($respostas) > 0){ $status = true;}else{ $status=false;}
