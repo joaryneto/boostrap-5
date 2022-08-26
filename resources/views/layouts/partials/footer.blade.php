@@ -148,8 +148,6 @@ new Vue({
                 numero_telefone: results.data.numero_telefone,
                 igreja_classe_id: results.data.igreja_classe_id
             });
-            
-            formData.reset();
 
             $('#form-dialog').modal('hide');
         },
@@ -196,7 +194,6 @@ new Vue({
                 titulo: results_pgs.data.titulo,
             });
 
-            formData.reset();
             //$('#form-pg').modal('hide');
         },
         async addUserSupervidor(data) {
@@ -249,9 +246,6 @@ new Vue({
                     id: results_supervisor.data.id,
                     name: results_supervisor.data.name,
                 });
-            
-
-            formData.reset();
 
             $('#form-dialog2').modal('hide');
 

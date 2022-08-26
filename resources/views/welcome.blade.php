@@ -1,16 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR" class="md">
 <head>
 	<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link id="theme" rel="stylesheet" href="{!! asset('css/app1.css') !!}" type="text/css">
+  <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
+
+<!-- swiper carousel CSS -->
+<link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
+
+<!-- swiper carousel CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- app CSS -->
+<link id="theme" rel="stylesheet" href="{!! asset('css/app1.css') !!}" type="text/css">
 </head>
 <body class="color-theme-blue push-content-right theme-light">
 
-<div id="app" class="wrapper">
+<div class="wrapper">
 <div class="page">
+    <!--include('layouts.partials.navbar-direito')-->
   <div class="page-content">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div id="app">
     <div class="footer-tabs footer-spaces border-top text-center">
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">
@@ -39,10 +49,10 @@
                 </li>
             </ul>
         </div>
-    </nav>
-	<div class="text-center" style="margin-top: 20px;">
+	<div class="page-content">
 		<router-view></router-view>
 	</div>
+  </div>
 </div>
 </div>
 </div>
@@ -56,6 +66,15 @@
 <script src="https://unpkg.com/vue-router@4.1.3/dist/vue-router.global.js"></script>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/vue-router@4"></script>
+
+<script src="{!! asset('assets/ectecnologia/js/jquery-3.2.1.min.js') !!}"></script>
+<script src="{!! asset('assets/ectecnologia/js/popper.min.js') !!}"></script>
+<script src="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap-4.3.1/js/bootstrap.min.js"></script>-->
+    
+<!-- Sweet-Alert  -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.js"></script>
+
 
 <!-- Vue Instance and Routes -->
 <script>
@@ -86,7 +105,8 @@ const router = VueRouter.createRouter({
 })
 
 // 5. Create and mount the root instance.
-const app = Vue.createApp({})
+const app = Vue.createApp({
+})
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router)

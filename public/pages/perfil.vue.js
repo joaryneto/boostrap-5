@@ -1,4 +1,10 @@
 var Perfil = { 
+	breakpoints: {
+    mobile: 450,
+    tablet: 900,
+    laptop: 1250,
+    desktop: Infinity,
+  	},
 	template: `<section class="row component-section">
     <div class="col-md-12"> 
         <div class="component-box">
@@ -49,7 +55,8 @@ var Perfil = {
                                 </a>
                             </li>
                             <li class="list-group-item" v-for="user in classes" :key="user.id">
-                                <a href="#" class="media">
+                                <form v-on:submit.prevent="addPG(formData)" autocomplete="off">
+							    <a href="#" class="media">
                                     <div class="w-auto h-100">
                                         <figure class="avatar avatar-40"><img src="assets/img/logo.jpg" alt=""> </figure>
                                     </div>
@@ -58,8 +65,9 @@ var Perfil = {
                                     </div>
                                     <input type="hidden" id="id" v-model="formData.username" value="{{ user.id }} "/>
                                     <input type="hidden" id="password_temporario" v-model="formData.password_temporario" value=" {{ user.password_temporario }}"/>
-                                    <button @click="generateUrl" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">DADOS</button>
+                                    <button class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">DADOS</button>
                                 </a>
+								</form>
                             </li>
                         </ul>
                     </div>
