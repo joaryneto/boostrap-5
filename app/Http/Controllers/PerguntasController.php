@@ -155,7 +155,7 @@ class PerguntasController extends Controller
            }
 
            $realizada3 = perguntas_realizada::find($realizada->id);
-           $realizada3->pontos += $perguntas->pontos*$count;
+           $realizada3->pontos = $realizada3->pontos+($perguntas->pontos*$count);
            $realizada3->save();
     
     
