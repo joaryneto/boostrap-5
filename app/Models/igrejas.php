@@ -19,8 +19,9 @@ class igrejas extends Model
     {
         $igrejas = igrejas::select('igrejas.id','igrejas.titulo','projetos_vinculados.projeto_id')
                 ->join('projetos_vinculados','projetos_vinculados.igreja_id','igrejas.id')
-                ->orderby('total')
                 ->get();
+
+        
 
         //dd($igrejas);
                 
