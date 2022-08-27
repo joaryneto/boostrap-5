@@ -21,8 +21,6 @@ class igrejas extends Model
                 ->join('projetos_vinculados','projetos_vinculados.igreja_id','igrejas.id')
                 ->get();
 
-        
-
         //dd($igrejas);
                 
         $dados = [];
