@@ -138,6 +138,14 @@
                                             <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" disabled class="form-control">
                                         </div>
                                         @endif
+                                        @if($p->tipo == 6)
+                                            <div class="form-group pmd-textfield">
+                                                <label for="regular1" class="control-label">
+                                                Quantidade
+                                                </label>
+                                            <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" disabled class="form-control">
+                                        </div>
+                                        @endif
                                         <div class="input-group pmd-input-group-outline">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Descrição</span>

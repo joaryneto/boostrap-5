@@ -189,6 +189,14 @@
                                     </label>
                                 <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
                             </div>
+                            @endif
+                            @if($p->tipo == 6)
+                            <div class="form-group pmd-textfield">
+                                    <label for="regular1" class="control-label">
+                                    Informar Quantidade
+                                    </label>
+                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
+                            </div>
                             
                             @endif
                             <div class="form-group pmd-textfield">

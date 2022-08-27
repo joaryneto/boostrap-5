@@ -75,8 +75,11 @@ class PerguntasController extends Controller
 
             if($perguntas->tipo == 5){
 
-                $pontos = $perguntas->pontos/100;
-                $pontos = $perguntas->pontos*$count;
+                $pontos = (2*$request->input('qtd'));
+
+            }elseif($perguntas->tipo == 6){
+
+                $pontos = (2*$request->input('qtd'));
 
             }else{
 
@@ -141,7 +144,7 @@ class PerguntasController extends Controller
     
             foreach($request->all() as $key => $a){
     
-              if($key != "_token" && $key != "pergunta" && $key != "kg" && $key != "descricao" && $key != "image"){
+              if($key != "_token" && $key != "pergunta" && $key != "qtd" && $key != "descricao" && $key != "image"){
     
                     $g = respostas::select('perguntas_alternativas_id')
                     ->where('perguntas_alternativas_id', $a)
@@ -165,6 +168,10 @@ class PerguntasController extends Controller
            }
 
             if($perguntas->tipo == 5){
+
+                $pontos = (2*$request->input('qtd'));
+
+            }elseif($perguntas->tipo == 6){
 
                 $pontos = (2*$request->input('qtd'));
 
