@@ -24,7 +24,7 @@ class igrejas_classe extends Model
         ->join('igrejas','igrejas.id','=','igrejas_classe.igreja_id')
         ->leftJoin('perguntas_realizadas','perguntas_realizadas.igreja_classe_id','=','igrejas_classe.id')
         ->groupBy('igrejas_classe.id')
-        ->orderByRaw('SUM(pontos)')
+        ->orderByRaw('SUM(pontos) desc')
         ->get();
 
         //dd($dados);
