@@ -105,6 +105,10 @@
                                                             @endif
                                                             >
                                                         </label>
+                                                        @elseif($p->tipo == 5)
+                                                        <label class=".pmd-textfield-floating-label">
+                                                            <textarea name="{{ $c->id  }}" value="{{ $c->id  }}"></textarea>
+                                                        </label>
                                                         @endif
                                                     </td>
                                                 
@@ -170,6 +174,15 @@
 
                             @endif
                             @if($p->tipo == 3)
+                            <div class="form-group pmd-textfield">
+                                    <label for="regular1" class="control-label">
+                                    Informar Quantidade
+                                    </label>
+                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
+                            </div>
+                            
+                            @endif
+                            @if($p->tipo == 5)
                             <div class="form-group pmd-textfield">
                                     <label for="regular1" class="control-label">
                                     Informar Quantidade

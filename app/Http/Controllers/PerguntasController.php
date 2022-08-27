@@ -40,7 +40,7 @@ class PerguntasController extends Controller
          ->where('igreja_classe_id', $this->usuario()->igreja_classe_id)
          ->first();
 
-         $perguntas = Perguntas::select(DB::raw('(perguntas.pontos/count(*)) as pontos'))
+         $perguntas = Perguntas::select(DB::raw('(perguntas.pontos/count(*)) as porcentagem'),'perguntas.pontos','perguntas.tipo')
          ->leftjoin('perguntas_alternativas as b','b.pergunta_id','=','perguntas.id')
          ->where('perguntas.id', $request->input('pergunta'))
          ->groupby('perguntas.id')
@@ -73,6 +73,16 @@ class PerguntasController extends Controller
 
             }
 
+            if($perguntas->tipo == 5){
+
+                $pontos = $perguntas->pontos/100;
+                $pontos = $perguntas->pontos*$count;
+
+            }else{
+
+                $pontos = $perguntas->porcentagem*$count;
+            }
+
             $realizada2 = new perguntas_realizada();
             $realizada2->sistema = $this->usuario()->sistema;
             $realizada2->pergunta_id = $request->input('pergunta');
@@ -80,7 +90,7 @@ class PerguntasController extends Controller
             $realizada2->descricao = $request->input('descricao');
             $realizada2->qtd = $request->input('qtd');
             $realizada2->status = 1;
-            $realizada2->pontos = $perguntas->pontos*$count;
+            $realizada2->pontos = $pontos;
             $realizada2->save();
 
             $this->validate($request, [
@@ -154,7 +164,17 @@ class PerguntasController extends Controller
               }
            }
 
+            if($perguntas->tipo == 5){
+
+                $pontos = (2*$request->input('qtd'));
+
+            }else{
+
+                $pontos = $perguntas->porcentagem*$count;
+            }
+
            $realizada3 = perguntas_realizada::find($realizada->id);
+           $realizada3->qtd    = $request->input('qtd');
            $realizada3->pontos = $realizada3->pontos+($perguntas->pontos*$count);
            $realizada3->save();
     
