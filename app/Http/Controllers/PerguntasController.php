@@ -40,16 +40,19 @@ class PerguntasController extends Controller
          ->where('igreja_classe_id', $this->usuario()->igreja_classe_id)
          ->first();
 
-         if(@count($realizada) == 0){
+         $perguntas = Perguntas::select(DB::raw('(perguntas.pontos/count(*)) as total'),'perguntas.pontos')
+         ->leftjoin('perguntas_alternativas as b','b.pergunta_id','=','perguntas.id')
+         ->where('perguntas.id', $request->input('pergunta'))
+         ->groupby('perguntas.id')
+         ->first();
 
-            $realizada = new perguntas_realizada();
-            $realizada->sistema = $this->usuario()->sistema;
-            $realizada->pergunta_id = $request->input('pergunta');
-            $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
-            $realizada->descricao = $request->input('descricao');
-            $realizada->qtd = $request->input('qtd');
-            $realizada->status = 1;
-            $realizada->save();
+         //dd($perguntas);
+
+         //exit;
+
+         $count = 0;
+
+         if(@count($realizada) == 0){
 
             foreach($request->all() as $key => $a){
 
@@ -64,9 +67,21 @@ class PerguntasController extends Controller
                     $alternativa->igreja_classe_id = $this->usuario()->igreja_classe_id;
                     $alternativa->save();
 
+                    $count++;
+
             }
 
             }
+
+            $realizada = new perguntas_realizada();
+            $realizada->sistema = $this->usuario()->sistema;
+            $realizada->pergunta_id = $request->input('pergunta');
+            $realizada->igreja_classe_id = $this->usuario()->igreja_classe_id;
+            $realizada->descricao = $request->input('descricao');
+            $realizada->qtd = $request->input('qtd');
+            $realizada->status = 1;
+            $realizada->pontos = $perguntas->total*$count;
+            $realizada->save();
 
             $this->validate($request, [
                     'image' => 'required',

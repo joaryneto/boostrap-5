@@ -21,9 +21,9 @@ class Perguntas extends Model
 
         $perguntas = Perguntas::select('id','titulo', 'descricao','tipo','ordem')
             ->orderBy('ordem')
-            ->get();
+            ->count();
 
-        
+        return $perguntas;
     }
     public static function getPerguntas($usuario = null){
 
