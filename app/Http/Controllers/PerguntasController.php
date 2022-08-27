@@ -79,7 +79,8 @@ class PerguntasController extends Controller
 
             }elseif($perguntas->tipo == 6){
 
-                $pontos = (2*$request->input('qtd'));
+                $qtd    = 20/$perguntas->pontos;
+                $pontos = ($qtd*$request->input('qtd'));
 
             }else{
 
@@ -167,13 +168,14 @@ class PerguntasController extends Controller
               }
            }
 
-            if($perguntas->tipo == 5){
+           if($perguntas->tipo == 5){
 
-                $pontos = (2*$request->input('qtd'));
+            $pontos = (2*$request->input('qtd'));
 
             }elseif($perguntas->tipo == 6){
 
-                $pontos = (2*$request->input('qtd'));
+                $qtd    = 20/$perguntas->pontos;
+                $pontos = ($qtd*$request->input('qtd'));
 
             }else{
 
