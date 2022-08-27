@@ -40,7 +40,7 @@ class PerguntasController extends Controller
          ->where('igreja_classe_id', $this->usuario()->igreja_classe_id)
          ->first();
 
-         $perguntas = Perguntas::select(DB::raw('(perguntas.pontos/count(*)) as pontos'),'perguntas.pontos')
+         $perguntas = Perguntas::select(DB::raw('(perguntas.pontos/count(*)) as pontos'))
          ->leftjoin('perguntas_alternativas as b','b.pergunta_id','=','perguntas.id')
          ->where('perguntas.id', $request->input('pergunta'))
          ->groupby('perguntas.id')
