@@ -280,7 +280,7 @@ new Vue({
         },
         async geraruri(data){
 
-            var texto = 'Olá **! %0ASeus Dados*.%0A%0A*Login:* : '+ data.username +'%0A*Senha* : '+ data.password_temporario +'%0A%0A link: https://adv.quer.app';
+            var texto = '*Olá*! %0ASeus Dados*.%0A%0A*Login:* : '+ data.username +'%0A*Senha* : '+ data.password_temporario +'%0A%0A link: https://adv.quer.app';
             window.open("https://api.whatsapp.com/send?phone=55"+ data.numero_telefone +"&text="+ texto.replace(/ /g, "%20") +""); 
 
         }
