@@ -20,9 +20,10 @@ class igrejas_classe extends Model
 
     public static function GetClasse()
     {
-        $dados = igrejas_classe::select('igrejas.titulo as nome_igreja','igrejas_classe.id','igrejas_classe.titulo',DB::raw("SUM(perguntas_realizadas.pontos) as pontos"))
+        $dados = igrejas_classe::select('igrejas.titulo as nome_igreja','igrejas_classe.id','igrejas_classe.titulo',DB::raw("SUM(pontos) as pontos"))
         ->join('igrejas','igrejas.id','=','igrejas_classe.igreja_id')
         ->leftJoin('perguntas_realizadas','perguntas_realizadas.igreja_classe_id','=','igrejas_classe.id')
+        ->groupBy('igrejas_classe.id')
         ->orderBy('pontos')
         ->get();
 
