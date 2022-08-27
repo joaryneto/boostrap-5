@@ -122,7 +122,7 @@ class LoginController extends Controller
 
         }
         elseif($this->usuario()->permissao == 3){
-           $dados = User::select('id','name', 'password_temporario')->where('permissao', [1,2,3])->get();
+           $dados = User::select('id','name','numero_telefone','username', 'password_temporario')->where('permissao', [1,2,3])->get();
         }
         else{
 

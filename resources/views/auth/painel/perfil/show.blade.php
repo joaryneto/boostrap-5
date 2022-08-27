@@ -52,6 +52,21 @@
                                     </div>
                                 </a>
                             </li>
+                            @elseif(auth()->user()->permissao == 3)                            
+                            <li class="list-group-item"  v-for="user in classes" :key="user.id">
+                                <form v-on:submit.prevent="geraruri(user)" autocomplete="off" class="media">
+                                    <div class="w-auto h-100">
+                                        <figure class="avatar avatar-40"><img src="{{ asset('assets/img/logo.jpg') }}" alt=""> </figure>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 v-text="user.name"><span class="status-online bg-success"></span></h5>
+                                    </div>
+                                    <input type="hidden" id="id" v-model="user.numero_telefone" value="user.numero_telefone"/>
+                                    <input type="hidden" id="id" v-model="user.username" value="user.username"/>
+                                    <input type="hidden" id="password_temporario" v-model="formData.password_temporario" value="user.password_temporario"/>
+                                    <button type="submit" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">DADOS</button>
+                                </form>
+                            </li>
                             @else
                             <li class="list-group-item" v-for="user in classes" :key="user.id" :value="user.id">
                                 <a href="#" class="media">
@@ -61,8 +76,6 @@
                                     <div class="media-body">
                                         <h5 v-text="user.name"><span class="status-online bg-success"></span></h5>
                                     </div>
-                                    <input type="hidden" id="id" v-model="formData.username" :value="user.id"/>
-                                    <input type="hidden" id="password_temporario" v-model="formData.password_temporario" :value="user.password_temporario"/>
                                     <button @click="generateUrl" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">DADOS</button>
                                 </a>
                             </li>

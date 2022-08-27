@@ -278,12 +278,10 @@ new Vue({
                 return (user.id != id);
             })
         },
-        generateUrl: function(){
+        async geraruri(data){
 
-            console.log(this.formData);
-
-            var texto = 'Bom dia **! %0APassando para lembrar que você tem horário agendado hoje às hs*.%0A%0A *Studio KA*';
-            window.open("https://api.whatsapp.com/send?phone=5565999999104&text="+ texto.replace(/ /g, "%20") +""); 
+            var texto = 'Olá **! %0ASeus Dados*.%0A%0A*Login:* : '+ data.username +'%0A*Senha* : '+ data.password_temporario +'%0A%0A link: https://adv.quer.app';
+            window.open("https://api.whatsapp.com/send?phone=55"+ data.numero_telefone +"&text="+ texto.replace(/ /g, "%20") +""); 
 
         }
      }
