@@ -17,6 +17,14 @@ class Perguntas extends Model
     protected $table = 'perguntas';
 
 
+    public static function GetCount(){
+
+        $perguntas = Perguntas::select('id','titulo', 'descricao','tipo','ordem')
+            ->orderBy('ordem')
+            ->get();
+
+        
+    }
     public static function getPerguntas($usuario = null){
 
         $perguntas = Perguntas::select('id','titulo', 'descricao','tipo','ordem')
