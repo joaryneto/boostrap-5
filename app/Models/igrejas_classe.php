@@ -27,7 +27,7 @@ class igrejas_classe extends Model
         ->orderByRaw('SUM(pontos)')
         ->get();
 
-        dd($dados);
+        //dd($dados);
 
         return $dados;
     }
