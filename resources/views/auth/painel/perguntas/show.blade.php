@@ -205,7 +205,7 @@
                                     <label for="regular1" class="control-label">
                                     Descrição
                                     </label>
-                                <textarea class="form-control" name="descricao" value="{{ $p->descricao }}"></textarea>
+                                <textarea class="form-control" name="descricao" value="{{ $p->input_descricao }}"></textarea>
                             </div>
                             @if(@count($p->image) > 0)
                             <div class="input-group pmd-input-group-outline">

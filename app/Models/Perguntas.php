@@ -72,7 +72,7 @@ class Perguntas extends Model
                         'ordem' => $b->ordem,
                         'image' => $image,
                         'realizada_id' => $id,
-                        'descricao' => $descricao,
+                        'input_descricao' => $descricao,
                         'qtd' => $qtd
                     ];
 
