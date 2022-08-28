@@ -43,11 +43,11 @@
 						<label for="first-name">Nome</label>
 						<input type="text" class="mat-input form-control" id="name" v-model="formData.name" required>						
 					</div>
-					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+					<!--<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">CPF</label>
 						<input type="text" class="mat-input form-control" id="cpf" v-model="formData.cpf" maxlength="11" required>						
 					</div>
-					<!--<div class="form-group pmd-textfield pmd-textfield-floating-label" style="display:none">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label" style="display:none">
 						<label for="first-name">ES OU PG</label>
 						<select class="mat-input form-control" name="igreja_classe_id" required>
 							@foreach($dados_classe as $cl)
