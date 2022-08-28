@@ -87,6 +87,13 @@ class PerguntasController extends Controller
                 $pontos = $perguntas->porcentagem*$count;
             }
 
+            if($perguntas->pontos >= $pontos){
+                $pontos = $pontos;
+            }
+            else{
+                $pontos = $perguntas->pontos;
+            }
+
             $realizada2 = new perguntas_realizada();
             $realizada2->sistema = $this->usuario()->sistema;
             $realizada2->pergunta_id = $request->input('pergunta');
@@ -168,12 +175,12 @@ class PerguntasController extends Controller
               }
            }
 
-           if($request->input('qtd') > $realizada->qtd){
-                $qtd = $request->input('qtd')-$realizada->qtd;
-           }
-           else{
-                $qtd = $realizada->qtd;
-           }
+            if($request->input('qtd') > $realizada->qtd){
+                    $qtd = $request->input('qtd')-$realizada->qtd;
+            }
+            else{
+                    $qtd = $realizada->qtd;
+            }
 
             if($perguntas->tipo == 5){
 
@@ -191,11 +198,14 @@ class PerguntasController extends Controller
                 $pontos = $perguntas->porcentagem*$count;
             }
 
-           $realizada3 = perguntas_realizada::find($realizada->id);
-           $realizada3->qtd    = $request->input('qtd');
-           $realizada3->pontos = $realizada3->pontos+($pontos2);
-           $realizada3->save();
+           if($perguntas->pontos > $realizada->pontos){
+
+                $realizada3         = perguntas_realizada::find($realizada->id);
+                $realizada3->qtd    = $request->input('qtd');
+                $realizada3->pontos = $realizada3->pontos+($pontos2);
+                $realizada3->save();
     
+           }
     
            if($request->hasfile('image'))
            {
