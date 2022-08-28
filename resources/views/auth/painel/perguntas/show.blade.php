@@ -79,7 +79,7 @@
                                                             @if($c->status == true)
                                                             checked 
                                                             @endif
-                                                            @if($p->realizada_id == null)
+                                                            @if($p->realizada_id != null)
                                                             disabled
                                                             @endif
                                                             >
