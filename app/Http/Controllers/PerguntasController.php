@@ -81,7 +81,7 @@ class PerguntasController extends Controller
 
             if($perguntas->tipo == 1){
 
-                $pontos = [];
+                $pontos = 0;
                 $pontos_div = $perguntas->pontos/@count($datos_porc);
                 foreach($datos_porc as $key => $p){
                     $pontos += (($p*100)/$pontos_div);
@@ -203,7 +203,7 @@ class PerguntasController extends Controller
 
             if($perguntas->tipo == 1){
 
-                $pontos = [];
+                $pontos = 0;
                 $pontos_div = $perguntas->pontos/@count($datos_porc);
                 foreach($datos_porc as $key => $p){
                     $pontos += (($p*100)/$pontos_div);
