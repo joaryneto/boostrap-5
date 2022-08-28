@@ -61,6 +61,7 @@
                                     <div class="media-body">
                                         <h5 v-text="user.name"><span class="status-online bg-success"></span></h5>
                                     </div>
+                                    <input type="hidden" id="id" v-model="user.name" value="user.name"/>
                                     <input type="hidden" id="id" v-model="user.numero_telefone" value="user.numero_telefone"/>
                                     <input type="hidden" id="id" v-model="user.username" value="user.username"/>
                                     <input type="hidden" id="password_temporario" v-model="formData.password_temporario" value="user.password_temporario"/>

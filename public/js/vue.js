@@ -52,11 +52,6 @@ new Vue({
                 let results = await axios.post(`${server}/users`, data)
                 .catch(function (error) {
                     if (error.response) {
-                    // A requisição foi feita e o servidor respondeu com um código de status
-                    // que sai do alcance de 2xx
-                        //console.error(error.response.data.errors);
-
-                        //console.log(JSON.parse(error.response.data.errors.email));
 
                         var teste = [
                             ''+ error.response.data.errors.email +'',
@@ -76,15 +71,10 @@ new Vue({
 
 
                     } else if (error.request) {
-                    // A requisição foi feita mas nenhuma resposta foi recebida
-                    // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
-                    // http.ClientRequest no node.js
                         console.error(error.request);
                     } else {
-                    // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
                         console.error('Error', error.message);
                     }
-                //console.error(error.config);
             });
 
             this.users.push({
@@ -104,12 +94,6 @@ new Vue({
         let results_pgs = await axios.post(`${server}/users/createpg`, data)
             .catch(function (error) {
                 if (error.response) {
-                // A requisição foi feita e o servidor respondeu com um código de status
-                // que sai do alcance de 2xx
-                    //console.error(error.response.data.errors);
-
-                    //console.log(JSON.parse(error.response.data.errors.email));
-
                     var teste = [
                         ''+ error.response.data.errors.titulo +''
                     ];
@@ -126,15 +110,10 @@ new Vue({
 
 
                 } else if (error.request) {
-                // A requisição foi feita mas nenhuma resposta foi recebida
-                // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
-                // http.ClientRequest no node.js
                     console.error(error.request);
                 } else {
-                // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
                     console.error('Error', error.message);
                 }
-            //console.error(error.config);
             });
 
             this.pgs.push({
@@ -143,16 +122,12 @@ new Vue({
             });
 
             this.resetFormFields();
-            //$('#form-pg').modal('hide');
         },
         async addUserSupervidor(data) {
                         
                     let results_supervisor = await axios.post(`${server}/users/supervisor`, data)
                     .catch(function (error) {
                         if (error.response) {
-                        // A requisição foi feita e o servidor respondeu com um código de status
-                        // que sai do alcance de 2xx
-                            //console.error(error.response.data.errors);
 
                             var teste = [
                                 ''+ error.response.data.errors.email +'',
@@ -177,16 +152,10 @@ new Vue({
 
 
                         } else if (error.request) {
-                        // A requisição foi feita mas nenhuma resposta foi recebida
-                        // `error.request` é uma instância do XMLHttpRequest no navegador e uma instância de
-                        // http.ClientRequest no node.js
                             console.error(error.request);
                         } else {
-                        // Alguma coisa acontenceu ao configurar a requisição que acionou este erro.
                             console.error('Error', error.message);
                         }
-                    //console.error(error.config);
-
                     formData.target.reset();
 
                 });
@@ -221,7 +190,6 @@ new Vue({
                 console.log(resp.data);
             })
             .catch(err => {
-                // Handle Error Here
                 console.error(err);
             });
 
@@ -231,7 +199,7 @@ new Vue({
         },
         async geraruri(data){
 
-            var texto = '*Olá*! %0ASeus Dados*.%0A%0A*Login:* : '+ data.username +'%0A*Senha* : '+ data.password_temporario +'%0A%0A link: https://adv.quer.app';
+            var texto = '*Olá* '+ data.name +'! %0ADados para acesso ao Sistema. %0A%0A*Login:* : '+ data.username +'%0A*Senha* : '+ data.password_temporario +'%0A%0A link: https://adv.quer.app %0A%0A Qualquer duvida nos envie mensagem!';
             window.open("https://api.whatsapp.com/send?phone=55"+ data.numero_telefone +"&text="+ texto.replace(/ /g, "%20") +""); 
 
         }
