@@ -152,8 +152,8 @@ class LoginController extends Controller
 
         $data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'cpf' => ['required', 'string', 'max:11'],
-            'email' => ['string', 'max:255', 'unique:users'],
+            //'cpf' => ['required', 'string', 'max:11'],
+            //'email' => ['string', 'max:255', 'unique:users'],
             'numero_telefone' => ['string', 'unique:users'],
             //'igreja_classe_id' => ['string', 'max:255']
             //'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -167,9 +167,9 @@ class LoginController extends Controller
         $post = User::create([
             'sistema' => '07121135002289',
             'name' => $data['name'],
-            'cpf'  => $data['cpf'], 
-            'email' => $data['email'],
-            'username' => $username[0],
+            //'cpf'  => $data['cpf'], 
+            //'email' => $data['email'],
+            //'username' => $username[0],
             'igreja_classe_id' => $this->usuario()->igreja_classe_id,
             'numero_telefone' => $telefone,
             'password' => '$2a$10$jWbjSwfZvolY4pfLPTSmV.9UDWHaupy8qOI3DEHj0rLj9IsudyoLa', // Senha: 123456

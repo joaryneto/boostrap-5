@@ -47,7 +47,7 @@
 						<label for="first-name">CPF</label>
 						<input type="text" class="mat-input form-control" id="cpf" v-model="formData.cpf" maxlength="11" required>						
 					</div>
-					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+					<!--<div class="form-group pmd-textfield pmd-textfield-floating-label" style="display:none">
 						<label for="first-name">ES OU PG</label>
 						<select class="mat-input form-control" name="igreja_classe_id" required>
 							@foreach($dados_classe as $cl)
@@ -57,10 +57,10 @@
 							@endforeach
 						</select>
 					</div>
-					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label" style="display:none">
 						<label for="first-name">Email</label>
-						<input type="text" class="mat-input form-control" id="email" v-model="formData.email" required>
-					</div>
+						<input type="text" class="mat-input form-control" id="email" v-model="formData.email">
+					</div>-->
 					<div class="form-group pmd-textfield pmd-textfield-floating-label">
 						<label for="first-name">Celular</label>
 						<input type="text" class="mat-input form-control" id="mobil" v-model="formData.numero_telefone" required>
@@ -69,10 +69,10 @@
 						<label class="control-label">Message</label>
 						<textarea required class="form-control"></textarea>
 					</div>-->
-					<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
+					<!--<label class="checkbox-inline pmd-checkbox pmd-checkbox-ripple-effect">
 						<input type="checkbox" value="" required>
 						<span class="pmd-checkbox"> Aceita termos e Condições</span> </label>
-				 
+					-->
 					<div class="pmd-modal-action">
 						<button class="btn pmd-ripple-effect btn-primary" type="submit">Salvar</button>
 						<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Fechar</button>

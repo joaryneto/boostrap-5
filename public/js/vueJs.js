@@ -54,7 +54,7 @@ new Vue({
                     if (error.response) {
 
                         var teste = [
-                            ''+ error.response.data.errors.email +'',
+                            ''+ error.response.data.errors.name +'',
                             ''+ error.response.data.errors.cpf +'',
                             ''+ error.response.data.errors.numero_telefone +'',
                             ''+ error.response.data.errors.count + '',
@@ -80,7 +80,6 @@ new Vue({
             this.users.push({
                 id: results.data.id,
                 name: results.data.name,
-                email: results.data.email,
                 numero_telefone: results.data.numero_telefone,
                 igreja_classe_id: results.data.igreja_classe_id
             });
