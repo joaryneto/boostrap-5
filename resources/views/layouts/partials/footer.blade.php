@@ -24,7 +24,7 @@
     <script type="text/javascript" src="https://opensource.propeller.in/components/checkbox/js/checkbox.js"></script>
 
     <!-- Cookie jquery file -->
-    <script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>
+    <!--<script src="{!! asset('assets/ectecnologia/vendor/cookie/jquery.cookie.js') !!}"></script>-->
 
     <!-- Application main common jquery file 
     <script src="{!! asset('assets/ectecnologia/js/main.js') !!}"></script>-->
@@ -50,4 +50,4 @@
     <script>
          const server = "{{ env('ASSET_URL') }}";
     </script>
-    <script src="{!! asset('js/vue.js') !!}"></script>
+    <script src="{!! asset('js/vueJs.js') !!}"></script>
