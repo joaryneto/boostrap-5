@@ -61,7 +61,7 @@ class PerguntasController extends Controller
 
 
                         if($perguntas->tipo == 1){
-                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->firts();
+                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->first();
                             $datos_porc[] = $alternativas->porcentagem;
                         }
 
@@ -177,10 +177,10 @@ class PerguntasController extends Controller
                     if(@count($g) == 0){
 
                         if($perguntas->tipo == 1){
-                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->firts();
+                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->first();
                             $datos_porc[] = $alternativas->porcentagem;
                         }
-                        
+
                         $alternativa =  new respostas();
                         $alternativa->sistema = $this->usuario()->sistema;
                         $alternativa->perguntas_alternativas_id = $a;
