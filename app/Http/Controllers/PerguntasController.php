@@ -170,7 +170,7 @@ class PerguntasController extends Controller
 
             if($perguntas->tipo == 5){
 
-                $pontos = ($realizada->qtd-$request->input('qtd'));
+                $pontos = ($realizada->qtd-+$request->input('qtd'));
                 $pontos = (2*$pontos);
 
             }elseif($perguntas->tipo == 6){
