@@ -35,7 +35,7 @@ class Perguntas extends Model
         $count = 0;
         foreach($perguntas as $b){
 
-            $realizada = perguntas_realizada::select('perguntas_realizadas.id','perguntas_realizadas.pergunta_id','galerias.image')
+            $realizada = perguntas_realizada::select('perguntas_realizadas.id','perguntas_realizadas.pergunta_id','galerias.image','perguntas_realizadas.descricao','perguntas_realizadas.qtd')
             ->leftjoin('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
             ->where('perguntas_realizadas.pergunta_id', $b->id)
             ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
@@ -43,7 +43,17 @@ class Perguntas extends Model
 
             //dd(@count($respostas));
 
-            if(@count($realizada) > 0){ $id = $realizada->id; $image = json_decode($realizada->image); }else{ $id = null;  $image = null; }
+            if(@count($realizada) > 0){ 
+                $id = $realizada->id; 
+                $image = json_decode($realizada->image); 
+                $descricao = $realizada->descricao;
+                $qtd = $realizada->qtd;
+            }else{ 
+                $id = null;  
+                $image = null; 
+                $descricao = null;
+                $qtd = null;
+            }
 
             //if(@count($realizada) != 0){
 
@@ -61,7 +71,9 @@ class Perguntas extends Model
                         'tipo' => $b->tipo,
                         'ordem' => $b->ordem,
                         'image' => $image,
-                        'realizada_id' => $id
+                        'realizada_id' => $id,
+                        'descricao' => $descricao,
+                        'qtd' => $qtd
                     ];
 
                     //dd($dados);

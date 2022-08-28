@@ -178,7 +178,7 @@
                                     <label for="regular1" class="control-label">
                                     Informar Quantidade
                                     </label>
-                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
+                                <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" class="form-control">
                             </div>
                             
                             @endif
@@ -187,7 +187,7 @@
                                     <label for="regular1" class="control-label">
                                     Informar Quantidade
                                     </label>
-                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
+                                <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" class="form-control">
                             </div>
                             @endif
                             @if($p->tipo == 6)
@@ -195,7 +195,7 @@
                                     <label for="regular1" class="control-label">
                                     Informar Quantidade
                                     </label>
-                                <input type="numeric" maxlength="4" name="qtd" value="" class="form-control">
+                                <input type="numeric" maxlength="4" name="qtd" value="{{ $p->qtd }}" class="form-control">
                             </div>
                             
                             @endif
@@ -203,7 +203,7 @@
                                     <label for="regular1" class="control-label">
                                     Descrição
                                     </label>
-                                <textarea class="form-control" name="descricao" value="descricao"></textarea>
+                                <textarea class="form-control" name="descricao" value="{{ $p->descricao }}"></textarea>
                             </div>
                             @if(@count($p->image) > 0)
                             <div class="input-group pmd-input-group-outline">

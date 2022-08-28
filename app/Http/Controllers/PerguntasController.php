@@ -168,14 +168,16 @@ class PerguntasController extends Controller
               }
            }
 
-           if($perguntas->tipo == 5){
+            if($perguntas->tipo == 5){
 
-            $pontos = (2*$request->input('qtd'));
+                $pontos = $realizada->qtd-$request->input('qtd');
+                $pontos = (2*$pontos);
 
             }elseif($perguntas->tipo == 6){
 
                 $qtd    = 20/$perguntas->pontos;
-                $pontos = ($qtd*$request->input('qtd'));
+                $pontos = $realizada->qtd-$request->input('qtd');
+                $pontos = ($qtd*$pontos);
 
             }else{
 
@@ -184,7 +186,7 @@ class PerguntasController extends Controller
 
            $realizada3 = perguntas_realizada::find($realizada->id);
            $realizada3->qtd    = $request->input('qtd');
-           $realizada3->pontos = $realizada3->pontos+($perguntas->pontos*$count);
+           $realizada3->pontos = $realizada3->pontos+($pontos);
            $realizada3->save();
     
     
