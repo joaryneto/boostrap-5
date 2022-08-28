@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\respostas;
 use App\Models\Perguntas;
+use App\Models\Perguntas_alternativa;
 use App\Models\perguntas_realizada;
 use DateTime;
 use Illuminate\Support\Facades\File;
@@ -51,29 +52,42 @@ class PerguntasController extends Controller
          //exit;
 
          $count = 0;
-
+         $datos_porc = [];
          if(@count($realizada) == 0){
 
             foreach($request->all() as $key => $a){
 
-            if($key != "_token" && $key != "pergunta" && $key != "qtd" && $key != "descricao" && $key != "image"){
+                if($key != "_token" && $key != "pergunta" && $key != "qtd" && $key != "descricao" && $key != "image"){
 
 
-                    $alternativa =  new respostas();
-                    $alternativa->sistema = $this->usuario()->sistema;
-                    $alternativa->perguntas_alternativas_id = $a;
-                    $alternativa->perguntas_id = $request->input('pergunta');
-                    $alternativa->cpf = $this->usuario()->cpf;
-                    $alternativa->igreja_classe_id = $this->usuario()->igreja_classe_id;
-                    $alternativa->save();
+                        if($perguntas->tipo == 1){
+                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->firts();
+                            $datos_porc[] = $alternativas->porcentagem;
+                        }
 
-                    $count++;
+                        $alternativa =  new respostas();
+                        $alternativa->sistema = $this->usuario()->sistema;
+                        $alternativa->perguntas_alternativas_id = $a;
+                        $alternativa->perguntas_id = $request->input('pergunta');
+                        $alternativa->cpf = $this->usuario()->cpf;
+                        $alternativa->igreja_classe_id = $this->usuario()->igreja_classe_id;
+                        $alternativa->save();
+
+                        $count++;
+
+                }
 
             }
 
-            }
+            if($perguntas->tipo == 1){
 
-            if($perguntas->tipo == 5){
+                $pontos = [];
+                $pontos_div = $perguntas->pontos/@count($datos_porc);
+                foreach($datos_porc as $key => $p){
+                    $pontos += (($p*100)/$pontos_div);
+                }
+
+            }elseif($perguntas->tipo == 5){
 
                 $pontos = (2*$request->input('qtd'));
 
@@ -161,6 +175,12 @@ class PerguntasController extends Controller
                     ->first();
     
                     if(@count($g) == 0){
+
+                        if($perguntas->tipo == 1){
+                            $alternativas = Perguntas_alternativa::select('porcentagem')->where('id', $a)->firts();
+                            $datos_porc[] = $alternativas->porcentagem;
+                        }
+                        
                         $alternativa =  new respostas();
                         $alternativa->sistema = $this->usuario()->sistema;
                         $alternativa->perguntas_alternativas_id = $a;
@@ -171,7 +191,6 @@ class PerguntasController extends Controller
 
                         $count++;
                     }
-    
               }
            }
 
@@ -182,7 +201,15 @@ class PerguntasController extends Controller
                     $qtd = $realizada->qtd;
             }
 
-            if($perguntas->tipo == 5){
+            if($perguntas->tipo == 1){
+
+                $pontos = [];
+                $pontos_div = $perguntas->pontos/@count($datos_porc);
+                foreach($datos_porc as $key => $p){
+                    $pontos += (($p*100)/$pontos_div);
+                }
+
+            }elseif($perguntas->tipo == 5){
 
                 //$qtd = $request->input('qtd')-$realizada->qtd;
                 $pontos2 = 2*$qtd;
