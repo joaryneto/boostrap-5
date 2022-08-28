@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="md">
 <head>
-	<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
-  <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
+<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+
+<link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
 
 <!-- swiper carousel CSS -->
 <link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
