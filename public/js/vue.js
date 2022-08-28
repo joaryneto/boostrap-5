@@ -25,7 +25,8 @@ new Vue({
         pgs: [],
         igrejas: [],
         formData: {},
-        whatsappurl:''
+        whatsappurl:'',
+        resetfild: {}
     },
     async created() {
 
@@ -43,6 +44,9 @@ new Vue({
     },
     methods: {
         
+        async resetFormFields() {
+            this.formData = { ...this.resetfild };
+        },
         async addUser(data) {
                         
                 let results = await axios.post(`${server}/users`, data)
@@ -92,6 +96,8 @@ new Vue({
             });
 
             $('#form-dialog').modal('hide');
+
+            this.resetFormFields();
         },
         async addPG(data) {
                         
@@ -136,6 +142,7 @@ new Vue({
                 titulo: results_pgs.data.titulo,
             });
 
+            this.resetFormFields();
             //$('#form-pg').modal('hide');
         },
         async addUserSupervidor(data) {
@@ -190,6 +197,8 @@ new Vue({
                 });
 
             $('#form-dialog2').modal('hide');
+
+            this.resetFormFields();
 
         },
         async setUser(data) {
