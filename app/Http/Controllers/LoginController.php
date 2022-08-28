@@ -160,7 +160,7 @@ class LoginController extends Controller
         ]);
 
         $telefone   = str_replace(' ','',str_replace('-','',str_replace(')','',str_replace('(','',$data['numero_telefone']))));
-        $username   =  explode('@',$data['email']);
+        //$username   =  explode('@',$data['email']);
 
         //$post = User::create($request->all());
     
