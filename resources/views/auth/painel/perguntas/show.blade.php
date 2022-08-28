@@ -76,7 +76,7 @@
                                                         @if($p->tipo == 1)
                                                         <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
                                                             <input type="radio" name="{{ $b->id }}" id="inlineRadio3" value="{{ $c->id  }}"
-                                                            @if($c->status == true)
+                                                            @if($p->realizada_id == null)
                                                             checked 
                                                             disabled
                                                             @endif
