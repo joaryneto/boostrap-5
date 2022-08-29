@@ -140,7 +140,7 @@ class LoginController extends Controller
 
         //dd($total);
 
-        if($total >= 12)
+        if($total >= 15)
         {
              return response()->json([
                 "message" => "Sua classe ou PG atingiu limite",
