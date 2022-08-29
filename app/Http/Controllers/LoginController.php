@@ -145,7 +145,7 @@ class LoginController extends Controller
              return response()->json([
                 "message" => "Sua classe ou PG atingiu limite",
                 "errors" => [
-                    "count" => "Quantidade maxima atingido 12°"
+                    "count" => "Quantidade maxima atingido 15°"
                 ]
             ], 422); 
         }
