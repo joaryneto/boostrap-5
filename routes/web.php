@@ -37,6 +37,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::post('/users', 'LoginController@store')->name('store.perform');
 
     Route::get('/users/autenticado', 'LoginController@autenticado')->name('autenticado.perform');
+    Route::get('/ranking', 'HomeController@GetRanking')->name('ranking.perform');
 
     Route::get('/api/igrejas', 'LoginController@igrejas')->name('igrejas.perform');
     Route::get('/users/pg', 'LoginController@pg')->name('pg.perform');

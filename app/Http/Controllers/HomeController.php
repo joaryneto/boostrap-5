@@ -45,4 +45,11 @@ class HomeController extends Controller
             'alternativas' => $dados
         ]);
     }
+
+    public function GetRanking(){
+
+        $dados = igrejas_classe::GetClasse();
+
+        return response()->json($dados);
+    }
 }

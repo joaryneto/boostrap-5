@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="md">
 <head>
-<title>Vue.js Routing From Scratch Using Vue Router CDN</title>
+<title>ADV</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
 
-<link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/materializeicon/material-icons.css') !!}">
-
-<!-- swiper carousel CSS -->
-<link rel="stylesheet" href="{!! asset('assets/ectecnologia/vendor/swiper/css/swiper.min.css') !!}">
-
-<!-- swiper carousel CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <!-- app CSS -->
 <link id="theme" rel="stylesheet" href="{!! asset('css/app1.css') !!}" type="text/css">
 </head>
@@ -65,8 +56,6 @@
 <script src="{!! asset('pages/perfil.vue.js') !!}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="https://unpkg.com/vue-router@4.1.3/dist/vue-router.global.js"></script>
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/vue-router@4"></script>
 
@@ -74,6 +63,8 @@
 <script src="{!! asset('assets/ectecnologia/js/popper.min.js') !!}"></script>
 <script src="{!! asset('assets/ectecnologia/vendor/bootstrap-4.3.1/js/bootstrap.min.js') !!}"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap-4.3.1/js/bootstrap.min.js"></script>-->
+
+<script src="https://unpkg.com/infinite-loading-vue3@1.0.1/dist/infinite-scroll-vue3.min.js"></script>
     
 <!-- Sweet-Alert  -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.js"></script>
@@ -110,11 +101,12 @@ const router = VueRouter.createRouter({
 // 5. Create and mount the root instance.
 const app = Vue.createApp({
 })
+
 // Make sure to _use_ the router instance to make the
 // whole app router-aware.
 app.use(router)
-
 app.mount('#app')
+app.config.compilerOptions.isCustomElement = tag => tag === 'infinite-scroll'
 
 </script>
 </body>

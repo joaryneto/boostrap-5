@@ -19,14 +19,12 @@ var Perfil = {
                                 <i class="material-icons pmd-icon-circle pmd-floating-icon-br">done</i>
                                 </div>
                             </div>
-                            <h3 class="card-title"> {{ autenticado.name }}</h3>
+                            <h3 class="card-title"> {{ autenticado.name }} {{ autenticado.permissao }}</h3>
                             <p class="card-subtitle mb-2">Lider</p>
                             <p class="card-text">E disse-lhes: Ide por todo o mundo, pregai o evangelho a toda criatura. Marcos 16:15.</p>
-                            
-                                <a data-target="#form-dialog" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Incluir Membros</a>
-                            
-                                <a data-target="#form-pg" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">ES/PG</a>
-                                <a data-target="#form-dialog2" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Lider/Supervisor</a>
+                                <a v-if="autenticado.permissao==1" data-target="#form-dialog" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Incluir Membros</a>
+                                <a v-if="autenticado.permissao==3" data-target="#form-pg" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">ES/PG</a>
+                                <a v-if="autenticado.permissao==3" data-target="#form-dialog2" data-toggle="modal" href="#" class="btn pmd-ripple-effect btn-primary pmd-btn-raised btn-sm">Lider/Supervisor</a>
                             
                         </div>
                         <div class="pmd-card-actions">
@@ -44,7 +42,7 @@ var Perfil = {
                     <div class="pmd-card pmd-card-default pmd-z-depth pmd-card-custom-form">
                         <h2 class="block-title"></h2>
                         <ul class="list-group">
-                            <li class="list-group-item" v-for="user in users" :key="user.id">
+                            <li v-if="autenticado.permissao==1" class="list-group-item" v-for="user in users" :key="user.id">
                                 <a href="#" class="media">
                                     <div class="w-auto h-100">
                                         <figure class="avatar avatar-40"><img src="assets/img/logo.jpg" alt=""> </figure>
@@ -54,7 +52,7 @@ var Perfil = {
                                     </div>
                                 </a>
                             </li>
-                            <li class="list-group-item" v-for="user in classes" :key="user.id">
+                            <li v-if="autenticado.permissao==3" class="list-group-item" v-for="user in classes" :key="user.id">
                                 <form v-on:submit.prevent="addPG(formData)" autocomplete="off">
 							    <a href="#" class="media">
                                     <div class="w-auto h-100">
@@ -93,7 +91,22 @@ var Perfil = {
 	},*/
 	async created() {
 
-        let results = await axios.get(`${server}/users`);
+        let results = await axios.get(`${server}/users`)
+        .then((res) => {
+
+        }).catch(function (error) {
+    
+            if (error.status === 409) {
+                
+            } 
+            else if(error.request.status == 401){
+                    window.location.href = "/login2";
+            }else {
+                console.log(error.request.status)
+            }
+    
+        })
+
         this.users = results.data;
 
 		let results_autenticado = await axios.get(`${server}/users/autenticado`);
@@ -109,7 +122,7 @@ var Perfil = {
         this.igrejas = results_igrejas.data;
     },
 	methods: {
-		async addPG(data) {
+		async AdicionarPG(data) {
 							
 			let results_pgs = await axios.post(`${server}/users/createpg`, data)
 				.catch(function (error) {

@@ -39,6 +39,7 @@ class Perguntas extends Model
             ->leftjoin('galerias','galerias.pergunta_id','=','perguntas_realizadas.pergunta_id')
             ->where('perguntas_realizadas.pergunta_id', $b->id)
             ->whereIn('perguntas_realizadas.igreja_classe_id', [$usuario->igreja_classe_id])
+            ->whereIn('galerias.igreja_classe_id', [$usuario->igreja_classe_id])
             ->first();
 
             //dd(@count($respostas));
