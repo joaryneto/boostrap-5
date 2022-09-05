@@ -15,7 +15,10 @@
     <!--include('layouts.partials.navbar-direito')-->
   <div class="page-content">
   <div id="app">
-    <div class="footer-tabs footer-spaces border-top text-center">
+      <div class="page-content">
+        <router-view></router-view>
+      </div>
+      <div class="footer-tabs footer-spaces border-top text-center">
         <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                 <li class="nav-item">
                   <router-link class="nav-link" to="/">
@@ -43,9 +46,6 @@
                 </li>
             </ul>
         </div>
-	<div class="page-content">
-		<router-view></router-view>
-	</div>
   </div>
 </div>
 </div>

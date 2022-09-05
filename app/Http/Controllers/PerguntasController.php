@@ -96,6 +96,10 @@ class PerguntasController extends Controller
                 $qtd    = 20/$perguntas->pontos;
                 $pontos = ($qtd*$request->input('qtd'));
 
+            }elseif($perguntas->tipo == 7){
+
+                $pontos = $perguntas->pontos;
+
             }else{
 
                 $pontos = $perguntas->porcentagem*$count;
@@ -219,6 +223,11 @@ class PerguntasController extends Controller
                 $qtd_pontos     = 20/$perguntas->pontos;
                 //$qtd = $request->input('qtd')-$realizada->qtd;
                 $pontos2 = ($qtd_pontos*$qtd);
+
+            }elseif($perguntas->tipo == 7){
+
+                //$qtd = $request->input('qtd')-$realizada->qtd;
+                $pontos2 = $perguntas->pontos;
 
             }else{
 

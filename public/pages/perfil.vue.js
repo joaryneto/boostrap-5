@@ -94,6 +94,8 @@ var Perfil = {
         let results = await axios.get(`${server}/users`)
         .then((res) => {
 
+            this.users = res.data;
+
         }).catch(function (error) {
     
             if (error.status === 409) {
@@ -105,9 +107,8 @@ var Perfil = {
                 console.log(error.request.status)
             }
     
-        })
+        });
 
-        this.users = results.data;
 
 		let results_autenticado = await axios.get(`${server}/users/autenticado`);
         this.autenticado = results_autenticado.data;

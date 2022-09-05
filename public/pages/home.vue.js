@@ -14,13 +14,12 @@ var Home = {
 									<h3 class="card-title">{{ key+1 }}° - {{ data.titulo }}</h3>
 									<p class="mb-0 card-subtitle"> {{ data.nome_igreja }} </p>
 									<p class="mb-0 card-subtitle">
-										<strong>{{ (data.total+0) }}</strong> Pontos
+										<strong>{{ data.total }}</strong> Pontos
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<infinite-loading @infinite="infiniteHandler"></infinite-loading>
 				</div>
 			</div>   
 		</div>
@@ -41,15 +40,15 @@ var Home = {
 
         }).catch(function (error) {
     
-			console.log(error)
+			//console.log(error)
 
             if (error.status === 409) {
                 
             } 
-            else if(error.status == 401){
-                    window.location.href = "/login2";
+            else if(error.request.status == 401){
+                window.location.href = "/login2";
             }else {
-                console.log(error.status)
+               // console.log(error.status)
             }
     
         });
