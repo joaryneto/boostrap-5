@@ -160,7 +160,7 @@ class PerguntasController extends Controller
         {
 
             $data = [];
-    
+            $pontos2 = 0;
             $galeria = Galeria::select('id','image')
             ->where('pergunta_id', $request->input('pergunta'))
             ->where('igreja_classe_id', $this->usuario()->igreja_classe_id)
@@ -207,10 +207,9 @@ class PerguntasController extends Controller
 
             if($perguntas->tipo == 1){
 
-                $pontos = 0;
                 $pontos_div = $perguntas->pontos/@count($datos_porc);
                 foreach($datos_porc as $key => $p){
-                    $pontos += (($p*100)/$pontos_div);
+                    $pontos2 += (($p*100)/$pontos_div);
                 }
 
             }elseif($perguntas->tipo == 5){
@@ -231,7 +230,7 @@ class PerguntasController extends Controller
 
             }else{
 
-                $pontos = $perguntas->porcentagem*$count;
+                $pontos2 = $perguntas->porcentagem*$count;
             }
 
            if($perguntas->pontos > $realizada->pontos){
