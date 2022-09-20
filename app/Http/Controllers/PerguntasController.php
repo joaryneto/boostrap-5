@@ -214,8 +214,13 @@ class PerguntasController extends Controller
 
             }elseif($perguntas->tipo == 5){
 
-                //$qtd = $request->input('qtd')-$realizada->qtd;
-                $pontos2 = 2*$qtd;
+                $qtd = $request->input('qtd')-$realizada->qtd;
+
+                if($realizada->qtd >= 100  && 100 <= $qtd){
+                    $pontos2 = 2*$qtd;
+                }else{
+                    $pontos2 = $realizada->pontos;
+                }
 
             }elseif($perguntas->tipo == 6){
 
