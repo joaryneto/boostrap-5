@@ -216,7 +216,7 @@ class PerguntasController extends Controller
 
                 $qtd = $request->input('qtd')-$realizada->qtd;
 
-                if($realizada->qtd >= 100  && 100 <= $qtd){
+                if($realizada->qtd < 100  && 100 >= $qtd){
                     $pontos2 = 2*$qtd;
                 }else{
                     $pontos2 = $realizada->pontos;
