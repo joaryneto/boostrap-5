@@ -100,10 +100,6 @@ class PerguntasController extends Controller
 
                 $pontos = $perguntas->pontos;
 
-            }elseif($perguntas->tipo == 4 && $perguntas->id == 7){
-
-                $pontos = $perguntas->pontos;
-
             }else{
 
                 $pontos = $perguntas->porcentagem*$count;
