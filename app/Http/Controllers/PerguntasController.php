@@ -100,6 +100,10 @@ class PerguntasController extends Controller
 
                 $pontos = $perguntas->pontos;
 
+            }elseif($perguntas->tipo == 4 && $perguntas->id == 7){
+
+                $pontos = $perguntas->pontos;
+
             }else{
 
                 $pontos = $perguntas->porcentagem*$count;
@@ -141,7 +145,7 @@ class PerguntasController extends Controller
                     $name = "";
                     //var_dump(@$file->extension());
                     //$name = Carbon::now()->toDateTimeString().'.'.@$files->extension();
-                    $name   = date("ymdHis").$files->getClientOriginalName();
+                    $name   = date("ymdHis").$files->hashName();
                     $files->move(public_path().'/files/', $name);  
                     $data[] = $name; 
                 }

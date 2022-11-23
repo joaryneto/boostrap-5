@@ -39,7 +39,7 @@
             </router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link class="nav-link" to="perfil">
+                  <router-link class="nav-link" to="ajuda">
                               <i class="material-icons">help</i>
                               <small class="sr-only">Ajuda</small>
                   </router-link>
@@ -54,6 +54,7 @@
 <script src="{!! asset('pages/home.vue.js') !!}"></script>
 <script src="{!! asset('pages/desafios.vue.js') !!}"></script>
 <script src="{!! asset('pages/perfil.vue.js') !!}"></script>
+<script src="{!! asset('pages/ajuda.vue.js') !!}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3"></script>
@@ -87,6 +88,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/desafios', component: Desafios },
   { path: '/perfil', component: Perfil },
+  { path: '/ajuda', component: Ajuda },
 ]
 
 // 3. Create the router instance and pass the `routes` option
