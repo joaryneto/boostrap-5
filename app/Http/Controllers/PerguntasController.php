@@ -91,6 +91,11 @@ class PerguntasController extends Controller
 
                 $pontos = (2*$request->input('qtd'));
 
+            }elseif($perguntas->tipo == 3){
+
+                $pontos_div = $perguntas->pontos/2;
+                $pontos = ($pontos_div*$request->input('qtd'));
+
             }elseif($perguntas->tipo == 6){
 
                 $qtd    = 20/$perguntas->pontos;
@@ -166,7 +171,9 @@ class PerguntasController extends Controller
             ->where('igreja_classe_id', $this->usuario()->igreja_classe_id)
             ->first();
 
-            $data = json_decode($galeria->image);
+            if(@count($galeria) > 0){
+                $data = json_decode($galeria->image);
+            }
     
             foreach($request->all() as $key => $a){
     
@@ -212,6 +219,15 @@ class PerguntasController extends Controller
                     $pontos2 += (($p*100)/$pontos_div);
                 }
 
+            }elseif($perguntas->tipo == 3){
+
+                if($realizada->qtd <= 1){
+                    $pontos_div = $perguntas->pontos/2;
+                    $pontos2 = ($pontos_div*$qtd);
+                }elseif($realizada->qtd >= 2){
+                    $pontos_div = 100;
+                    $pontos2 = ($pontos_div*$qtd);
+                }
             }elseif($perguntas->tipo == 5){
 
                 $qtd = $request->input('qtd')-$realizada->qtd;
@@ -238,7 +254,7 @@ class PerguntasController extends Controller
                 $pontos2 = $perguntas->porcentagem*$count;
             }
 
-           if($perguntas->pontos > $realizada->pontos){
+           if($perguntas->pontos >= $realizada->pontos){
 
                 $realizada3         = perguntas_realizada::find($realizada->id);
                 $realizada3->qtd    = $request->input('qtd');
@@ -262,7 +278,7 @@ class PerguntasController extends Controller
                {
                    $name = "";
                    //$name = Carbon::now()->toDateTimeString().'.'.@$files->extension();
-                   $name = date("ymdHis").$files->getClientOriginalName();
+                   $name = date("ymdHis").$files->hashName();
                    $files->move(public_path().'/files/', $name);  
                    $data[] = $name; 
                }
@@ -270,9 +286,19 @@ class PerguntasController extends Controller
 
            //dd($galeria, $data);
     
-            $file = Galeria::find($galeria->id);
-            $file->image=json_encode($data);
-            $file->save();
+           if(@count($galeria) > 0){
+                $file = Galeria::find($galeria->id);
+                $file->image=json_encode($data);
+                $file->save();
+           }else{
+
+                $file= new Galeria();
+                $file->sistema = $this->usuario()->sistema;
+                $file->image=json_encode($data);
+                $file->pergunta_id = $request->input('pergunta');
+                $file->igreja_classe_id = $this->usuario()->igreja_classe_id;
+                $file->save();
+           }
 
         }
 
