@@ -11,7 +11,7 @@
             <!-- page content goes here -->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> 
-				@include('auth.painel.ranking.show')
+				 <!--  include('auth.painel.ranking.show')  -->
 				</div>
                 <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
                 @if(auth()->user()->permissao == 2 || auth()->user()->permissao == 3)
