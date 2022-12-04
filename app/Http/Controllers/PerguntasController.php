@@ -235,7 +235,7 @@ class PerguntasController extends Controller
                 if($realizada->qtd <= 100){
                     $pontos2 = 2*$qtd;
                 }
-                if(100 > $qtd){
+                if($realizada->qtd >= 100 && 100 > $qtd){
                     $pontos2 = 100;
                 }else{
                     $pontos2 = $realizada->pontos;
