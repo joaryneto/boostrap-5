@@ -10,9 +10,11 @@
         <div class="page-content">
             <!-- page content goes here -->
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    @include('auth.painel.ranking.show')
-                </div>
+                {{ !!<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> !! }}
+				{{ !!  @if(date('Y-M-D') == '2022-12-04')!! }}
+				{{ !!  @include('auth.painel.ranking.show') !! }}
+				{{ !!  @endif!! }}
+				{{ !!  </div>!! }}
                 <div class="tab-pane active" id="desafios" role="tabpanel" aria-labelledby="desafios-tab">
                 @if(auth()->user()->permissao == 2 || auth()->user()->permissao == 3)
                     @include('auth.painel.admin.show')

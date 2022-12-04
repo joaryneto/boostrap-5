@@ -72,7 +72,7 @@
       @font-face {
         font-family: 'password';
         font-style: normal;      
-        src: url(https://adv.quer.app/pastor/public/css/password.ttf);
+        src: url('public/css/password.ttf');
       }
       #password {
         font-family: 'password';
